@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jaxson&#39;Blog</title>
+  <icon>https://www.gravatar.com/avatar/dd1224c6709a55890a831add73f85cff</icon>
+  <subtitle>凡悟道，必踩坑</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://www.zwjay.cn/"/>
+  <updated>2019-11-15T09:40:00.000Z</updated>
+  <id>https://www.zwjay.cn/</id>
+  
+  <author>
+    <name>Mr.Jaxson</name>
+    <email>zwjtheone@vip.qq.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019-11-15-git再学习</title>
+    <link href="https://www.zwjay.cn/git%E5%86%8D%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://www.zwjay.cn/git再学习/</id>
+    <published>2019-11-15T09:40:00.000Z</published>
+    <updated>2019-11-15T09:40:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Gitflow工作流&quot;&gt;&lt;a href=&quot;#Gitflow工作流&quot; class=&quot;headerlink&quot; title=&quot;Gitflow工作流&quot;&gt;&lt;/a&gt;Gitflow工作流&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;&lt;div
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="git" scheme="https://www.zwjay.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019-11-6-yarn常用操作</title>
+    <link href="https://www.zwjay.cn/2019-11-6-yarn%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    <id>https://www.zwjay.cn/2019-11-6-yarn常用操作/</id>
+    <published>2019-11-06T12:47:00.000Z</published>
+    <updated>2019-11-06T12:47:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;yarn-install-安装依赖&quot;&gt;&lt;a href=&quot;#yarn-install-安装依赖&quot; class=&quot;headerlink&quot; title=&quot;yarn install 安装依赖&quot;&gt;&lt;/a&gt;yarn install 安装依赖&lt;/h1&gt;&lt;figure
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="yarn" scheme="https://www.zwjay.cn/tags/yarn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019-10-18-moment-quick-check</title>
+    <link href="https://www.zwjay.cn/moment-quick-check/"/>
+    <id>https://www.zwjay.cn/moment-quick-check/</id>
+    <published>2019-10-18T13:40:00.000Z</published>
+    <updated>2019-10-18T13:40:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;获取时间&quot;&gt;&lt;a href=&quot;#获取时间&quot; class=&quot;headerlink&quot; title=&quot;获取时间&quot;&gt;&lt;/a&gt;获取时间&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="moment" scheme="https://www.zwjay.cn/tags/moment/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>能力配不上野心的时候，该如何平衡？</title>
+    <link href="https://www.zwjay.cn/%E8%83%BD%E5%8A%9B%E9%85%8D%E4%B8%8D%E4%B8%8A%E9%87%8E%E5%BF%83%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E8%AF%A5%E5%A6%82%E4%BD%95%E5%B9%B3%E8%A1%A1%EF%BC%9F/"/>
+    <id>https://www.zwjay.cn/能力配不上野心的时候，该如何平衡？/</id>
+    <published>2019-10-16T10:10:00.000Z</published>
+    <updated>2019-10-16T10:10:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;http://wufazhuce.com/question/2631&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;男女之间如何培养信任感？&lt;/a&gt;&lt;/p&gt;&lt;figure class=&quot;image-bubble&quot;&gt;&lt;div
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="文章" scheme="https://www.zwjay.cn/tags/%E6%96%87%E7%AB%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何做到活在当下</title>
+    <link href="https://www.zwjay.cn/%E5%A6%82%E4%BD%95%E5%81%9A%E5%88%B0%E6%B4%BB%E5%9C%A8%E5%BD%93%E4%B8%8B/"/>
+    <id>https://www.zwjay.cn/如何做到活在当下/</id>
+    <published>2019-10-16T10:05:00.000Z</published>
+    <updated>2019-10-16T10:05:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;http://wufazhuce.com/question/2633&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;如何做到活在当下？&lt;/a&gt;&lt;/p&gt;&lt;figure class=&quot;image-bubble&quot;&gt;&lt;div
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="文章" scheme="https://www.zwjay.cn/tags/%E6%96%87%E7%AB%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>转——男女之间如何培养信任感？</title>
+    <link href="https://www.zwjay.cn/%E7%94%B7%E5%A5%B3%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E5%9F%B9%E5%85%BB%E4%BF%A1%E4%BB%BB%E6%84%9F/"/>
+    <id>https://www.zwjay.cn/男女之间如何培养信任感/</id>
+    <published>2019-10-16T03:28:00.000Z</published>
+    <updated>2019-10-16T03:28:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;http://wufazhuce.com/question/2632&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;男女之间如何培养信任感？&lt;/a&gt;&lt;/p&gt;&lt;figure class=&quot;image-bubble&quot;&gt;&lt;div
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="文章" scheme="https://www.zwjay.cn/tags/%E6%96%87%E7%AB%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue-router 按需加载的 3 种方式</title>
+    <link href="https://www.zwjay.cn/2019-10-7-vue-according-to-the-need-to-load/"/>
+    <id>https://www.zwjay.cn/2019-10-7-vue-according-to-the-need-to-load/</id>
+    <published>2019-10-07T03:28:00.000Z</published>
+    <updated>2019-10-07T03:28:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;下列-3-种方式均可将组件打包成单文件异步加载&quot;&gt;&lt;a href=&quot;#下列-3-种方式均可将组件打包成单文件异步加载&quot; class=&quot;headerlink&quot; title=&quot;下列 3 种方式均可将组件打包成单文件异步加载&quot;&gt;&lt;/a&gt;下列 3
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="vue" scheme="https://www.zwjay.cn/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GIT工作流方式</title>
+    <link href="https://www.zwjay.cn/2018-4-14-git-worlflow/"/>
+    <id>https://www.zwjay.cn/2018-4-14-git-worlflow/</id>
+    <published>2018-04-13T03:28:00.000Z</published>
+    <updated>2018-04-13T03:28:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000002918123&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="git" scheme="https://www.zwjay.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript常用方法总结</title>
+    <link href="https://www.zwjay.cn/javascript-commonly-used-method/"/>
+    <id>https://www.zwjay.cn/javascript-commonly-used-method/</id>
+    <published>2017-07-17T03:51:00.000Z</published>
+    <updated>2017-07-17T03:51:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;返回字符串长度，汉字计数为2&quot;&gt;&lt;a href=&quot;#返回字符串长度，汉字计数为2&quot; class=&quot;headerlink&quot; title=&quot;返回字符串长度，汉字计数为2&quot;&gt;&lt;/a&gt;返回字符串长度，汉字计数为2&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;strLength&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;str&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; a = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; str.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (str.charCodeAt(i) &amp;gt; &lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      a += &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//按照预期计数增加2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      a++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="https://www.zwjay.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Express保存base64图片</title>
+    <link href="https://www.zwjay.cn/NodeJS-save-png/"/>
+    <id>https://www.zwjay.cn/NodeJS-save-png/</id>
+    <published>2017-07-07T02:15:00.000Z</published>
+    <updated>2017-07-07T02:15:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;DOM&quot;&gt;&lt;a href=&quot;#DOM&quot; class=&quot;headerlink&quot; title=&quot;DOM&quot;&gt;&lt;/a&gt;DOM&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; name=&amp;quot;image&amp;quot; accept=&amp;quot;image/*&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;上传图片&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="NodeJS" scheme="https://www.zwjay.cn/tags/NodeJS/"/>
+    
+      <category term="Express" scheme="https://www.zwjay.cn/tags/Express/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FormData异步上传文件</title>
+    <link href="https://www.zwjay.cn/HTML5-upload-file/"/>
+    <id>https://www.zwjay.cn/HTML5-upload-file/</id>
+    <published>2017-07-07T02:10:00.000Z</published>
+    <updated>2017-07-07T02:10:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;DOM&quot;&gt;&lt;a href=&quot;#DOM&quot; class=&quot;headerlink&quot; title=&quot;DOM&quot;&gt;&lt;/a&gt;DOM&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;input type=&amp;quot;file&amp;quot; id=&amp;quot;file&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&quot;一、创建FormData放入待上传文件&quot;&gt;&lt;a href=&quot;#一、创建FormData放入待上传文件&quot; class=&quot;headerlink&quot; title=&quot;一、创建FormData放入待上传文件&quot;&gt;&lt;/a&gt;一、创建FormData放入待上传文件&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//准备FormData对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var formData = new FormData(),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uploadFile = document.getElementById(&amp;apos;file&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//将文件放入FormData对象中    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;formData.append(&amp;apos;file&amp;apos;, uploadFile.files[0]);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="HTML5" scheme="https://www.zwjay.cn/tags/HTML5/"/>
+    
+      <category term="Upload" scheme="https://www.zwjay.cn/tags/Upload/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS中的模块化演变</title>
+    <link href="https://www.zwjay.cn/JS-module-note/"/>
+    <id>https://www.zwjay.cn/JS-module-note/</id>
+    <published>2017-07-07T01:25:00.000Z</published>
+    <updated>2017-07-07T01:30:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;image-bubble&quot;&gt;&lt;div class=&quot;img-lightbox&quot;&gt;&lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;&lt;img src=&quot;https://ww2.sinaimg.cn/large/006tKfTcgy1fh7u9d2ixbj308c08bdfs.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;&lt;div class=&quot;image-caption&quot;&gt;&lt;/div&gt;&lt;/figure&gt;&lt;h2 id=&quot;为什么有模块概念&quot;&gt;&lt;a href=&quot;#为什么有模块概念&quot; class=&quot;headerlink&quot; title=&quot;为什么有模块概念&quot;&gt;&lt;/a&gt;为什么有模块概念&lt;/h2&gt;&lt;p&gt;理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。&lt;/p&gt;&lt;p&gt;但是，Javascript不是一种模块化编程语言，在es6以前，它是不支持”类”（class），所以也就没有”模块”（module）了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="https://www.zwjay.cn/tags/JavaScript/"/>
+    
+      <category term="Module" scheme="https://www.zwjay.cn/tags/Module/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>彻底搞清楚javascript中的require、import和export</title>
+    <link href="https://www.zwjay.cn/import%E5%92%8Cexport%E7%AC%94%E8%AE%B0/"/>
+    <id>https://www.zwjay.cn/import和export笔记/</id>
+    <published>2017-07-04T12:20:13.000Z</published>
+    <updated>2020-06-26T17:10:58.316Z</updated>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;image-bubble&quot;&gt;&lt;div class=&quot;img-lightbox&quot;&gt;&lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;&lt;img src=&quot;https://ww2.sinaimg.cn/large/006tKfTcgy1fh7u9d2ixbj308c08bdfs.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;&lt;div class=&quot;image-caption&quot;&gt;&lt;/div&gt;&lt;/figure&gt;&lt;h2 id=&quot;为什么有模块概念&quot;&gt;&lt;a href=&quot;#为什么有模块概念&quot; class=&quot;headerlink&quot; title=&quot;为什么有模块概念&quot;&gt;&lt;/a&gt;为什么有模块概念&lt;/h2&gt;&lt;p&gt;理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。&lt;/p&gt;&lt;p&gt;但是，Javascript不是一种模块化编程语言，在es6以前，它是不支持”类”（class），所以也就没有”模块”（module）了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="javascript" scheme="https://www.zwjay.cn/tags/javascript/"/>
+    
+      <category term="es-2015" scheme="https://www.zwjay.cn/tags/es-2015/"/>
+    
+      <category term="require" scheme="https://www.zwjay.cn/tags/require/"/>
+    
+      <category term="import" scheme="https://www.zwjay.cn/tags/import/"/>
+    
+      <category term="export" scheme="https://www.zwjay.cn/tags/export/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git-flow</title>
+    <link href="https://www.zwjay.cn/git-flow/"/>
+    <id>https://www.zwjay.cn/git-flow/</id>
+    <published>2017-06-19T11:20:13.000Z</published>
+    <updated>2020-06-26T17:10:58.316Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原文：&lt;a href=&quot;https://www.thinktxt.com/git/2017/06/16/create-git-flow-efficient-work-flow.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="git" scheme="https://www.zwjay.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript深入浅出系列-es6-编写现代Javascript代码</title>
+    <link href="https://www.zwjay.cn/javascript-%E7%BC%96%E5%86%99%E7%8E%B0%E4%BB%A3Javascript%E4%BB%A3%E7%A0%81/"/>
+    <id>https://www.zwjay.cn/javascript-编写现代Javascript代码/</id>
+    <published>2017-06-01T11:20:13.000Z</published>
+    <updated>2020-06-26T17:10:58.316Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原文： &lt;a href=&quot;https://dev.to/scastiel/writing-modern-javascript-code&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="javascript" scheme="https://www.zwjay.cn/tags/javascript/"/>
+    
+      <category term="es-2015" scheme="https://www.zwjay.cn/tags/es-2015/"/>
+    
+      <category term="linter" scheme="https://www.zwjay.cn/tags/linter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git常用操作-远程管理与分支管理</title>
+    <link href="https://www.zwjay.cn/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
+    <id>https://www.zwjay.cn/git常用操作-远程管理/</id>
+    <published>2016-12-21T03:57:13.000Z</published>
+    <updated>2020-06-26T17:10:58.315Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;git常用操作之远程管理与分支管理&quot;&gt;&lt;a href=&quot;#git常用操作之远程管理与分支管理&quot; class=&quot;headerlink&quot; title=&quot;git常用操作之远程管理与分支管理&quot;&gt;&lt;/a&gt;git常用操作之远程管理与分支管理&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="git" scheme="https://www.zwjay.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git常用操作-回滚代码</title>
+    <link href="https://www.zwjay.cn/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    <id>https://www.zwjay.cn/git常用操作/</id>
+    <published>2016-12-01T04:57:13.000Z</published>
+    <updated>2020-06-26T17:10:58.315Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;git常用操作-回滚代码&quot;&gt;&lt;a href=&quot;#git常用操作-回滚代码&quot; class=&quot;headerlink&quot; title=&quot;git常用操作-回滚代码&quot;&gt;&lt;/a&gt;git常用操作-回滚代码&lt;/h1&gt;&lt;h2 id=&quot;git常用命令&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="git" scheme="https://www.zwjay.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML5-API汇总学习</title>
+    <link href="https://www.zwjay.cn/HTML5-API-all/"/>
+    <id>https://www.zwjay.cn/HTML5-API-all/</id>
+    <published>2016-11-30T07:43:00.000Z</published>
+    <updated>2016-12-12T02:17:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;看&lt;code&gt;MDN&lt;/code&gt; 的文档才知道HTML5很多API还没有学习过，这里记录学习HTML5 新 api。&lt;/p&gt;&lt;p&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;HTML5是最新进化的标准,它定义了HTML。这个词代表了两个不同的概&lt;/p&gt;&lt;ul&gt;&lt;li&gt;这是一个新版本的HTML语言,与新元素、属性和行为&lt;/li&gt;&lt;li&gt;和一组更大的技术,允许更加多样化和功能强大的Web站点和应用程序。这组有时被称为HTML5&amp;amp;朋友和通常缩短HTML5。&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;HTML5 大概包含以下几点&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;语义:允许您更精确地描述你的内容是什么。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;连通性:允许您以新的和创新的方式与服务器通信。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;离线存储:允许网页在客户端本地存储数据和离线操作更有效率。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;多媒体:制作视频和音频开放网络中的一等公民。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;2d / 3d图形和效果:允许一个更加多样化的选择范围。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;性能和集成:提供更大的速度优化和更好的使用计算机硬件。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;设备访问:允许使用各种输入和输出设备。&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;样式:让作者编写更复杂的主题。&lt;/p&gt;&lt;a class=&quot;fancybox_img&quot; rel=&quot;noopener&quot; href=&quot;http://resource.zwjay.cn/jekyll/img/html5-all.png&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://resource.zwjay.cn/jekyll/img/html5-all.png&quot; alt=&quot;html5-all&quot;&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="HTML5" scheme="https://www.zwjay.cn/tags/HTML5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>修改ionic中android程序的包名</title>
+    <link href="https://www.zwjay.cn/Modify-cordova&amp;ionic-package-name/"/>
+    <id>https://www.zwjay.cn/Modify-cordova&amp;ionic-package-name/</id>
+    <published>2016-11-30T07:42:00.000Z</published>
+    <updated>2016-11-30T07:42:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;默认ionic新建工程的时候指定的Android版本包名是：com.ionicframework.starter；这样固定死包名的话会导致一个问题，多个ionic工程无法正常安装到手机当中，后面安装的程序始终会把之前的程序覆盖掉，这样的话就太悲剧了。&lt;br&gt;现在给大家演示一
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+      <category term="Android" scheme="https://www.zwjay.cn/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于AngularJS/Ionic框架开发的性能优化</title>
+    <link href="https://www.zwjay.cn/AngularJSIonic-framework-optimization/"/>
+    <id>https://www.zwjay.cn/AngularJSIonic-framework-optimization/</id>
+    <published>2016-11-30T04:31:00.000Z</published>
+    <updated>2016-11-30T06:31:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;下面提出几点优化的方法：&lt;/p&gt;&lt;h1 id=&quot;1-使用单次绑定符号&quot;&gt;&lt;a href=&quot;#1-使用单次绑定符号&quot; class=&quot;headerlink&quot; title=&quot;1. 使用单次绑定符号&quot;&gt;&lt;/a&gt;1. 使用单次绑定符号&lt;/h1&gt;&lt;figure
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Angular" scheme="https://www.zwjay.cn/tags/Angular/"/>
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ruby gems更换source的时候 certificate verify failed</title>
+    <link href="https://www.zwjay.cn/Install-Ruby-change-source-pit/"/>
+    <id>https://www.zwjay.cn/Install-Ruby-change-source-pit/</id>
+    <published>2016-11-30T02:01:08.000Z</published>
+    <updated>2020-06-26T17:10:58.314Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;安装Ruby后，安装sass，jekkly会遇到错误，按照 &lt;a href=&quot;https://gems.ruby-china.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://gems.ruby-china.org/&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ruby" scheme="https://www.zwjay.cn/tags/Ruby/"/>
+    
+      <category term="Sass" scheme="https://www.zwjay.cn/tags/Sass/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic应用中的文字不能长按复制、粘贴问题解决</title>
+    <link href="https://www.zwjay.cn/ionic-application-of-long-words-can&#39;t-copy-and-paste-problem-solving/"/>
+    <id>https://www.zwjay.cn/ionic-application-of-long-words-can&#39;t-copy-and-paste-problem-solving/</id>
+    <published>2016-11-30T02:01:08.000Z</published>
+    <updated>2020-06-26T17:10:58.315Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;直接上代码：&lt;/p&gt;&lt;h1 id=&quot;gt-html部分&quot;&gt;&lt;a href=&quot;#gt-html部分&quot; class=&quot;headerlink&quot; title=&quot;&amp;gt;html部分&quot;&gt;&lt;/a&gt;&amp;gt;html部分&lt;/h1&gt;&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ionic 笔记</title>
+    <link href="https://www.zwjay.cn/Ionic-notes/"/>
+    <id>https://www.zwjay.cn/Ionic-notes/</id>
+    <published>2016-11-29T23:08:08.000Z</published>
+    <updated>2016-11-29T17:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ion-content的回弹效果没有了&quot;&gt;&lt;a href=&quot;#ion-content的回弹效果没有了&quot; class=&quot;headerlink&quot; title=&quot;ion-content的回弹效果没有了&quot;&gt;&lt;/a&gt;ion-content的回弹效果没有了&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;在 &lt;code&gt;&amp;lt;ion-content&amp;gt;&lt;/code&gt; 标签加上 `overflow-scroll=”false” has-bouncing=”true”&lt;/li&gt;&lt;/ul&gt;&lt;h1 id=&quot;view之间的数据传输&quot;&gt;&lt;a href=&quot;#view之间的数据传输&quot; class=&quot;headerlink&quot; title=&quot;view之间的数据传输&quot;&gt;&lt;/a&gt;view之间的数据传输&lt;/h1&gt;&lt;h2 id=&quot;1-使用-state-go-to-toParams-options&quot;&gt;&lt;a href=&quot;#1-使用-state-go-to-toParams-options&quot; class=&quot;headerlink&quot; title=&quot;1 .使用 $state.go(to [, toParams] [, options])&quot;&gt;&lt;/a&gt;1 .使用 &lt;code&gt;$state.go(to [, toParams] [, options])&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;在第二个参数传入一个JSON对象，在 &lt;code&gt;to&lt;/code&gt; 的路由加上params:{} 定义传输的参数,然后在 &lt;code&gt;to&lt;/code&gt; 的 &lt;code&gt;controller&lt;/code&gt; 注入 &lt;code&gt;$stateParams&lt;/code&gt; 接收数据。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic工具类API和配置</title>
+    <link href="https://www.zwjay.cn/ionic-utility-class-API-setting/"/>
+    <id>https://www.zwjay.cn/ionic-utility-class-API-setting/</id>
+    <published>2016-11-29T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ionicConfigProvider&quot;&gt;&lt;a href=&quot;#ionicConfigProvider&quot; class=&quot;headerlink&quot; title=&quot;$ionicConfigProvider&quot;&gt;&lt;/a&gt;$ionicConfigProvider&lt;/h1&gt;&lt;p&gt;$ionicConfigProvider可是一个神器，可以配置很多东东。比如配置view的缓存，配置tab栏的显示位置，配置过渡动画等等。&lt;br&gt;下面一个一个说。&lt;/p&gt;&lt;h2 id=&quot;views-maxCache配置view缓存&quot;&gt;&lt;a href=&quot;#views-maxCache配置view缓存&quot; class=&quot;headerlink&quot; title=&quot;views.maxCache配置view缓存&quot;&gt;&lt;/a&gt;views.maxCache配置view缓存&lt;/h2&gt;&lt;p&gt;可以配置整个平台的ionic view缓存，也可以配置android平台或者ios平台的缓存，如下：&lt;/p&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; myApp = angular.module(&lt;span class=&quot;string&quot;&gt;&#39;reallyCoolApp&#39;&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&#39;ionic&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;myApp.config(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;$ionicConfigProvider&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  $ionicConfigProvider.views.maxCache(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;//配置android平台的缓存&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  $ionicConfigProvider.platform.android.views.maxCache(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// note that you can also chain configs&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  $ionicConfigProvider.backButton.text(&lt;span class=&quot;string&quot;&gt;&#39;Go Back&#39;&lt;/span&gt;).icon(&lt;span class=&quot;string&quot;&gt;&#39;ion-chevron-left&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic 跳转（进入）二级页面隐藏Tab，无再进入第三季页面，TAB出现BUG</title>
+    <link href="https://www.zwjay.cn/ionic-jump%20(into)-the-secondary-hidden-Tab-page/"/>
+    <id>https://www.zwjay.cn/ionic-jump (into)-the-secondary-hidden-Tab-page/</id>
+    <published>2016-11-29T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-ion-view&quot;&gt;&lt;a href=&quot;#1-ion-view&quot; class=&quot;headerlink&quot; title=&quot;1.ion-view&quot;&gt;&lt;/a&gt;1.ion-view&lt;/h1&gt;&lt;p&gt;在 &lt;code&gt;ion-view&lt;/code&gt; 加上
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic不同view跳转到同一个view并保留历史的路由设计</title>
+    <link href="https://www.zwjay.cn/ionic-different-view-jump-to-the-same-view-and-keep-history-of-routing-design/"/>
+    <id>https://www.zwjay.cn/ionic-different-view-jump-to-the-same-view-and-keep-history-of-routing-design/</id>
+    <published>2016-11-28T23:08:08.000Z</published>
+    <updated>2016-11-29T17:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近手上的 ionic 项目，从左边侧滑的交互方式换到了 tabs 的交互方式。&lt;br&gt;以前的树形路由需要改造成网状的。&lt;br&gt;于是开始在网上搜索有没有现成的技术方案，找了一圈下来发现，ionic 的社区里都是一些没法解决的回复。&lt;br&gt;但是自己翻看 ui-router
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>fiddler无法抓取chrome解决方法</title>
+    <link href="https://www.zwjay.cn/fiddler-unable-to-grabchrome/"/>
+    <id>https://www.zwjay.cn/fiddler-unable-to-grabchrome/</id>
+    <published>2016-11-28T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前端开发中，不可避免的要和服务器端进行联调，少了fiddler这个利器可不行。&lt;/p&gt;&lt;p&gt;由于无线开发需要配置UA，我使用chrome进行访问，但是今儿一早过来，发现fiddler无法抓取chrome的请求了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Fiddler" scheme="https://www.zwjay.cn/tags/Fiddler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic 替代 Modal 的方案</title>
+    <link href="https://www.zwjay.cn/ionic-alternative-modal-plan/"/>
+    <id>https://www.zwjay.cn/ionic-alternative-modal-plan/</id>
+    <published>2016-11-28T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 $state.go 前记录下当前的 view ，然后禁止下一个 view 记录 backView ，就不会显示后退按钮（ Android 硬件后退也不行 ）。在需要关闭时，后来加入导航栈的任意 view 中设置 backView 为记录下来的 view ，然后 back 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ionic 定位</title>
+    <link href="https://www.zwjay.cn/ionic-location/"/>
+    <id>https://www.zwjay.cn/ionic-location/</id>
+    <published>2016-11-22T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;原生HTML5-API-定位&quot;&gt;&lt;a href=&quot;#原生HTML5-API-定位&quot; class=&quot;headerlink&quot; title=&quot;原生HTML5 API 定位&quot;&gt;&lt;/a&gt;原生HTML5 API 定位&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;navigator.geolocation.getCurrentPosition(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;pos&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               alert(&lt;span class=&quot;built_in&quot;&gt;JSON&lt;/span&gt;.stringify(pos))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;,&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;err&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               alert(&lt;span class=&quot;built_in&quot;&gt;JSON&lt;/span&gt;.stringify(err))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;#125;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    enableHighAccuracy: &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//开机高精度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    timeout: &lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;*&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//过时时间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    maximumAge: &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;*&lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;*&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;具体可以查看MDN文档&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cordova ionic 常用命令</title>
+    <link href="https://www.zwjay.cn/cordova-ionic-common-commands/"/>
+    <id>https://www.zwjay.cn/cordova-ionic-common-commands/</id>
+    <published>2016-11-18T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;安装-cordova：&quot;&gt;&lt;a href=&quot;#安装-cordova：&quot; class=&quot;headerlink&quot; title=&quot;安装 cordova：&quot;&gt;&lt;/a&gt;安装 cordova：&lt;/h1&gt;&lt;p&gt;npm install -g cordova&lt;/p&gt;&lt;h1 id=&quot;创建应用程序&quot;&gt;&lt;a href=&quot;#创建应用程序&quot; class=&quot;headerlink&quot; title=&quot;创建应用程序&quot;&gt;&lt;/a&gt;创建应用程序&lt;/h1&gt;&lt;p&gt;cordova create hello com.example.hello HelloWorld&lt;/p&gt;&lt;h1 id=&quot;添加平台&quot;&gt;&lt;a href=&quot;#添加平台&quot; class=&quot;headerlink&quot; title=&quot;添加平台&quot;&gt;&lt;/a&gt;添加平台&lt;/h1&gt;&lt;p&gt;cordova platform add android&lt;/p&gt;&lt;p&gt;cordova platform add ios&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Cordova" scheme="https://www.zwjay.cn/tags/Cordova/"/>
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈javacript 笔记系列--- 设计模式 之单例模式</title>
+    <link href="https://www.zwjay.cn/javascript-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://www.zwjay.cn/javascript-设计模式-单例模式/</id>
+    <published>2016-06-11T03:57:13.000Z</published>
+    <updated>2020-06-26T17:10:58.313Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;javascript设计模式之单例模式&quot;&gt;&lt;a href=&quot;#javascript设计模式之单例模式&quot; class=&quot;headerlink&quot; title=&quot;javascript设计模式之单例模式&quot;&gt;&lt;/a&gt;javascript设计模式之单例模式&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://www.zwjay.cn/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="https://www.zwjay.cn/tags/javascript/"/>
+    
+      <category term="设计模式" scheme="https://www.zwjay.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript 正则表达式学习笔记</title>
+    <link href="https://www.zwjay.cn/RegExp/"/>
+    <id>https://www.zwjay.cn/RegExp/</id>
+    <published>2016-03-25T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;创建一个正则表达式&quot;&gt;&lt;a href=&quot;#创建一个正则表达式&quot; class=&quot;headerlink&quot; title=&quot;创建一个正则表达式:&quot;&gt;&lt;/a&gt;创建一个正则表达式:&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;perl&lt;/strong&gt; 风格&lt;/li&gt;&lt;/ul&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; expression = &lt;span class=&quot;regexp&quot;&gt;/ parrern /&lt;/span&gt; flags&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其中模式(&lt;code&gt;parrern&lt;/code&gt;) 部分 可以使任何简单或复杂的正则表达式,每个正则表达式都可以带有一个或多个标志(&lt;code&gt;flags&lt;/code&gt;),用以表明正则表达式的行为&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;JS&lt;/strong&gt; 风格&lt;/li&gt;&lt;/ul&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; expression = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;RegExp&lt;/span&gt;(“a”, “i”)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;在&lt;code&gt;perl&lt;/code&gt;-&amp;gt;&lt;code&gt;flags&lt;/code&gt; 处 和 &lt;code&gt;JS&lt;/code&gt;-&amp;gt;&lt;code&gt;new RegExp&lt;/code&gt; 第二个参数 的地方引用修饰符,修饰符可以单独使用,也可以组合使用.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="regexp" scheme="https://www.zwjay.cn/tags/regexp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Angular JqLite 方法汇总</title>
+    <link href="https://www.zwjay.cn/Angular-JqLite-all-function/"/>
+    <id>https://www.zwjay.cn/Angular-JqLite-all-function/</id>
+    <published>2016-02-18T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;addClass-为每个匹配的元素添加指定的样式类名&quot;&gt;&lt;a href=&quot;#addClass-为每个匹配的元素添加指定的样式类名&quot; class=&quot;headerlink&quot; title=&quot;addClass()-为每个匹配的元素添加指定的样式类名&quot;&gt;&lt;/a&gt;addClass()-为每个匹配的元素添加指定的样式类名&lt;/h5&gt;&lt;h5 id=&quot;after-在匹配元素集合中的每个元素后面插入参数所指定的内容，作为其兄弟节点&quot;&gt;&lt;a href=&quot;#after-在匹配元素集合中的每个元素后面插入参数所指定的内容，作为其兄弟节点&quot; class=&quot;headerlink&quot; title=&quot;after()-在匹配元素集合中的每个元素后面插入参数所指定的内容，作为其兄弟节点&quot;&gt;&lt;/a&gt;after()-在匹配元素集合中的每个元素后面插入参数所指定的内容，作为其兄弟节点&lt;/h5&gt;&lt;h5 id=&quot;append-在每个匹配元素里面的末尾处插入参数内容&quot;&gt;&lt;a href=&quot;#append-在每个匹配元素里面的末尾处插入参数内容&quot; class=&quot;headerlink&quot; title=&quot;append()-在每个匹配元素里面的末尾处插入参数内容&quot;&gt;&lt;/a&gt;append()-在每个匹配元素里面的末尾处插入参数内容&lt;/h5&gt;&lt;h5 id=&quot;attr-获取匹配的元素集合中的第一个元素的属性的值&quot;&gt;&lt;a href=&quot;#attr-获取匹配的元素集合中的第一个元素的属性的值&quot; class=&quot;headerlink&quot; title=&quot;attr() - 获取匹配的元素集合中的第一个元素的属性的值&quot;&gt;&lt;/a&gt;attr() - 获取匹配的元素集合中的第一个元素的属性的值&lt;/h5&gt;&lt;h5 id=&quot;bind-为一个元素绑定一个事件处理程序&quot;&gt;&lt;a href=&quot;#bind-为一个元素绑定一个事件处理程序&quot; class=&quot;headerlink&quot; title=&quot;bind() - 为一个元素绑定一个事件处理程序&quot;&gt;&lt;/a&gt;bind() - 为一个元素绑定一个事件处理程序&lt;/h5&gt;&lt;h5 id=&quot;children-获得匹配元素集合中每个元素的子元素，选择器选择性筛选&quot;&gt;&lt;a href=&quot;#children-获得匹配元素集合中每个元素的子元素，选择器选择性筛选&quot; class=&quot;headerlink&quot; title=&quot;children() - 获得匹配元素集合中每个元素的子元素，选择器选择性筛选&quot;&gt;&lt;/a&gt;children() - 获得匹配元素集合中每个元素的子元素，选择器选择性筛选&lt;/h5&gt;&lt;h5 id=&quot;clone-创建一个匹配的元素集合的深度拷贝副本&quot;&gt;&lt;a href=&quot;#clone-创建一个匹配的元素集合的深度拷贝副本&quot; class=&quot;headerlink&quot; title=&quot;clone()-创建一个匹配的元素集合的深度拷贝副本&quot;&gt;&lt;/a&gt;clone()-创建一个匹配的元素集合的深度拷贝副本&lt;/h5&gt;&lt;h5 id=&quot;contents-获得匹配元素集合中每个元素的子元素，包括文字和注释节点&quot;&gt;&lt;a href=&quot;#contents-获得匹配元素集合中每个元素的子元素，包括文字和注释节点&quot; class=&quot;headerlink&quot; title=&quot;contents()-获得匹配元素集合中每个元素的子元素，包括文字和注释节点&quot;&gt;&lt;/a&gt;contents()-获得匹配元素集合中每个元素的子元素，包括文字和注释节点&lt;/h5&gt;&lt;h5 id=&quot;css-获取匹配元素集合中的第一个元素的样式属性的值&quot;&gt;&lt;a href=&quot;#css-获取匹配元素集合中的第一个元素的样式属性的值&quot; class=&quot;headerlink&quot; title=&quot;css() - 获取匹配元素集合中的第一个元素的样式属性的值&quot;&gt;&lt;/a&gt;css() - 获取匹配元素集合中的第一个元素的样式属性的值&lt;/h5&gt;&lt;h5 id=&quot;data-在匹配元素上存储任意相关数据&quot;&gt;&lt;a href=&quot;#data-在匹配元素上存储任意相关数据&quot; class=&quot;headerlink&quot; title=&quot;data()-在匹配元素上存储任意相关数据&quot;&gt;&lt;/a&gt;data()-在匹配元素上存储任意相关数据&lt;/h5&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Angular" scheme="https://www.zwjay.cn/tags/Angular/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于script标签位置</title>
+    <link href="https://www.zwjay.cn/On-the-script-tag-position/"/>
+    <id>https://www.zwjay.cn/On-the-script-tag-position/</id>
+    <published>2016-02-10T12:08:08.000Z</published>
+    <updated>2016-11-30T13:10:08.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;按照HTML5标准中的HTML语法规则，如果在&lt;code&gt;&amp;lt;/body&amp;gt;&lt;/code&gt;后再出现&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;或任何元素的开始标签，都是parse
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="JavaScript" scheme="https://www.zwjay.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO之我的优化</title>
+    <link href="https://www.zwjay.cn/hexo-optimization-of-I/"/>
+    <id>https://www.zwjay.cn/hexo-optimization-of-I/</id>
+    <published>2016-01-22T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;hexo 本身生成的是一套静态页面,但是用的其主题的ejs模板相互嵌套,发现最后生成的html文件结构混乱,&lt;code&gt;style&lt;/code&gt;,&lt;code&gt;scipt&lt;/code&gt;,标签穿插在其中.对于我这个稍微有一点代码洁癖的人来说,感觉异常不爽,另外,也不满足&lt;code&gt;script&lt;/code&gt;放在dom节点后的规则.而且,&lt;code&gt;script&lt;/code&gt;标签在html中,会形成阻塞,最终导致页面加载时的耗时增加.另外,&lt;code&gt;CSS&lt;/code&gt;,和&lt;code&gt;script&lt;/code&gt;的静态资源放到服务器上,因我的廉价vps,响应时间长,出网低,也会导致最终这些资源加载缓慢.用控制台&lt;code&gt;network&lt;/code&gt;查看,耗时从请求到完全完成,大概在&lt;strong&gt;6.8s&lt;/strong&gt;左右.对于一套静态页面来说,我觉得这是不能允许的.&lt;/p&gt;&lt;figure class=&quot;image-bubble&quot;&gt;&lt;div class=&quot;img-lightbox&quot;&gt;&lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;&lt;img src=&quot;http://7xrbxz.dl1.z0.glb.clouddn.com/hexo%E4%B9%8B%E6%88%91%E7%9A%84%E4%BC%98%E5%8C%96.png&quot; alt=&quot;大图&quot;&gt;&lt;/div&gt;&lt;div class=&quot;image-caption&quot;&gt;大图&lt;/div&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="HEXO" scheme="https://www.zwjay.cn/tags/HEXO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO 部署Git的坑</title>
+    <link href="https://www.zwjay.cn/hexo-erro/"/>
+    <id>https://www.zwjay.cn/hexo-erro/</id>
+    <published>2016-01-20T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;部署Git-第一步配置config-yml-文件&quot;&gt;&lt;a href=&quot;#部署Git-第一步配置config-yml-文件&quot; class=&quot;headerlink&quot; title=&quot;部署Git 第一步配置config.yml 文件&quot;&gt;&lt;/a&gt;部署Git 第一步配置config.yml 文件&lt;/h1&gt;&lt;p&gt;找到根目录下的_config.yml，修改配置&lt;/p&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    type: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    repo: https://github.com/pyrinelaw/pyrinelaw.github.io.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    branch: master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意&lt;code&gt;type&lt;/code&gt;为&lt;code&gt;git&lt;/code&gt;,不是&lt;code&gt;github&lt;/code&gt;.&lt;br&gt;&lt;code&gt;repo&lt;/code&gt;也可以写&lt;code&gt;repository&lt;/code&gt;,后面地址为你要&lt;code&gt;push&lt;/code&gt;的git地址,用http或者git都可以.&lt;br&gt;&lt;code&gt;branch&lt;/code&gt;为你要&lt;code&gt;push&lt;/code&gt;的分支,master为主分支.&lt;br&gt;如果repo配置git,且ssh 配置正确,部署过程会弹出提示框叫你输入ssh的秘钥,确认即可.&lt;br&gt;如果repo配置https,部署过程中会弹出提示框,输入账户名和密码.&lt;/p&gt;&lt;h1 id=&quot;1-部署提示找不到git-Can-not-find&quot;&gt;&lt;a href=&quot;#1-部署提示找不到git-Can-not-find&quot; class=&quot;headerlink&quot; title=&quot;1.部署提示找不到git (Can not find ***)&quot;&gt;&lt;/a&gt;1.部署提示找不到git (Can not find ***)&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;解决办法&lt;/strong&gt;&lt;br&gt;在Hexo 3.0版本后deploy git 被分开的，所以需要安装，安装命令如下:&lt;br&gt;&lt;code&gt;npm install hexo-deployer-git --save&lt;/code&gt;&lt;br&gt;安装好后在尝试一下就ok。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Test" scheme="https://www.zwjay.cn/categories/Test/"/>
+    
+    
+      <category term="HEXO" scheme="https://www.zwjay.cn/tags/HEXO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://www.zwjay.cn/blog-log/"/>
+    <id>https://www.zwjay.cn/blog-log/</id>
+    <published>2016-01-18T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇日志用于归纳记录自己在学习建设个人博客站点中的各种修改。&lt;/p&gt;&lt;h1 id=&quot;2016-12-18&quot;&gt;&lt;a href=&quot;#2016-12-18&quot; class=&quot;headerlink&quot; title=&quot;2016-12-18&quot;&gt;&lt;/a&gt;2016-12-18&lt;/h1&gt;&lt;blockquote&gt;&lt;ul&gt;&lt;li&gt;文章目录增修改为 &lt;a href=&quot;http://gregfranko.com/jquery.tocify.js/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;jquery.tocify.js&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;&lt;h1 id=&quot;2016-12-17&quot;&gt;&lt;a href=&quot;#2016-12-17&quot; class=&quot;headerlink&quot; title=&quot;2016-12-17&quot;&gt;&lt;/a&gt;2016-12-17&lt;/h1&gt;&lt;blockquote&gt;&lt;ul&gt;&lt;li&gt;修复多说UA表示手机端不对齐的问题。&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;&lt;h1 id=&quot;2016-12-11&quot;&gt;&lt;a href=&quot;#2016-12-11&quot; class=&quot;headerlink&quot; title=&quot;2016-12-11&quot;&gt;&lt;/a&gt;2016-12-11&lt;/h1&gt;&lt;blockquote&gt;&lt;ul&gt;&lt;li&gt;加上&lt;a href=&quot;http://fancyapps.com/fancybox/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;fancybox.js&lt;/a&gt; 以后可以点击预览图片啦！&lt;/li&gt;&lt;li&gt;原主题采用 &lt;code&gt;jquery.nav.js&lt;/code&gt; 来给目录导航跳转加上过渡，感觉不是很好，以下是自己改造过的锚点平滑过渡，&lt;code&gt;jquery.easing.1.3.js.js&lt;/code&gt; 为jq扩展了过渡的效果&lt;/li&gt;&lt;/ul&gt;&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="HEXO" scheme="https://www.zwjay.cn/tags/HEXO/"/>
+    
+  </entry>
+  
+</feed>
