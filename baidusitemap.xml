@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.zwjay.cn/git-flow/</loc>
+    <loc>https://www.zwjay.cn/%E3%80%8A%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BARxJS%E3%80%8B%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-06-26</lastmod>
   </url>  <url>
     <loc>https://www.zwjay.cn/javascript-%E7%BC%96%E5%86%99%E7%8E%B0%E4%BB%A3Javascript%E4%BB%A3%E7%A0%81/</loc>
@@ -10,13 +10,16 @@
     <loc>https://www.zwjay.cn/import%E5%92%8Cexport%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-06-26</lastmod>
   </url>  <url>
+    <loc>https://www.zwjay.cn/git-flow/</loc>
+    <lastmod>2020-06-26</lastmod>
+  </url>  <url>
     <loc>https://www.zwjay.cn/ionic-application-of-long-words-can't-copy-and-paste-problem-solving/</loc>
     <lastmod>2020-06-26</lastmod>
   </url>  <url>
-    <loc>https://www.zwjay.cn/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</loc>
+    <loc>https://www.zwjay.cn/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2020-06-26</lastmod>
   </url>  <url>
-    <loc>https://www.zwjay.cn/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/</loc>
+    <loc>https://www.zwjay.cn/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</loc>
     <lastmod>2020-06-26</lastmod>
   </url>  <url>
     <loc>https://www.zwjay.cn/Install-Ruby-change-source-pit/</loc>
@@ -70,19 +73,19 @@
     <loc>https://www.zwjay.cn/blog-log/</loc>
     <lastmod>2016-11-30</lastmod>
   </url>  <url>
-    <loc>https://www.zwjay.cn/hexo-optimization-of-I/</loc>
+    <loc>https://www.zwjay.cn/hexo-erro/</loc>
     <lastmod>2016-11-30</lastmod>
   </url>  <url>
-    <loc>https://www.zwjay.cn/hexo-erro/</loc>
+    <loc>https://www.zwjay.cn/hexo-optimization-of-I/</loc>
     <lastmod>2016-11-30</lastmod>
   </url>  <url>
     <loc>https://www.zwjay.cn/Angular-JqLite-all-function/</loc>
     <lastmod>2016-11-30</lastmod>
   </url>  <url>
-    <loc>https://www.zwjay.cn/cordova-ionic-common-commands/</loc>
+    <loc>https://www.zwjay.cn/RegExp/</loc>
     <lastmod>2016-11-30</lastmod>
   </url>  <url>
-    <loc>https://www.zwjay.cn/RegExp/</loc>
+    <loc>https://www.zwjay.cn/cordova-ionic-common-commands/</loc>
     <lastmod>2016-11-30</lastmod>
   </url>  <url>
     <loc>https://www.zwjay.cn/ionic-location/</loc>
