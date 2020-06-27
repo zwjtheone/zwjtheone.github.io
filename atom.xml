@@ -530,6 +530,31 @@
   </entry>
   
   <entry>
+    <title>ionic应用中的文字不能长按复制、粘贴问题解决</title>
+    <link href="https://www.zwjay.cn/ionic-application-of-long-words-can&#39;t-copy-and-paste-problem-solving/"/>
+    <id>https://www.zwjay.cn/ionic-application-of-long-words-can&#39;t-copy-and-paste-problem-solving/</id>
+    <published>2016-11-30T02:01:08.000Z</published>
+    <updated>2020-06-26T17:10:58.315Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;直接上代码：&lt;/p&gt;&lt;h1 id=&quot;gt-html部分&quot;&gt;&lt;a href=&quot;#gt-html部分&quot; class=&quot;headerlink&quot; title=&quot;&amp;gt;html部分&quot;&gt;&lt;/a&gt;&amp;gt;html部分&lt;/h1&gt;&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ruby gems更换source的时候 certificate verify failed</title>
     <link href="https://www.zwjay.cn/Install-Ruby-change-source-pit/"/>
     <id>https://www.zwjay.cn/Install-Ruby-change-source-pit/</id>
@@ -557,31 +582,6 @@
   </entry>
   
   <entry>
-    <title>ionic应用中的文字不能长按复制、粘贴问题解决</title>
-    <link href="https://www.zwjay.cn/ionic-application-of-long-words-can&#39;t-copy-and-paste-problem-solving/"/>
-    <id>https://www.zwjay.cn/ionic-application-of-long-words-can&#39;t-copy-and-paste-problem-solving/</id>
-    <published>2016-11-30T02:01:08.000Z</published>
-    <updated>2020-06-26T17:10:58.315Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;直接上代码：&lt;/p&gt;&lt;h1 id=&quot;gt-html部分&quot;&gt;&lt;a href=&quot;#gt-html部分&quot; class=&quot;headerlink&quot; title=&quot;&amp;gt;html部分&quot;&gt;&lt;/a&gt;&amp;gt;html部分&lt;/h1&gt;&lt;figure class=&quot;highlight
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Ionic 笔记</title>
     <link href="https://www.zwjay.cn/Ionic-notes/"/>
     <id>https://www.zwjay.cn/Ionic-notes/</id>
@@ -591,25 +591,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;ion-content的回弹效果没有了&quot;&gt;&lt;a href=&quot;#ion-content的回弹效果没有了&quot; class=&quot;headerlink&quot; title=&quot;ion-content的回弹效果没有了&quot;&gt;&lt;/a&gt;ion-content的回弹效果没有了&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;在 &lt;code&gt;&amp;lt;ion-content&amp;gt;&lt;/code&gt; 标签加上 `overflow-scroll=”false” has-bouncing=”true”&lt;/li&gt;&lt;/ul&gt;&lt;h1 id=&quot;view之间的数据传输&quot;&gt;&lt;a href=&quot;#view之间的数据传输&quot; class=&quot;headerlink&quot; title=&quot;view之间的数据传输&quot;&gt;&lt;/a&gt;view之间的数据传输&lt;/h1&gt;&lt;h2 id=&quot;1-使用-state-go-to-toParams-options&quot;&gt;&lt;a href=&quot;#1-使用-state-go-to-toParams-options&quot; class=&quot;headerlink&quot; title=&quot;1 .使用 $state.go(to [, toParams] [, options])&quot;&gt;&lt;/a&gt;1 .使用 &lt;code&gt;$state.go(to [, toParams] [, options])&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;在第二个参数传入一个JSON对象，在 &lt;code&gt;to&lt;/code&gt; 的路由加上params:{} 定义传输的参数,然后在 &lt;code&gt;to&lt;/code&gt; 的 &lt;code&gt;controller&lt;/code&gt; 注入 &lt;code&gt;$stateParams&lt;/code&gt; 接收数据。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ionic工具类API和配置</title>
-    <link href="https://www.zwjay.cn/ionic-utility-class-API-setting/"/>
-    <id>https://www.zwjay.cn/ionic-utility-class-API-setting/</id>
-    <published>2016-11-29T12:08:08.000Z</published>
-    <updated>2016-11-30T12:08:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;ionicConfigProvider&quot;&gt;&lt;a href=&quot;#ionicConfigProvider&quot; class=&quot;headerlink&quot; title=&quot;$ionicConfigProvider&quot;&gt;&lt;/a&gt;$ionicConfigProvider&lt;/h1&gt;&lt;p&gt;$ionicConfigProvider可是一个神器，可以配置很多东东。比如配置view的缓存，配置tab栏的显示位置，配置过渡动画等等。&lt;br&gt;下面一个一个说。&lt;/p&gt;&lt;h2 id=&quot;views-maxCache配置view缓存&quot;&gt;&lt;a href=&quot;#views-maxCache配置view缓存&quot; class=&quot;headerlink&quot; title=&quot;views.maxCache配置view缓存&quot;&gt;&lt;/a&gt;views.maxCache配置view缓存&lt;/h2&gt;&lt;p&gt;可以配置整个平台的ionic view缓存，也可以配置android平台或者ios平台的缓存，如下：&lt;/p&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; myApp = angular.module(&lt;span class=&quot;string&quot;&gt;&#39;reallyCoolApp&#39;&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&#39;ionic&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;myApp.config(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;$ionicConfigProvider&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  $ionicConfigProvider.views.maxCache(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;//配置android平台的缓存&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  $ionicConfigProvider.platform.android.views.maxCache(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// note that you can also chain configs&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  $ionicConfigProvider.backButton.text(&lt;span class=&quot;string&quot;&gt;&#39;Go Back&#39;&lt;/span&gt;).icon(&lt;span class=&quot;string&quot;&gt;&#39;ion-chevron-left&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -645,6 +626,25 @@
   </entry>
   
   <entry>
+    <title>ionic工具类API和配置</title>
+    <link href="https://www.zwjay.cn/ionic-utility-class-API-setting/"/>
+    <id>https://www.zwjay.cn/ionic-utility-class-API-setting/</id>
+    <published>2016-11-29T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ionicConfigProvider&quot;&gt;&lt;a href=&quot;#ionicConfigProvider&quot; class=&quot;headerlink&quot; title=&quot;$ionicConfigProvider&quot;&gt;&lt;/a&gt;$ionicConfigProvider&lt;/h1&gt;&lt;p&gt;$ionicConfigProvider可是一个神器，可以配置很多东东。比如配置view的缓存，配置tab栏的显示位置，配置过渡动画等等。&lt;br&gt;下面一个一个说。&lt;/p&gt;&lt;h2 id=&quot;views-maxCache配置view缓存&quot;&gt;&lt;a href=&quot;#views-maxCache配置view缓存&quot; class=&quot;headerlink&quot; title=&quot;views.maxCache配置view缓存&quot;&gt;&lt;/a&gt;views.maxCache配置view缓存&lt;/h2&gt;&lt;p&gt;可以配置整个平台的ionic view缓存，也可以配置android平台或者ios平台的缓存，如下：&lt;/p&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; myApp = angular.module(&lt;span class=&quot;string&quot;&gt;&#39;reallyCoolApp&#39;&lt;/span&gt;, [&lt;span class=&quot;string&quot;&gt;&#39;ionic&#39;&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;myApp.config(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;$ionicConfigProvider&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  $ionicConfigProvider.views.maxCache(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;//配置android平台的缓存&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  $ionicConfigProvider.platform.android.views.maxCache(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// note that you can also chain configs&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  $ionicConfigProvider.backButton.text(&lt;span class=&quot;string&quot;&gt;&#39;Go Back&#39;&lt;/span&gt;).icon(&lt;span class=&quot;string&quot;&gt;&#39;ion-chevron-left&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ionic不同view跳转到同一个view并保留历史的路由设计</title>
     <link href="https://www.zwjay.cn/ionic-different-view-jump-to-the-same-view-and-keep-history-of-routing-design/"/>
     <id>https://www.zwjay.cn/ionic-different-view-jump-to-the-same-view-and-keep-history-of-routing-design/</id>
@@ -670,25 +670,6 @@
   </entry>
   
   <entry>
-    <title>fiddler无法抓取chrome解决方法</title>
-    <link href="https://www.zwjay.cn/fiddler-unable-to-grabchrome/"/>
-    <id>https://www.zwjay.cn/fiddler-unable-to-grabchrome/</id>
-    <published>2016-11-28T12:08:08.000Z</published>
-    <updated>2016-11-30T12:08:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前端开发中，不可避免的要和服务器端进行联调，少了fiddler这个利器可不行。&lt;/p&gt;&lt;p&gt;由于无线开发需要配置UA，我使用chrome进行访问，但是今儿一早过来，发现fiddler无法抓取chrome的请求了。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Fiddler" scheme="https://www.zwjay.cn/tags/Fiddler/"/>
-    
-  </entry>
-  
-  <entry>
     <title>ionic 替代 Modal 的方案</title>
     <link href="https://www.zwjay.cn/ionic-alternative-modal-plan/"/>
     <id>https://www.zwjay.cn/ionic-alternative-modal-plan/</id>
@@ -704,6 +685,25 @@
     
     
       <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>fiddler无法抓取chrome解决方法</title>
+    <link href="https://www.zwjay.cn/fiddler-unable-to-grabchrome/"/>
+    <id>https://www.zwjay.cn/fiddler-unable-to-grabchrome/</id>
+    <published>2016-11-28T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前端开发中，不可避免的要和服务器端进行联调，少了fiddler这个利器可不行。&lt;/p&gt;&lt;p&gt;由于无线开发需要配置UA，我使用chrome进行访问，但是今儿一早过来，发现fiddler无法抓取chrome的请求了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Fiddler" scheme="https://www.zwjay.cn/tags/Fiddler/"/>
     
   </entry>
   
@@ -741,9 +741,9 @@
     
     
     
-      <category term="Cordova" scheme="https://www.zwjay.cn/tags/Cordova/"/>
-    
       <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
+    
+      <category term="Cordova" scheme="https://www.zwjay.cn/tags/Cordova/"/>
     
   </entry>
   
