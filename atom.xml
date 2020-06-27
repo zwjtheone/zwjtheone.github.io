@@ -44,7 +44,7 @@
   </entry>
   
   <entry>
-    <title>2019-11-15-git再学习</title>
+    <title>git再学习</title>
     <link href="https://www.zwjay.cn/git%E5%86%8D%E5%AD%A6%E4%B9%A0/"/>
     <id>https://www.zwjay.cn/git再学习/</id>
     <published>2019-11-15T09:40:00.000Z</published>
@@ -69,7 +69,7 @@
   </entry>
   
   <entry>
-    <title>2019-11-6-yarn常用操作</title>
+    <title>yarn常用操作</title>
     <link href="https://www.zwjay.cn/2019-11-6-yarn%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
     <id>https://www.zwjay.cn/2019-11-6-yarn常用操作/</id>
     <published>2019-11-06T12:47:00.000Z</published>
@@ -94,7 +94,7 @@
   </entry>
   
   <entry>
-    <title>2019-10-18-moment-quick-check</title>
+    <title>moment-quick-check</title>
     <link href="https://www.zwjay.cn/moment-quick-check/"/>
     <id>https://www.zwjay.cn/moment-quick-check/</id>
     <published>2019-10-18T13:40:00.000Z</published>
@@ -670,25 +670,6 @@
   </entry>
   
   <entry>
-    <title>ionic 替代 Modal 的方案</title>
-    <link href="https://www.zwjay.cn/ionic-alternative-modal-plan/"/>
-    <id>https://www.zwjay.cn/ionic-alternative-modal-plan/</id>
-    <published>2016-11-28T12:08:08.000Z</published>
-    <updated>2016-11-30T12:08:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在 $state.go 前记录下当前的 view ，然后禁止下一个 view 记录 backView ，就不会显示后退按钮（ Android 硬件后退也不行 ）。在需要关闭时，后来加入导航栈的任意 view 中设置 backView 为记录下来的 view ，然后 back 。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
-    
-  </entry>
-  
-  <entry>
     <title>fiddler无法抓取chrome解决方法</title>
     <link href="https://www.zwjay.cn/fiddler-unable-to-grabchrome/"/>
     <id>https://www.zwjay.cn/fiddler-unable-to-grabchrome/</id>
@@ -704,6 +685,25 @@
     
     
       <category term="Fiddler" scheme="https://www.zwjay.cn/tags/Fiddler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic 替代 Modal 的方案</title>
+    <link href="https://www.zwjay.cn/ionic-alternative-modal-plan/"/>
+    <id>https://www.zwjay.cn/ionic-alternative-modal-plan/</id>
+    <published>2016-11-28T12:08:08.000Z</published>
+    <updated>2016-11-30T12:08:08.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 $state.go 前记录下当前的 view ，然后禁止下一个 view 记录 backView ，就不会显示后退按钮（ Android 硬件后退也不行 ）。在需要关闭时，后来加入导航栈的任意 view 中设置 backView 为记录下来的 view ，然后 back 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
     
   </entry>
   
@@ -741,9 +741,9 @@
     
     
     
-      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
-    
       <category term="Cordova" scheme="https://www.zwjay.cn/tags/Cordova/"/>
+    
+      <category term="Ionic" scheme="https://www.zwjay.cn/tags/Ionic/"/>
     
   </entry>
   
