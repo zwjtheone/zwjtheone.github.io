@@ -1,0 +1,909 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mr.Jaxson">
+  <meta name="keywords" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
+  
+    <meta name="description" content="Babel笔记定义编译的定义就是从一种编程语言转成另一种编程语言。主要指的是高级语言到低级语言。  高级语言：有很多用于描述逻辑的语言特性，比如分支、循环、函数、面向对象等，接近人的思维，可以让开发者快速的通过它来表达各种逻辑。比如 c++、javascript。   低级语言：与硬件和执行细节有关，会操作寄存器、内存，具体做内存与寄存器之间的复制，需要开发者理解熟悉计算机的工作原理，熟悉具体的执">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bebel笔记">
+<meta property="og:url" content="https://www.zwjay.cn/2022/06/06/2022-06-06-Babel%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Jaxson&#39;Blog">
+<meta property="og:description" content="Babel笔记定义编译的定义就是从一种编程语言转成另一种编程语言。主要指的是高级语言到低级语言。  高级语言：有很多用于描述逻辑的语言特性，比如分支、循环、函数、面向对象等，接近人的思维，可以让开发者快速的通过它来表达各种逻辑。比如 c++、javascript。   低级语言：与硬件和执行细节有关，会操作寄存器、内存，具体做内存与寄存器之间的复制，需要开发者理解熟悉计算机的工作原理，熟悉具体的执">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-05T19:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-22T17:56:16.328Z">
+<meta property="article:author" content="Mr.Jaxson">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Babel">
+<meta property="article:tag" content="Webpack">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Bebel笔记 - Jaxson&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.zwjay.cn","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"0c5ab9917e153a67360172154ba0dc64","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 30vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jaxson&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Bebel笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mr.Jaxson
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-06 03:00" pubdate>
+          2022年6月6日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          61 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Bebel笔记</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年3月23日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="Babel笔记"><a href="#Babel笔记" class="headerlink" title="Babel笔记"></a>Babel笔记</h1><h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>编译的定义就是从一种编程语言转成另一种编程语言。主要指的是高级语言到低级语言。</p>
+<blockquote>
+<p>高级语言：有很多用于描述逻辑的语言特性，比如分支、循环、函数、面向对象等，接近人的思维，可以让开发者快速的通过它来表达各种逻辑。比如 c++、javascript。</p>
+</blockquote>
+<blockquote>
+<p>低级语言：与硬件和执行细节有关，会操作寄存器、内存，具体做内存与寄存器之间的复制，需要开发者理解熟悉计算机的工作原理，熟悉具体的执行细节。比如汇编语言、机器语言。</p>
+</blockquote>
+<p>一般编译器 Compiler 是指高级语言到低级语言的转换工具，对于高级语言到高级语言的转换工具，被叫做转换编译器，简称转译器 (Transpiler)。</p>
+<p>babel 就是一个 Javascript Transpiler。</p>
+<h1 id="三步"><a href="#三步" class="headerlink" title="三步"></a>三步</h1><p>babel 是 source to source 的转换，整体编译流程分为三步：</p>
+<ul>
+<li>parse：通过 parser 把源码转成抽象语法树（AST）</li>
+<li>transform：遍历 AST，调用各种 transform 插件对 AST 进行增删改</li>
+<li>generate：把转换后的 AST 打印成目标代码，并生成 sourcemap</li>
+</ul>
+<p>![Untitled](&#x2F;img&#x2F;Untitled 34.png)</p>
+<h1 id="常见的AST节点"><a href="#常见的AST节点" class="headerlink" title="常见的AST节点"></a>常见的AST节点</h1><p><a target="_blank" rel="noopener" href="https://astexplorer.net/">https://astexplorer.net/</a></p>
+<p>Literal 字面量</p>
+<p>Identifier 标识符 变量名、属性名、参数名等各种声明和引用的名字</p>
+<p>Statement 语句</p>
+<p>Declaration 声明语句</p>
+<p>Expression 表达式</p>
+<p>Class ClassBody</p>
+<h1 id="Babel-API"><a href="#Babel-API" class="headerlink" title="Babel API"></a>Babel API</h1><ul>
+<li><p><code>@babel/parser</code> 对源码进行 parse，可以通过 plugins、sourceType 等来指定 parse 语法</p>
+</li>
+<li><p><code>@babel/traverse</code> 通过 visitor 函数对遍历到的 ast 进行处理，分为 enter 和 exit 两个阶段，具体操作 AST 使用 path 的 api，还可以通过 state 来在遍历过程中传递一些数据</p>
+<p>常用的就前面两个参数，parent 指定要遍历的 AST 节点，opts 指定 visitor 函数。babel 会在遍历 parent 对应的 AST 时调用相应的 visitor 函数。</p>
+<p>visitor 对象的 value 是对象或者函数：</p>
+<ul>
+<li>如果 value 为函数，那么就相当于是 enter 时调用的函数。</li>
+<li>如果 value 为对象，则可以明确指定 enter 或者 exit 时的处理函数。</li>
+</ul>
+<p>函数会接收两个参数 path 和 state。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-attr">visitor</span>: &#123;<br>    <span class="hljs-title class_">Identifier</span> (path, state) &#123;&#125;,<br>    <span class="hljs-title class_">StringLiteral</span>: &#123;<br>        enter (path, state) &#123;&#125;,<br>        exit (path, state) &#123;&#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以为单个节点的类型，也可以是多个节点类型通过 <code>|</code> 连接，还可以通过别名指定一系列节点类型。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// 进入 FunctionDeclaration 节点时调用</span><br><span class="hljs-title function_">traverse</span>(ast, &#123;<br>  <span class="hljs-title class_">FunctionDeclaration</span>: &#123;<br>      <span class="hljs-title function_">enter</span>(<span class="hljs-params">path, state</span>) &#123;&#125;<br>  &#125;<br>&#125;)<br><br><span class="hljs-comment">// 默认是进入节点时调用，和上面等价</span><br><span class="hljs-title function_">traverse</span>(ast, &#123;<br>  <span class="hljs-title class_">FunctionDeclaration</span>(path, state) &#123;&#125;<br>&#125;)<br><br><span class="hljs-comment">// 进入 FunctionDeclaration 和 VariableDeclaration 节点时调用</span><br><span class="hljs-title function_">traverse</span>(ast, &#123;<br>  <span class="hljs-string">&#x27;FunctionDeclaration|VariableDeclaration&#x27;</span>(path, state) &#123;&#125;<br>&#125;)<br><br><span class="hljs-comment">// 通过别名指定离开各种 Declaration 节点时调用</span><br><span class="hljs-title function_">traverse</span>(ast, &#123;<br>  <span class="hljs-title class_">Declaration</span>: &#123;<br>      <span class="hljs-title function_">exit</span>(<span class="hljs-params">path, state</span>) &#123;&#125;<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>@babel/types</code> 用于创建、判断 AST 节点，提供了 xxx、isXxx、assertXxx 的 api</p>
+</li>
+<li><p><code>@babel/template</code> 用于批量创建节点</p>
+</li>
+<li><p><code>@babel/code-frame</code> 可以创建友好的报错信息</p>
+</li>
+<li><p><code>@babel/generator</code> 打印 AST 成目标代码字符串，支持 comments、minified、sourceMaps 等选项。</p>
+</li>
+<li><p><code>@babel/core</code> 基于上面的包来完成 babel 的编译流程，可以从源码字符串、源码文件、AST 开始。</p>
+</li>
+</ul>
+<h1 id="traverse包的visitor-amp-path"><a href="#traverse包的visitor-amp-path" class="headerlink" title="traverse包的visitor&amp;path"></a>traverse包的visitor&amp;path</h1><p>访问者模式</p>
+<blockquote>
+<p>当被操作的对象结构比较稳定，而操作对象的逻辑经常变化的时候，通过分离逻辑和对象结构，使得他们能独立扩展</p>
+</blockquote>
+<h2 id="path"><a href="#path" class="headerlink" title="path"></a>path</h2><p>操作 AST 时要拿到父节点的信息，并且也需要对 AST 增删改的方法，这些都在 path 对象里。</p>
+<ul>
+<li>path.node 当前 AST 节点</li>
+<li>path.parent 父 AST 节点</li>
+<li>path.parentPath 父 AST 节点的 path</li>
+<li>path.scope 作用域，见下文详解</li>
+<li>path.hub 可以通过 path.hub.file 拿到最外层 File 对象， path.hub.getScope 拿到最外层作用域，path.hub.getCode 拿到源码字符串</li>
+<li>path.container 当前 AST 节点所在的父节点属性的属性值</li>
+<li>path.key 当前 AST 节点所在父节点属性的属性名或所在数组的下标</li>
+<li>path.listkey 当前 AST 节点所在父节点属性的属性值为数组时 listkey 为该属性名，否则为 undefined</li>
+<li>inList() 判断节点是否在数组中，如果 container 为数组，也就是有 listkey 的时候，返回 true</li>
+<li>get(key) 获取某个属性的 path</li>
+<li>set(key, node) 设置某个属性的值</li>
+<li>getSibling(key) 获取某个下标的兄弟节点</li>
+<li>getNextSibling() 获取下一个兄弟节点</li>
+<li>getPrevSibling() 获取上一个兄弟节点</li>
+<li>getAllPrevSiblings() 获取之前的所有兄弟节点</li>
+<li>getAllNextSiblings() 获取之后的所有兄弟节点</li>
+<li>find(callback) 从当前节点到根节点来查找节点（包括当前节点），调用 callback（传入 path）来决定是否终止查找</li>
+<li>findParent(callback) 从当前节点到根节点来查找节点（不包括当前节点），调用 callback（传入 path）来决定是否终止查找</li>
+<li>isXxx(opts) 判断当前节点是否是某个类型，可以传入属性和属性值进一步判断，比如path.isIdentifier({name: ‘a’})</li>
+<li>assertXxx(opts) 同 isXxx，但是不返回布尔值，而是抛出异常</li>
+<li>insertBefore(nodes) 在之前插入节点，可以是单个节点或者节点数组</li>
+<li>insertAfter(nodes) 在之后插入节点，可以是单个节点或者节点数组</li>
+<li>replaceWith(replacement) 用某个节点替换当前节点</li>
+<li>replaceWithMultiple(nodes) 用多个节点替换当前节点</li>
+<li>replaceWithSourceString(replacement) 解析源码成 AST，然后替换当前节点</li>
+<li>remove() 删除当前节点</li>
+<li>traverse(visitor, state) 遍历当前节点的子节点，传入 visitor 和 state（state 是不同节点间传递数据的方式）</li>
+<li>skip() 跳过当前节点的子节点的遍历</li>
+<li>stop() 结束所有遍历</li>
+</ul>
+<h2 id="作用域-path-scope"><a href="#作用域-path-scope" class="headerlink" title="作用域 path.scope"></a>作用域 path.scope</h2><ul>
+<li>scope.bindings 当前作用域内声明的所有变量</li>
+<li>scope.block 生成作用域的 block，详见下文</li>
+<li>scope.path 生成作用域的节点对应的 path</li>
+<li>scope.references 所有 binding 的引用对应的 path，详见下文</li>
+<li>scope.dump() 打印作用域链的所有 binding 到控制台</li>
+<li>scope.parentBlock() 父级作用域的 block</li>
+<li>getAllBindings() 从当前作用域到根作用域的所有 binding 的合并</li>
+<li>getBinding(name) 查找某个 binding，从当前作用域一直查找到根作用域</li>
+<li>getOwnBinding(name) 从当前作用域查找 binding</li>
+<li>parentHasBinding(name, noGlobals) 查找某个 binding，从父作用域查到根作用域，不包括当前作用域。可以通过 noGlobals 参数指定是否算上全局变量（比如console，不需要声明就可用），默认是 false</li>
+<li>removeBinding(name) 删除某个 binding</li>
+<li>hasBinding(name, noGlobals) 从当前作用域查找 binding，可以指定是否算上全局变量，默认是 false</li>
+<li>moveBindingTo(name, scope) 把当前作用域中的某个 binding 移动到其他作用域</li>
+<li>generateUid(name) 生成作用域内唯一的名字，根据 name 添加下划线，比如 name 为 a，会尝试生成 _a，如果被占用就会生成 __a，直到生成没有被使用的名字。</li>
+</ul>
+<h2 id="scope-bindings、scope-references（重点）"><a href="#scope-bindings、scope-references（重点）" class="headerlink" title="scope.bindings、scope.references（重点）"></a>scope.bindings、scope.references（重点）</h2><p>作用域中保存的是声明的变量和对应的值，每一个声明叫做一个binding（绑定）。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-attr">bindings</span>: &#123;<br>    <span class="hljs-attr">a</span>: &#123;<br>        <span class="hljs-attr">constant</span>: <span class="hljs-literal">true</span>,<br>        <span class="hljs-attr">constantViolations</span>: [],<br>        <span class="hljs-attr">identifier</span>: &#123;<span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;Identifier&#x27;</span>, ...&#125;<br>        <span class="hljs-attr">kind</span>:<span class="hljs-string">&#x27;const&#x27;</span>,<br>        <span class="hljs-attr">path</span>: &#123;node,...&#125;<br>        <span class="hljs-attr">referenced</span>: <span class="hljs-literal">false</span><br>        <span class="hljs-attr">referencePaths</span>: [],<br>        <span class="hljs-attr">references</span>: <span class="hljs-number">0</span>,<br>        <span class="hljs-attr">scope</span>: ...<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="AST别名"><a href="#AST别名" class="headerlink" title="AST别名"></a>AST别名</h2><p><a target="_blank" rel="noopener" href="https://github.com/babel/babel/blob/main/packages/babel-types/src/ast-types/generated/index.ts#L2489-L2535">https://github.com/babel/babel/blob/main/packages/babel-types/src/ast-types/generated/index.ts#L2489-L2535</a></p>
+<h1 id="Generate"><a href="#Generate" class="headerlink" title="Generate"></a>Generate</h1><p>generate 是把 AST 打印成字符串，是一个从根节点递归打印的过程，对不同的 AST 节点做不同的处理，在这个过程中把抽象语法树中省略掉的一些分隔符重新加回来。</p>
+<h2 id="sourcemap"><a href="#sourcemap" class="headerlink" title="sourcemap"></a>sourcemap</h2><p>babel 对源码进行了修改，生成的目标代码可能改动很大，如果直接调试目标代码，想手动定位回源码比较难。所以需要一种自动关联源码的方式，就是 sourcemap。</p>
+<p>调试代码时定位到源码</p>
+<p>线上报错定位到源码</p>
+<h3 id="生成-sourcemap"><a href="#生成-sourcemap" class="headerlink" title="生成 sourcemap"></a>生成 sourcemap</h3><ol>
+<li>创建一个 SourceMapGenerator 对象</li>
+<li>通过 addMapping 方法添加一个映射</li>
+<li>通过 toString 转为 sourcemap 字符串</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SourceMapGenerator</span>(&#123;<br>  <span class="hljs-attr">file</span>: <span class="hljs-string">&quot;source-mapped.js&quot;</span><br>&#125;);<br><br>map.<span class="hljs-title function_">addMapping</span>(&#123;<br>  <span class="hljs-attr">generated</span>: &#123;<br>    <span class="hljs-attr">line</span>: <span class="hljs-number">10</span>,<br>    <span class="hljs-attr">column</span>: <span class="hljs-number">35</span><br>  &#125;,<br>  <span class="hljs-attr">source</span>: <span class="hljs-string">&quot;foo.js&quot;</span>,<br>  <span class="hljs-attr">original</span>: &#123;<br>    <span class="hljs-attr">line</span>: <span class="hljs-number">33</span>,<br>    <span class="hljs-attr">column</span>: <span class="hljs-number">2</span><br>  &#125;,<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;christopher&quot;</span><br>&#125;);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(map.<span class="hljs-title function_">toString</span>());<br></code></pre></td></tr></table></figure>
+
+<h1 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h1><p>插件做的事情就是通过 api 拿到 types、template 等，通过 state.opts 拿到参数，然后通过 path 来修改 AST。可以通过 state 放一些遍历过程中共享的数据，通过 file 放一些整个插件都能访问到的一些数据，除了这两种之外，还可以通过 this 来传递本对象共享的数据。</p>
+<p>babel plugin 有两种格式：</p>
+<h3 id="返回对象的函数"><a href="#返回对象的函数" class="headerlink" title="返回对象的函数"></a>返回对象的函数</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">//options 就是外面传入的参数</span><br><span class="hljs-comment">//dirname 是目录名（不常用）</span><br><span class="hljs-comment">//api 里包含了各种 babel 的 api，比如 types、template 等，这些包就不用在插件里单独单独引入了，直接取来用就行。</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span>(<span class="hljs-params">api, options, dirname</span>) &#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">inherits</span>: parentPlugin,<br>    <span class="hljs-title function_">manipulateOptions</span>(<span class="hljs-params">options, parserOptions</span>) &#123;<br>        options.<span class="hljs-property">xxx</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br>    &#125;,<br>    <span class="hljs-title function_">pre</span>(<span class="hljs-params">file</span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();<br>    &#125;,<br>    <span class="hljs-attr">visitor</span>: &#123;<br>      <span class="hljs-title class_">StringLiteral</span>(path, state) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span>.<span class="hljs-title function_">set</span>(path.<span class="hljs-property">node</span>.<span class="hljs-property">value</span>, <span class="hljs-number">1</span>);<br>      &#125;<br>    &#125;,<br>    <span class="hljs-title function_">post</span>(<span class="hljs-params">file</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span>);<br>    &#125;<br>  &#125;;<br>&#125;<br><span class="hljs-comment">//inherits 指定继承某个插件，和当前插件的 options 合并，通过 Object.assign 的方式。</span><br><span class="hljs-comment">//visitor 指定 traverse 时调用的函数。</span><br><span class="hljs-comment">//pre 和 post 分别在遍历前后调用，可以做一些插件调用前后的逻辑，比如可以往 file（表示文件的对象，在插件里面通过 state.file 拿到）中放一些东西，在遍历的过程中取出来。</span><br><span class="hljs-comment">//manipulateOptions 用于修改 options，是在插件里面修改配置的方式，比如 syntaxt plugin一般都会修改 parser options：</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>插件的第二种格式就是直接写一个对象，不用函数包裹，这种方式用于不需要处理参数的情况。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> plugin =  &#123;<br>    <span class="hljs-title function_">pre</span>(<span class="hljs-params">state</span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();<br>    &#125;,<br>    <span class="hljs-attr">visitor</span>: &#123;<br>      <span class="hljs-title class_">StringLiteral</span>(path, state) &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span>.<span class="hljs-title function_">set</span>(path.<span class="hljs-property">node</span>.<span class="hljs-property">value</span>, <span class="hljs-number">1</span>);<br>      &#125;<br>    &#125;,<br>    <span class="hljs-title function_">post</span>(<span class="hljs-params">state</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">cache</span>);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h3 id="preset"><a href="#preset" class="headerlink" title="preset"></a>preset</h3><p>babel 会按照如下顺序处理插件和 preset：</p>
+<ol>
+<li>先应用 plugin，再应用 preset</li>
+<li>plugin 从前到后，preset 从后到前</li>
+</ol>
+<p>名字</p>
+<p>babel 对插件名字的格式有一定的要求，比如最好包含 babel-plugin，如果不包含的话也会自动补充。</p>
+<p>babel plugin 名字的补全有这些规则：</p>
+<ul>
+<li>如果是 .&#x2F; 开头的相对路径，不添加 babel plugin，比如 .&#x2F;dir&#x2F;plugin.js</li>
+<li>如果是绝对路径，不添加 babel plugin，比如 &#x2F;dir&#x2F;plugin.js</li>
+<li>如果是单独的名字 aa，会添加为 babel-plugin-aa，所以插件名字可以简写为 aa</li>
+<li>如果是单独的名字 aa，但以 module 开头，则不添加 babel plugin，比如 module:aa</li>
+<li>如果 @scope 开头，不包含 plugin，则会添加 babel-plugin，比如 @scope&#x2F;mod 会变为 @scope&#x2F;babel-plugin-mod</li>
+<li>babel 自己的 @babel 开头的包，会自动添加 plugin，比如 @babel&#x2F;aa 会变成 @babel&#x2F;plugin-aa</li>
+</ul>
+<p>（preset也是一样）</p>
+<p>规则比较多，总结一下就是 babel 希望插件名字中能包含 babel plugin，这样写 plugin 的名字的时候就可以简化，然后 babel 自动去补充。所以我们写的 babel 插件最好是 babel-plugin-xx 和 @scope&#x2F;babel-plugin-xx 这两种，就可以简单写为 xx 和 @scope&#x2F;xx。</p>
+<h1 id="Babel-helpers"><a href="#Babel-helpers" class="headerlink" title="Babel helpers"></a>Babel helpers</h1><p><strong>babel helpers 是用于 babel plugin 逻辑复用的一些工具函数，分为用于注入 runtime 代码的 helper 和用于简化 AST 操作 的 helper两种。第一种都在 @babel&#x2F;helpers 包里，直接 this.addHelper(name) 就可以引入， 而第二种需要手动引入包和调用 api</strong></p>
+<h1 id="babel8"><a href="#babel8" class="headerlink" title="babel8"></a>babel8</h1><p>babel 中插件的应用顺序是：先 plugin 再 preset，plugin 从左到右，preset 从右到左，这样 plugin-transform-runtime 是在 preset-env 前面的。等 @babel&#x2F;plugin-transform-runtime 转完了之后，再交给 preset-env 这时候已经做了无用的转换了。而 @babel&#x2F;plugin-transform-runtime 并不支持 targets 的配置，就会做一些多余的转换和 polyfill。</p>
+<p>这个问题在即将到来的 babel8 中得到了解决。</p>
+<ul>
+<li>entry-global: 这个和之前的 useBuiltIns: entry 对标，就是全局引入 polyfill。</li>
+<li>usage-entry: 这个和 useBuiltIns: usage 对标，就是具体模块引入用到的 polyfill。</li>
+<li>usage-pure：这个就是之前需要 transform-runtime 插件做的事情，使用不污染全局变量的 pure 的方式引入具体模块用到的 polyfill.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/a634db01136b4f6fbeed661d2665995c">实战：自动埋点</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/4c8a0e59f9da480c902cf73c19fe2e41">实战：自动国际化</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/API-db78d69f198945809d27d59e39e8a154">实战：自动生产API文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/linter-be39538305c845bd9558de513634542e">实战：linter</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/type-checker-ec8410c3a1d74ffa976afb4c133f3773">实战：type checker</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/afc8dea4eb504483a0fad31331e25bdf">实战：压缩混淆</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/js-1148521abb6b43ceb1e2fc77949fe8a3">实战：js解释器</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/0c9cbf4fa5d941a9a02559f6b67c40c9">实战：模块遍历器</a></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/">#JavaScript</a>
+      
+        <a href="/tags/Babel/">#Babel</a>
+      
+        <a href="/tags/Webpack/">#Webpack</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Bebel笔记</div>
+      <div>https://www.zwjay.cn/2022/06/06/2022-06-06-Babel笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mr.Jaxson</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月6日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/26/2022-07-26-windows%E7%B3%BB%E7%BB%9Fshift%E5%8A%A0%E5%8F%B3%E9%94%AE%E7%AE%A1%E7%90%86%E5%91%98%E6%89%93%E5%BC%80CMD/" title="2022-07-26-windows系统shift加右键管理员打开CMD">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2022-07-26-windows系统shift加右键管理员打开CMD</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/06/2022-06-06-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E5%8C%BA%E5%88%AB%EF%BC%9F%E8%83%BD%E4%B8%8D%E8%83%BD%E4%BD%9C%E4%B8%BA%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" title="箭头函数与普通函数区别？能不能作为构造函数">
+                        <span class="hidden-mobile">箭头函数与普通函数区别？能不能作为构造函数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'http-zwjay-cn',
+              apikey: ''
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?0c5ab9917e153a67360172154ba0dc64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

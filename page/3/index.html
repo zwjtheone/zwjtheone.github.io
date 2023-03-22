@@ -1,0 +1,795 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mr.Jaxson">
+  <meta name="keywords" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
+  
+    <meta name="description" content="前端 | Jaxson, Web &amp; Mobile Lover，Front-End Engineer，UX Designer | 这里是 @Jaxson 的个人博客，与你一起发现更大的世界。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jaxson&#39;Blog">
+<meta property="og:url" content="https://www.zwjay.cn/page/3/index.html">
+<meta property="og:site_name" content="Jaxson&#39;Blog">
+<meta property="og:description" content="前端 | Jaxson, Web &amp; Mobile Lover，Front-End Engineer，UX Designer | 这里是 @Jaxson 的个人博客，与你一起发现更大的世界。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Mr.Jaxson">
+<meta property="article:tag" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Jaxson&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.zwjay.cn","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"0c5ab9917e153a67360172154ba0dc64","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 30vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jaxson&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="你好"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/07/07/2017-07-07-NodeJS-save-png/" target="_self">
+          Express保存base64图片
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2017/07/07/2017-07-07-NodeJS-save-png/" target="_self">
+        <div>
+          DOM12&lt;input type&#x3D;&quot;file&quot; name&#x3D;&quot;image&quot; accept&#x3D;&quot;image&#x2F;*&quot;&gt;&lt;input type&#x3D;&quot;submit&quot; value&#x3D;&quot;上传图片&quot;&gt;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-07-07 10:15" pubdate>
+              2017-07-07
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NodeJS/">#NodeJS</a>
+            
+              <a href="/tags/Express/">#Express</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/07/07/2017-07-07-HTML5-upload-file/" target="_self">
+          FormData异步上传文件
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2017/07/07/2017-07-07-HTML5-upload-file/" target="_self">
+        <div>
+          DOM1&lt;input type&#x3D;&quot;file&quot; id&#x3D;&quot;file&quot;&gt; 一、创建FormData放入待上传文件123456&#x2F;&#x2F;准备FormData对象var formData &#x3D; new FormData(),    uploadFile &#x3D; document.getElementById(&amp;#x27;file&amp;#x27;);    &#x2F;&#x2F;将文件放入F
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-07-07 10:10" pubdate>
+              2017-07-07
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HTML5/">#HTML5</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/07/07/2017-07-07-JS-module-note/" target="_self">
+          JS中的模块化演变
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2017/07/07/2017-07-07-JS-module-note/" target="_self">
+        <div>
+          为什么有模块概念理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。 但是，Javascript不是一种模块化编程语言，在es6以前，它是不支持”类”（class），所以也就没有”模块”（module）了。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-07-07 09:25" pubdate>
+              2017-07-07
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/07/04/2017-07-04-import%E5%92%8Cexport%E7%AC%94%E8%AE%B0/" target="_self">
+          彻底搞清楚javascript中的require、import和export
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2017/07/04/2017-07-04-import%E5%92%8Cexport%E7%AC%94%E8%AE%B0/" target="_self">
+        <div>
+          为什么有模块概念理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。 但是，Javascript不是一种模块化编程语言，在es6以前，它是不支持”类”（class），所以也就没有”模块”（module）了。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-07-04 20:20" pubdate>
+              2017-07-04
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/06/19/2017-06-19-git-flow/" target="_self">
+          git-flow
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2017/06/19/2017-06-19-git-flow/" target="_self">
+        <div>
+          原文：https:&#x2F;&#x2F;www.thinktxt.com&#x2F;git&#x2F;2017&#x2F;06&#x2F;16&#x2F;create-git-flow-efficient-work-flow.html master【线上的分支】 - 是线上版本分支，也可以理解为随时可以发布的稳定版本，要求在每次版本封版后由主程序员合并release分支代码进来，开发人员不可以随意操作。 develop【开发基础分支】 - 包含待上线的新内容，是你
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-06-19 19:20" pubdate>
+              2017-06-19
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/git/">#git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/06/01/2017-06-01-javascript-%E7%BC%96%E5%86%99%E7%8E%B0%E4%BB%A3Javascript%E4%BB%A3%E7%A0%81/" target="_self">
+          javascript深入浅出系列-es6-编写现代Javascript代码
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2017/06/01/2017-06-01-javascript-%E7%BC%96%E5%86%99%E7%8E%B0%E4%BB%A3Javascript%E4%BB%A3%E7%A0%81/" target="_self">
+        <div>
+          原文： https:&#x2F;&#x2F;dev.to&#x2F;scastiel&#x2F;writing-modern-javascript-code 编写现代Javascript代码记得以前Javascript还处于是一种改变页面元素的语言？这些日子已经过去了，每种语言随着时间的推移而发展，我们使用它们也是如此，看看你一两年前写的代码：你不感到羞愧吗？如果是，这篇帖子就是写给你的🙂 在这篇文章里，我会尝试这里列出一些很好的做法
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-06-01 19:20" pubdate>
+              2017-06-01
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">#JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2016/12/21/2016-12-21-git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" target="_self">
+          git常用操作-远程管理与分支管理
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2016/12/21/2016-12-21-git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" target="_self">
+        <div>
+          git常用操作之远程管理与分支管理远程管理 克隆远程库， git clone &amp;#x67;&amp;#105;&amp;#x74;&amp;#x40;&amp;#103;&amp;#x69;&amp;#x74;&amp;#104;&amp;#117;&amp;#98;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109;:meiminjun&#x2F;meiminjun.github.io.git  要关联一个远程库，使用命令git remote add origin git
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2016-12-21 11:57" pubdate>
+              2016-12-21
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/git/">#git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2016/12/01/2016-12-20-git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_self">
+          git常用操作-回滚代码
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2016/12/01/2016-12-20-git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" target="_self">
+        <div>
+          git常用操作-回滚代码git常用命令 git init 初始化一个git仓库 git add readme.txt 把文件添加到仓库(可以后面添加多个文件) git add . 提交当前目录到缓存区 git commit -m “wrote a readme file” 把文件提交到仓库： git status命令可以让我们时刻掌握仓库当前的状态 git diff 查看修改记录(按q退出) gi
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2016-12-01 12:57" pubdate>
+              2016-12-01
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/git/">#git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2016/11/30/2016-11-30-HTML5-API-all/" target="_self">
+          HTML5-API汇总学习
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2016/11/30/2016-11-30-HTML5-API-all/" target="_self">
+        <div>
+          看MDN 的文档才知道HTML5很多API还没有学习过，这里记录学习HTML5 新 api。 &lt;!DOCTYPE html&gt; &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt; HTML5是最新进化的标准,它定义了HTML。这个词代表了两个不同的概  这是一个新版本的HTML语言,与新元素、属性和行为 和一组更大的技术,允许更加多样化和功能强大的Web站点和应
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2016-11-30 15:43" pubdate>
+              2016-11-30
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HTML5/">#HTML5</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2016/11/30/2016-11-30-Modify-cordova&amp;ionic-package-name/" target="_self">
+          修改ionic中android程序的包名
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2016/11/30/2016-11-30-Modify-cordova&amp;ionic-package-name/" target="_self">
+        <div>
+          默认ionic新建工程的时候指定的Android版本包名是：com.ionicframework.starter；这样固定死包名的话会导致一个问题，多个ionic工程无法正常安装到手机当中，后面安装的程序始终会把之前的程序覆盖掉，这样的话就太悲剧了。现在给大家演示一下如何修改ionic工程的包名： #1.修改android工程下源码文件的路径和Java文件的包名：   修改java文件包名：找到p
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2016-11-30 15:42" pubdate>
+              2016-11-30
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Ionic/">#Ionic</a>
+            
+              <a href="/tags/Android/">#Android</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?0c5ab9917e153a67360172154ba0dc64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

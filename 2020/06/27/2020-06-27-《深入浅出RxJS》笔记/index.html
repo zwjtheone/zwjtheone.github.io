@@ -1,0 +1,1231 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mr.Jaxson">
+  <meta name="keywords" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
+  
+    <meta name="description" content="深入浅出RxJSmocheng&#x2F;dissecting-rxjs 一、函数式编程声明式和声明式相对应的编程方式叫做命令式编程（Imperative Programming），命令式编程也是最常见的一种编程方式。 纯函数（pure Function）❑ 函数的执行过程完全由输入参数决定，不会受除参数之外的任何数据影响。 ❑ 函数不会修改任何外部状态，比如修改全局变量或传入的参数对象。 不纯函">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《深入浅出RxJS》笔记">
+<meta property="og:url" content="https://www.zwjay.cn/2020/06/27/2020-06-27-%E3%80%8A%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BARxJS%E3%80%8B%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Jaxson&#39;Blog">
+<meta property="og:description" content="深入浅出RxJSmocheng&#x2F;dissecting-rxjs 一、函数式编程声明式和声明式相对应的编程方式叫做命令式编程（Imperative Programming），命令式编程也是最常见的一种编程方式。 纯函数（pure Function）❑ 函数的执行过程完全由输入参数决定，不会受除参数之外的任何数据影响。 ❑ 函数不会修改任何外部状态，比如修改全局变量或传入的参数对象。 不纯函">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%201.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%202.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%203.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%204.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%205.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%206.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%207.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%208.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%209.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2010.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2011.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2012.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2013.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2014.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2015.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2016.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2017.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2018.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2019.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2020.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2021.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2022.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2023.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2024.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2025.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2026.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2027.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2028.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2029.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2030.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2031.png">
+<meta property="og:image" content="https://www.zwjay.cn/img/Untitled%2032.png">
+<meta property="article:published_time" content="2020-06-26T18:07:36.000Z">
+<meta property="article:modified_time" content="2023-03-22T17:56:16.328Z">
+<meta property="article:author" content="Mr.Jaxson">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="RxJS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.zwjay.cn/img/Untitled.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>《深入浅出RxJS》笔记 - Jaxson&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.zwjay.cn","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"0c5ab9917e153a67360172154ba0dc64","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 30vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jaxson&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="《深入浅出RxJS》笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mr.Jaxson
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-06-27 02:07" pubdate>
+          2020年6月27日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          29k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          246 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《深入浅出RxJS》笔记</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年3月23日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="深入浅出RxJS"><a href="#深入浅出RxJS" class="headerlink" title="深入浅出RxJS"></a>深入浅出RxJS</h1><p><a target="_blank" rel="noopener" href="https://github.com/mocheng/dissecting-rxjs">mocheng&#x2F;dissecting-rxjs</a></p>
+<h1 id="一、函数式编程"><a href="#一、函数式编程" class="headerlink" title="一、函数式编程"></a>一、函数式编程</h1><h3 id="声明式"><a href="#声明式" class="headerlink" title="声明式"></a>声明式</h3><p>和声明式相对应的编程方式叫做命令式编程（Imperative Programming），命令式编程也是最常见的一种编程方式。</p>
+<h3 id="纯函数（pure-Function）"><a href="#纯函数（pure-Function）" class="headerlink" title="纯函数（pure Function）"></a>纯函数（pure Function）</h3><p>❑ 函数的执行过程完全由输入参数决定，不会受除参数之外的任何数据影响。</p>
+<p>❑ 函数不会修改任何外部状态，比如修改全局变量或传入的参数对象。</p>
+<h3 id="不纯函数（Impure-Function）"><a href="#不纯函数（Impure-Function）" class="headerlink" title="不纯函数（Impure Function）"></a>不纯函数（Impure Function）</h3><p>❑ 改变全局变量的值。</p>
+<p>❑ 改变输入参数引用的对象，就像上面不是纯函数的arrayPush实现。</p>
+<p>❑ 读取用户输入，比如调用了alert或者confirm函数。</p>
+<p>❑ 抛出一个异常。</p>
+<p>❑ 网络输入&#x2F;输出操作，比如通过AJAX调用一个服务器的API。</p>
+<p>❑ 操作浏览器的DOM。</p>
+<h3 id="数据不可变"><a href="#数据不可变" class="headerlink" title="数据不可变"></a>数据不可变</h3><h1 id="二、响应式编程"><a href="#二、响应式编程" class="headerlink" title="二、响应式编程"></a>二、响应式编程</h1><p>❑ 数据流抽象了很多现实问题。</p>
+<p>❑ 擅长处理异步操作。</p>
+<p>❑ 把复杂问题分解成简单问题的组合。</p>
+<p>RxJS擅长处理异步操作，因为它对数据采用“推”的处理方式，当一个数据产生的时候，被推送给对应的处理函数，这个处理函数不用关心数据是同步产生的还是异步产生的，这样就把开发者从命令式异步处理的枷锁中解放了出来。</p>
+<h1 id="三、Observable和Observer"><a href="#三、Observable和Observer" class="headerlink" title="三、Observable和Observer"></a>三、Observable和Observer</h1><h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>❑ 如何产生事件，这是发布者的责任，在RxJS中是Observable对象的工作。</p>
+<p>❑ 如何响应事件，这是观察者的责任，在RxJS中由subscribe的参数来决定。</p>
+<p>❑ 什么样的发布者关联什么样的观察者，也就是何时调用subscribe。</p>
+<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p>通常所说的是“拉”式的迭代器实现，而RxJS实现的是“推”式的迭代器实现。</p>
+<p>Observable &#x3D; Publisher+Iterator</p>
+<p>Observable产生的事件，只有Observer通过subscribe订阅之后才会收到，在unsubscribe之后就不会再收到。</p>
+<h1 id="四、Hot-Observable和Cold-Observable"><a href="#四、Hot-Observable和Cold-Observable" class="headerlink" title="四、Hot Observable和Cold Observable"></a>四、Hot Observable和Cold Observable</h1><p>❑ 选择A：错过就错过了，只需要接受从订阅那一刻开始Observable产生的数据就行。 <em><strong>Hot Observable</strong></em></p>
+<p>❑ 选择B：不能错过，需要获取Observable之前产生的数据。 <strong>Cold Observabl</strong>e</p>
+<h1 id="五、操作符-operator"><a href="#五、操作符-operator" class="headerlink" title="五、操作符-operator"></a>五、操作符-operator</h1><p>❑ filter和map都是Observable对象的成员函数。</p>
+<p>❑ filter和map的返回结果依然是Observable对象。</p>
+<p>❑ filter和map不会改变原本的Observable对象。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>❑ 创建类（creation）❑ 转化类（transformation）❑ 过滤类（filtering）❑ 合并类（combination）❑ 多播类（multicasting）❑ 错误处理类（error Handling）❑ 辅助工具类（utility）❑ 条件分支类（conditional &amp; boolean）❑ 数学和合计类（mathmatical &amp; aggregate）</p>
+<p>无论是静态操作符还是实例操作符，它们都会返回一个Observable对象。在链式调用中，静态操作符（<strong>of</strong>）只能出现在首位，实例操作符则(<strong>map</strong>)可以出现在任何位置，因为链式调用中各级之间靠Observable对象来关联，一个静态函数在链式调用的中间位置是不可能有容身之处的。</p>
+<p>一个操作符应该是静态的形式还是实例的形式，完全由其功能决定。例如：merge支持两种形式</p>
+<h3 id="操作符函数的实现"><a href="#操作符函数的实现" class="headerlink" title="操作符函数的实现"></a>操作符函数的实现</h3><p>每个操作符都是一个函数，不管实现什么功能，都必须考虑下面这些功能要点：</p>
+<p>❑ 返回一个全新的Observable对象。</p>
+<p>❑ 对上游和下游的订阅及退订处理。</p>
+<p>❑ 处理异常情况。</p>
+<p>❑ 及时释放资源。</p>
+<h3 id="lettable和pipeable"><a href="#lettable和pipeable" class="headerlink" title="lettable和pipeable"></a>lettable和pipeable</h3><p>❑ 静态类型操作符没有pipeable操作符的对应形式。</p>
+<p>❑ 拥有多个上游Observable对象的操作符没有pipeable操作符的对应形式。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-keyword">of</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/observable/of&#x27;</span>;<br>    <span class="hljs-keyword">import</span> &#123;map&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/operators&#x27;</span>;<br><br>    <span class="hljs-keyword">const</span> source$ = <span class="hljs-title function_">of</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br>    <span class="hljs-keyword">const</span> result$ = source$.<span class="hljs-title function_">pipe</span>(<br>      <span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x ＊ x)<br>    );<br><br>    source$.<span class="hljs-title function_">subscribe</span>(<span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>);<br></code></pre></td></tr></table></figure>
+
+<p>任何Observable对象都支持pipe</p>
+<p>pipe不只是具备let的功能，还有“管道”功能，可以把多个lettable操作符串接起来，形成数据管道。</p>
+<p>lettable操作符和pipeable操作符是同一种东西在不同阶段的称呼而已。</p>
+<p>❑ do改为tap❑ catch改为catchError❑ switch改为switchAll❑ finally改为finalize</p>
+<h1 id="六、创建数据流"><a href="#六、创建数据流" class="headerlink" title="六、创建数据流"></a>六、创建数据流</h1><blockquote>
+<p>在RxJS的世界中，一切都以数据流为中心，在代码中，数据流以Observable类的实例对象形式存在，创建Observable对象就是数据流处理的开始。</p>
+</blockquote>
+<p><img src="/img/Untitled.png" srcset="/img/loading.gif" lazyload alt="Untitled.png"></p>
+<p>❑ 产生哪些数据。</p>
+<p>❑ 数据之间的先后顺序如何。</p>
+<h3 id="create"><a href="#create" class="headerlink" title="create"></a>create</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-title class_">Observable</span>.<span class="hljs-property">create</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">subscribe</span>) &#123;<br>		<span class="hljs-comment">// Observable构造函数，避免直接使用这种方式</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Observable</span>(subscribe);<br>    &#125;;<br></code></pre></td></tr></table></figure>
+
+<h3 id="fromEventPattern"><a href="#fromEventPattern" class="headerlink" title="fromEventPattern"></a>fromEventPattern</h3><p>感觉你叫适用websocket场景</p>
+<p>fromEventPattern提供的就是一种模式，不管数据源是怎样的行为，最后的产出都是一个Observable对象，对一个Observable对象交互的两个重要操作就是subscribe和unsubscribe，所以，fromEventPattern设计为这样，当Observable对象被subscribe时第一个函数参数被调用，被unsubscribe时第二个函数参数被调用。在上面的例子中，两个函数参数分别为addHandler和removeHandler。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">Observable</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/Observable&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-title class_">EventEmitter</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;events&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/observable/fromEventPattern&#x27;</span>;<br><br>    <span class="hljs-keyword">const</span> emitter = <span class="hljs-keyword">new</span> <span class="hljs-title class_">EventEmitter</span>();<br><br>    <span class="hljs-keyword">const</span> <span class="hljs-title function_">addHandler</span> = (<span class="hljs-params">handler</span>) =&gt; &#123;<br>      emitter.<span class="hljs-title function_">addListener</span>(<span class="hljs-string">&#x27;msg&#x27;</span>, handler);<br>    &#125;;<br>    <span class="hljs-keyword">const</span> <span class="hljs-title function_">removeHandler</span> = (<span class="hljs-params">handler</span>) =&gt; &#123;<br>      emitter.<span class="hljs-title function_">removeListener</span>(<span class="hljs-string">&#x27;msg&#x27;</span>, handler);<br>    &#125;<br>    <span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">fromEventPattern</span>(addHandler, removeHandler);<br><br>    <span class="hljs-keyword">const</span> subscription = source$.<span class="hljs-title function_">subscribe</span>(<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>,<br>      <span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;catch&#x27;</span>, error),<br>      <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;complete&#x27;</span>)<br>    );<br><br>    emitter.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&#x27;msg&#x27;</span>, <span class="hljs-string">&#x27;hello&#x27;</span>);<br>    emitter.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&#x27;msg&#x27;</span>, <span class="hljs-string">&#x27;world&#x27;</span>);<br><br>    subscription.<span class="hljs-title function_">unsubscribe</span>();<br>    emitter.<span class="hljs-title function_">emit</span>(<span class="hljs-string">&#x27;msg&#x27;</span>, <span class="hljs-string">&#x27;end&#x27;</span>);<br><span class="hljs-comment">//输出</span><br><span class="hljs-comment">//hello</span><br>    <span class="hljs-comment">//world</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="七、合并数据流"><a href="#七、合并数据流" class="headerlink" title="七、合并数据流"></a>七、合并数据流</h1><p><img src="/img/Untitled%201.png" srcset="/img/loading.gif" lazyload alt="Untitled%201.png"></p>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><ul>
+<li>concat适用于同步事件</li>
+</ul>
+<h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><ul>
+<li>应该避免用merge去合并同步数据流，merge应该用于合并产生异步数据的Observable对象，一个常用场景就是合并DOM事件。</li>
+<li>merge第二个参数concurrent，同步限流</li>
+<li>我们用fromEvent分别获得给定DOM元素的click和touchend事件数据流，然后用merge合并，这之后，无论是click事件发生还是touchend事件发生，都会流到merge产生的Observable对象中，这样就可以统一用一个事件处理函数eventHandler来处理。</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> click$ = <span class="hljs-title class_">Rx</span>.<span class="hljs-property">Observable</span>.<span class="hljs-title function_">fromEvent</span>(element, <span class="hljs-string">&#x27;click&#x27;</span>);<br>    <span class="hljs-keyword">const</span> touchend$ = <span class="hljs-title class_">Rx</span>.<span class="hljs-property">Observable</span>.<span class="hljs-title function_">fromEvent</span>(element, <span class="hljs-string">&#x27;touchend&#x27;</span>);<br>    <span class="hljs-title class_">Rx</span>.<span class="hljs-property">Observable</span>.<span class="hljs-title function_">merge</span>(click$, touchend$).<span class="hljs-title function_">subscribe</span>(eventHandler);<br></code></pre></td></tr></table></figure>
+
+<h3 id="zip拉链式组合（一一对应）"><a href="#zip拉链式组合（一一对应）" class="headerlink" title="zip拉链式组合（一一对应）"></a>zip拉链式组合（一一对应）</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// 输出</span><br>[ <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;a&#x27;</span> ]<br>    [ <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;b&#x27;</span> ]<br>    [ <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;c&#x27;</span> ]<br>    complete<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>数据积压问题</li>
+</ul>
+<h3 id="combineLatest：合并最后一个数据"><a href="#combineLatest：合并最后一个数据" class="headerlink" title="combineLatest：合并最后一个数据"></a>combineLatest：合并最后一个数据</h3><p><img src="/img/Untitled%202.png" srcset="/img/loading.gif" lazyload alt="Untitled%202.png"></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source1$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">of</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>);<br>    <span class="hljs-keyword">const</span> source2$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">of</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);<br>    <span class="hljs-keyword">const</span> source3$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">of</span>(<span class="hljs-string">&#x27;x&#x27;</span>, <span class="hljs-string">&#x27;y&#x27;</span>);<br>    <span class="hljs-keyword">const</span> result$ = source1$.<span class="hljs-title function_">combineLatest</span>(source2$, source3$);<br><br>[ <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;x&#x27;</span> ]<br>    [ <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;y&#x27;</span> ]<br>    complete<br></code></pre></td></tr></table></figure>
+
+<p>没错！实际上只有最后一个参数source3$的所有数据进入了combineLatest的下游，排在前面的source1$和source2$都只有最后一个数据有幸进入下游，最终下游Observable对象的数据个数也是由source3$决定。归根结底，是因为source1$和source2$被订阅得早，它们吐出最后一个数据之前combineLatest都凑不齐所有参与Observable对象的“最新数据”。</p>
+<ul>
+<li><p>定制下游数据</p>
+<p>  combineLatest的最后一个参数可以是一个函数，这里我们称之为project, project的作用是让combineLatest把所有上游的“最新数据”扔给下游之前做一下组合处理，这样就可以不用传递一个数组下去，可以传递任何由“最新数据”产生的对象。project可以包含多个参数，每一个参数对应的是上游Observable的最新数据，project返回的结果就是combineLatest塞给下游的结果。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source1$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">500</span>, <span class="hljs-number">1000</span>);<br>    <span class="hljs-keyword">const</span> source2$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>);<br>    <span class="hljs-keyword">const</span> <span class="hljs-title function_">project</span> = (<span class="hljs-params">a, b</span>) =&gt; <span class="hljs-string">`<span class="hljs-subst">$&#123;a&#125;</span> and <span class="hljs-subst">$&#123;b&#125;</span>`</span>;<br>    <span class="hljs-keyword">const</span> result$ = source1$.<span class="hljs-title function_">combineLatest</span>(source2$, project);<br><br><span class="hljs-comment">//0 and 0</span><br>    <span class="hljs-comment">//1 and 0</span><br>    <span class="hljs-comment">//1 and 1</span><br>    <span class="hljs-comment">//2 and 1</span><br><br><span class="hljs-comment">// 等同于</span><br><span class="hljs-keyword">const</span> source1$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">500</span>, <span class="hljs-number">1000</span>);<br>    <span class="hljs-keyword">const</span> source2$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">1000</span>, <span class="hljs-number">1000</span>);<br>    <span class="hljs-keyword">const</span> <span class="hljs-title function_">project</span> = (<span class="hljs-params">a, b</span>) =&gt; <span class="hljs-string">`<span class="hljs-subst">$&#123;a&#125;</span> and <span class="hljs-subst">$&#123;b&#125;</span>`</span>;<br>    <span class="hljs-keyword">const</span> result$ = source1$.<span class="hljs-title function_">combineLatest</span>(source2$)<br>      .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">arr</span> =&gt;</span> <span class="hljs-title function_">project</span>(...arr));<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>zip和combineLatest一样默认输出的数据是数组形式，因此，zip也和combineLatest一样，可以利用最后一个函数参数来订制输出数据的形式。</p>
+<ul>
+<li><p>多重依赖问题，一个小缺陷</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; timer, <span class="hljs-title class_">Observable</span>, combineLatest &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; map &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/operators&#x27;</span>;<br>  <br><span class="hljs-keyword">const</span> original$ = <span class="hljs-title function_">timer</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1000</span>);<br><span class="hljs-keyword">const</span> source1$ = original$.<span class="hljs-title function_">pipe</span>(<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x+<span class="hljs-string">&#x27;a&#x27;</span>));<br><span class="hljs-keyword">const</span> source2$ = original$.<span class="hljs-title function_">pipe</span>(<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x+<span class="hljs-string">&#x27;b&#x27;</span>));<br><span class="hljs-keyword">const</span> result$ = <span class="hljs-title function_">combineLatest</span>(source1$, source2$);<br><br>result$.<span class="hljs-title function_">subscribe</span>(<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>,<br>  <span class="hljs-literal">null</span>,<br>  <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;complete&#x27;</span>)<br>);<br></code></pre></td></tr></table></figure>
+
+<p>  <img src="/img/Untitled%203.png" srcset="/img/loading.gif" lazyload alt="Untitled%203.png"></p>
+<p>  <img src="/img/Untitled%204.png" srcset="/img/loading.gif" lazyload alt="Untitled%204.png"></p>
+<p>  <img src="/img/Untitled%205.png" srcset="/img/loading.gif" lazyload alt="Untitled%205.png"></p>
+<p>  combineLatest的glitch现象</p>
+</li>
+</ul>
+<h3 id="withLatestFrom"><a href="#withLatestFrom" class="headerlink" title="withLatestFrom"></a>withLatestFrom</h3><p>withLatestFrom的功能类似于combineLatest，但是给下游推送数据只能由一个上游Observable对象驱动。</p>
+<p>withLatestFrom只有实例操作符的形式，而且所有输入Observable的地位并不相同，调用withLatestFrom的那个Observable对象起到主导数据产生节奏的作用，作为参数的Observable对象只能贡献数据，不能控制产生数据的时机。</p>
+<ul>
+<li><p>实例代码</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">Observable</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/Observable&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/observable/timer&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/withLatestFrom&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/map&#x27;</span>;<br><br>    <span class="hljs-keyword">const</span> source1$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">0</span>, <span class="hljs-number">2000</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-number">100</span> ＊ x);<br>    <span class="hljs-keyword">const</span> source2$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">500</span>, <span class="hljs-number">1000</span>);<br>    <span class="hljs-keyword">const</span> result$ = source1$.<span class="hljs-title function_">withLatestFrom</span>(source2$, <span class="hljs-function">(<span class="hljs-params">a, b</span>)=&gt;</span> a+b);<br><br>    result$.<span class="hljs-title function_">subscribe</span>(<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>,<br>      <span class="hljs-literal">null</span>,<br>      <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;complete&#x27;</span>)<br>    );<br></code></pre></td></tr></table></figure>
+
+<p>  产生下游数据流result$中数据的步骤如下：</p>
+<p>  1）在第0毫秒时刻，source1$吐出数据100, source2$没有吐出数据，所以没有给下游产生数据。2）在第500毫秒时刻，source2$吐出数据0，但是source2$并不直接触发给下游传递数据，所以依然没有给下游产生产生数据。</p>
+<p>  3）在第1500毫秒时刻，source2$吐出数据1，同样不会给下游产生数据。</p>
+<p>  4）在第2000毫秒时刻，source1$吐出数据100，这个数据会加上source2$吐出的最后一个数据1，产生传给下游的数据101。</p>
+<p>  5）在第2500毫秒时刻，source2$吐出数据2，不会给下游产生数据。</p>
+<p>  6）在第3500毫秒时刻，source2$吐出数据3，不会给下游产生数据。</p>
+<p>  7）在第4000毫秒时刻，source1$吐出数据200，这个数据加上source2$吐出的最后一个数据3，产生传给下游的的数据203。</p>
+<p>  <img src="/img/Untitled%206.png" srcset="/img/loading.gif" lazyload alt="Untitled%206.png"></p>
+</li>
+<li><p>解决glitch</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">Observable</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/Observable&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/observable/timer&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/withLatestFrom&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/map&#x27;</span>;<br><br>    <span class="hljs-keyword">const</span> original$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1000</span>);<br>    <span class="hljs-keyword">const</span> source1$ = original$.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x+<span class="hljs-string">&#x27;a&#x27;</span>);<br>    <span class="hljs-keyword">const</span> source2$ = original$.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x+<span class="hljs-string">&#x27;b&#x27;</span>);<br>    <span class="hljs-keyword">const</span> result$ = source1$.<span class="hljs-title function_">withLatestFrom</span>(source2$);<br><br>    result$.<span class="hljs-title function_">subscribe</span>(<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>,<br>      <span class="hljs-literal">null</span>,<br>      <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;complete&#x27;</span>)<br>    );<br><span class="hljs-comment">//[ &#x27;0a&#x27;, &#x27;0b&#x27; ]</span><br>    <span class="hljs-comment">//[ &#x27;1a&#x27;, &#x27;1b&#x27; ]</span><br>    <span class="hljs-comment">//[ &#x27;2a&#x27;, &#x27;2b&#x27; ]</span><br>    <span class="hljs-comment">//[ &#x27;3a&#x27;, &#x27;3b&#x27; ]</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>一般来说，当要合并多个Observable的“最新数据”，要从combineLatest和withLatest-From中选一个操作符来操作，根据下面的原则来选择：</p>
+<p>❑ 如果要合并完全独立的Observable对象，使用combineLatest。</p>
+<p>❑ 如何要把一个Observable对象“映射”成新的数据流，同时要从其他Observable对象获取“最新数据”，就是用withLatestFrom。</p>
+<p>combineLatest会为输入Observable对象的每个next动作产生一个数据，很多情况下这是最理想的一种方式，但是，如果输入Observable对象之间有依赖关系，就会发生多个输入Observable对象同时产生数据的情况，这就是glitch现象。glitch现象虽然存在，但是并不一定会造成bug，比如，在网页应用中，用combineLatest来合并用户操作事件产生的数据流，就可能发生glitch现象，但是从用户感知角度，可能完全注意不到。</p>
+<h3 id="race胜者通吃"><a href="#race胜者通吃" class="headerlink" title="race胜者通吃"></a>race胜者通吃</h3><p><img src="/img/Untitled%207.png" srcset="/img/loading.gif" lazyload alt="Untitled%207.png"></p>
+<h3 id="startWith"><a href="#startWith" class="headerlink" title="startWith"></a>startWith</h3><p>startWith只有实例操作符的形式，其功能是让一个Observable对象在被订阅的时候，总是先吐出指定的若干个数据</p>
+<p>startWith满足了需要连续链式调用的要求，像下面这样：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">original$.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x ＊ <span class="hljs-number">2</span>).<span class="hljs-title function_">startWith</span>(<span class="hljs-string">&#x27;start&#x27;</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-string">&#x27;ok&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="forkJoin"><a href="#forkJoin" class="headerlink" title="forkJoin"></a>forkJoin</h3><p>forkJoin只有静态操作符的形式，可以接受多个Observable对象作为参数，forkJoin产生的Observable对象也很有特点，它只会产生一个数据，因为它会等待所有参数Observable对象的最后一个数据，也就是说，只有当所有Observable对象都完结，确定不会有新的数据产生的时候，forkJoin就会把所有输入Observable对象产生的最后一个数据合并成给下游唯一的数据。</p>
+<p>所以说，forkJoin就是RxJS界的Promise.all, Promise.all等待所有输入的Promise对象成功之后把结果合并，forkJoin等待所有输入的Observable对象完结之后把最后一个数据合并。</p>
+<h1 id="八、高阶Observable"><a href="#八、高阶Observable" class="headerlink" title="八、高阶Observable"></a>八、高阶Observable</h1><p>用Observable来管理多个Observable对象</p>
+<p>数据流虽然管理的是数据，数据流自身也可以认为是一种数据，既然数据可以用Observable来管理，那么数据流本身也可以用Observable来管理，让需要被管理的Observable对象成为其他Observable对象的数据，用现成的管理Observable对象的方法来管理Observable对象，这就是高阶Observable的意义。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> ho$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1000</span>)<br>     .<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>)<br>     .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1500</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">y</span> =&gt;</span> x+<span class="hljs-string">&#x27;:&#x27;</span>+y).<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>));<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>❑ concatAll</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> ho$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1000</span>)<br>  .<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>)<br>  .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1500</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">y</span> =&gt;</span> x+<span class="hljs-string">&#x27;:&#x27;</span>+y).<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>));<br><span class="hljs-keyword">const</span> concated$ = ho$.<span class="hljs-title function_">concatAll</span>();<br></code></pre></td></tr></table></figure>
+
+<p>  <img src="/img/Untitled%208.png" srcset="/img/loading.gif" lazyload alt="Untitled%208.png"></p>
+</li>
+<li><p>❑ mergeAll</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> ho$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1000</span>)<br>  .<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>)<br>  .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1500</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">y</span> =&gt;</span> x+<span class="hljs-string">&#x27;:&#x27;</span>+y).<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>));<br><span class="hljs-keyword">const</span> concated$ = ho$.<span class="hljs-title function_">mergeAll</span>();<br></code></pre></td></tr></table></figure>
+
+<p>  <img src="/img/Untitled%209.png" srcset="/img/loading.gif" lazyload alt="Untitled%209.png"></p>
+</li>
+<li><p>❑ zipAll</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> ho$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1000</span>)<br>  .<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>)<br>  .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1500</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">y</span> =&gt;</span> x+<span class="hljs-string">&#x27;:&#x27;</span>+y).<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>));<br><span class="hljs-keyword">const</span> concated$ = ho$.<span class="hljs-title function_">zipAll</span>();<br><span class="hljs-comment">//[ &#x27;0:0&#x27;, &#x27;1:0&#x27; ]</span><br><span class="hljs-comment">//[ &#x27;0:1&#x27;, &#x27;1:1&#x27; ]</span><br><span class="hljs-comment">//complete</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>❑ combineAll（这个是个例外，因为combineLatestAll显得有点啰嗦）</p>
+<p>  combineAll就是处理高阶Observable的combineLatest</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> ho$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1000</span>)<br>  .<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>)<br>  .<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1500</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">y</span> =&gt;</span> x+<span class="hljs-string">&#x27;:&#x27;</span>+y).<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>));<br><br><span class="hljs-keyword">const</span> concated$ = ho$.<span class="hljs-title function_">combineAll</span>();<br><span class="hljs-comment">//[ &#x27;0:0&#x27;, &#x27;1:0&#x27; ]</span><br><span class="hljs-comment">//[ &#x27;0:1&#x27;, &#x27;1:0&#x27; ]</span><br><span class="hljs-comment">//[ &#x27;0:1&#x27;, &#x27;1:1&#x27; ]</span><br><span class="hljs-comment">//complete</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>❑ switch：切换输入Observable</p>
+<p>  <img src="/img/Untitled%2010.png" srcset="/img/loading.gif" lazyload alt="Untitled%2010.png"></p>
+</li>
+<li><p>❑ exhaust(exhaust的含义就是“耗尽”，这个操作符的意思是，在耗尽当前内部Observable的数据之前不会切换到下一个内部Observable对象。)</p>
+<p>  <img src="/img/Untitled%2011.png" srcset="/img/loading.gif" lazyload alt="Untitled%2011.png"></p>
+</li>
+</ul>
+<p>本章介绍了RxJS中合并多个Observable对象的方法。不同合并方法的区别在于用何种策略把上游多个Observable对象中数据转手给下游，例如，concat的策略是让上游Observable对象的数据依次首尾相连，merge是任何数据先来先进入下游，zip则要保证所有上游Observable对象公平，数据要一一对应。本章涉及了combineLatest的glitch问题，但是这个问题可以通过使用withLatest-From克服。产生的数据依然是Observable对象的Observable，称为高阶Observable, RxJS提供了合并高阶Observable对象中数据的操作符，实际上只是把多个Observable对象参数改成了一个高阶Observable对象</p>
+<h1 id="九、辅助类操作符"><a href="#九、辅助类操作符" class="headerlink" title="九、辅助类操作符"></a>九、辅助类操作符</h1><p><img src="/img/Untitled%2012.png" srcset="/img/loading.gif" lazyload alt="Untitled%2012.png"></p>
+<h3 id="数学类操作符"><a href="#数学类操作符" class="headerlink" title="数学类操作符"></a>数学类操作符</h3><p>这些操作符必定会遍历上游Observable对象中吐出的所有数据才给下游传递数据，也就是说，它们只有在上游完结的时候，才给下游传递唯一数据。</p>
+<p>❑ count</p>
+<p>❑ max</p>
+<p>❑ min</p>
+<p>❑ reduce</p>
+<h3 id="条件布尔类操作符"><a href="#条件布尔类操作符" class="headerlink" title="条件布尔类操作符"></a>条件布尔类操作符</h3><p>❑ every</p>
+<p>❑ find</p>
+<p>❑ findIndex</p>
+<p>❑ defaultIfEmpty</p>
+<h1 id="十、过滤数据流"><a href="#十、过滤数据流" class="headerlink" title="十、过滤数据流"></a>十、过滤数据流</h1><p><img src="/img/Untitled%2013.png" srcset="/img/loading.gif" lazyload alt="Untitled%2013.png"></p>
+<h2 id="回压控制"><a href="#回压控制" class="headerlink" title="回压控制"></a>回压控制</h2><p><img src="/img/Untitled%2014.png" srcset="/img/loading.gif" lazyload alt="Untitled%2014.png"></p>
+<p>回压这种现象的根源是数据管道中某个环节数据涌入的速度超过了处理速度，那么，既然处理不过来，干脆就舍弃掉一些涌入的数据，这种方式称为“有损回压控制”（Lossy BackpressureControl），通过损失掉一些数据让流入和处理的速度平衡，剩下来的问题就是决定舍弃掉哪些数据？</p>
+<p>回压控制操作符包含以下这些：</p>
+<ul>
+<li><p>❑ throttle</p>
+<p>  当source$产生第一个数据0的时候，throttle就和throttleTime一样，毫不犹豫地把这个数据0传给了下游，在此之前会用这个数据0作为参数调用durationSelector，然后订阅durationSelector返回的Observable对象，在这个Observable对象产生第一个对象之前，所有上游传过来的数据都会被丢弃，于是，source$产生的数据1就被丢弃了，因为durationSelector返回的Observable对象被订阅之后2000毫秒才会产生数据。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">durationSelector</span> = value =&gt; &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(value % <span class="hljs-number">3</span> === <span class="hljs-number">0</span> ? <span class="hljs-number">2000</span> : <span class="hljs-number">1000</span>);<br>    &#125;;<br></code></pre></td></tr></table></figure>
+
+<p>  <img src="/img/Untitled%2015.png" srcset="/img/loading.gif" lazyload alt="Untitled%2015.png"></p>
+</li>
+</ul>
+<p>❑ debounce</p>
+<p>❑ audit</p>
+<ul>
+<li><p>❑ sample</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span>  notifer$  =  <span class="hljs-title class_">Rx</span>.<span class="hljs-property">Observable</span>.<span class="hljs-title function_">fromEvent</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#sample&#x27;</span>),<br>      <span class="hljs-string">&#x27;click&#x27;</span>);<br>    <span class="hljs-keyword">const</span> tick$ = <span class="hljs-title class_">Rx</span>.<span class="hljs-property">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x＊<span class="hljs-number">10</span>);<br>    <span class="hljs-keyword">const</span> sample$ = tick$.<span class="hljs-title function_">sample</span>(notifer$);<br>    sample$.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> &#123;<br>      <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#text&#x27;</span>).<span class="hljs-property">innerText</span> = value<br>    &#125;);<br></code></pre></td></tr></table></figure>
+
+<p>  tick$产生的数据经过sample过滤，并不会全部都被下游接收到，只有当参数notifer$产生一个数据的时候，sample就会从上次产生数据到现在的时间段里提取最后一个数据传给下游，这个数据肯定就是订阅以来逝去的毫秒数。</p>
+</li>
+</ul>
+<p>还有对应上面四个操作符的带Time后缀的简化版操作符：</p>
+<ul>
+<li><p>❑ throttleTime</p>
+<p>  使用throttleTime和debounceTime的一个常见场景就是用来减少不必要的DOM事件处理。例如，在购物类网站中，用户当然可以通过多次点击“添加到购物车”来购买多个同一商品，但是为了防止用户点击过快，可以限定一秒钟之内最多添加一次商品，这时候就用得上throttleTime，</p>
+<p>  <img src="/img/Untitled%2016.png" srcset="/img/loading.gif" lazyload alt="Untitled%2016.png"></p>
+</li>
+</ul>
+<p>❑ debounceTime</p>
+<p>❑ auditTime</p>
+<ul>
+<li><p>❑ sampleTime</p>
+<p>  sample的含义就是“采样”，从字面上就看得出来，sample是要根据规则在一个范围内取一个数据，抛弃其他数据。</p>
+<p>  <img src="/img/Untitled%2017.png" srcset="/img/loading.gif" lazyload alt="Untitled%2017.png"></p>
+</li>
+</ul>
+<p>7.2.1 throttle和debounce在实际应用中，经常需要限制某种事情发生的次数，下面是一些具体例子：❑ 鼠标移动事件的处理函数。❑ 屏幕滚动事件的处理函数。❑ 渲染网页的函数。❑ 数据管道中处理数据的函数。</p>
+<ul>
+<li><p>throttleTime与auditTime:</p>
+<p>  audit翻译过来的意思是“审计”或者“查账”，从字面上看不出它的具体含义。但实际上，可以认为audit是做throttle类似的工作，不同的是在“节流时间”范围内，throttle把第一个数据传给下游，audit是把最后一个数据传给下游。</p>
+<p>  <img src="/img/Untitled%2018.png" srcset="/img/loading.gif" lazyload alt="Untitled%2018.png"></p>
+</li>
+</ul>
+<h2 id="根据数据序列做回压控制"><a href="#根据数据序列做回压控制" class="headerlink" title="根据数据序列做回压控制"></a>根据数据序列做回压控制</h2><p>上游的数据序列是0、0、1、1、1、1、2、2、2、2，某些场景下，我们只需要处理0、1、2分别一次就行，当某个数据连续出现的时候，我们没必要处理，而且这种数据序列的出现和时间又没有关系，所以前面介绍的回压控制操作符都帮不上忙，这时候就需要用上名字里包含distinct的操作符了。</p>
+<ul>
+<li><p>❑ distinct(数据去重)</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">Observable</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/Observable&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/observable/of&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/distinct&#x27;</span>;<br><br>    <span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">of</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>);<br>    <span class="hljs-keyword">const</span> distinct$ = source$.<span class="hljs-title function_">distinct</span>();<br><br>    distinct$.<span class="hljs-title function_">subscribe</span>(<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>,<br>      <span class="hljs-literal">null</span>,<br>      <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;complete&#x27;</span>)<br>    );<br></code></pre></td></tr></table></figure>
+
+<p>  distinct还有一个潜在的问题需要注意，如果上游产生的不同数据很多，那么可能会造成内存泄露。可以想象一下distinct的实现方式，它肯定先订阅上游的Observable对象，然后自己维护一个“唯一数据集合”记录上游推送下来的所有唯一的数据，每当上游产生一个数据，distinct就查看一下这个数据是否在“唯一数据集合”中，如果存在，那就直接舍弃掉；如果不存在，就把这个数据添加到“唯一数据集合”中，然后把这个数据传给下游。这样一种实现方式下，如果上游不同的数据有多少，那么distinct需要维护的“唯一数据集合”也就有多大，如果上游Observable对象不同的数据很多而且总不完结，那么distinct就要持续维持庞大的数据集合，这就会造成不必要的数据压力。为了克服这个缺点，distinct还提供第二个可选的参数flush，第二个参数可以是一个Observable对象，每当这个Observable对象产生数据时，distinct就清空“唯一数据集合”，一切重来，这样就避免了内存泄露。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">100</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x % <span class="hljs-number">1000</span>);<br><span class="hljs-keyword">const</span> distinct$ = source$.<span class="hljs-title function_">distinct</span>(<span class="hljs-literal">null</span>, <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">500</span>));<br></code></pre></td></tr></table></figure>
+
+<p>  source$中会产生1000个唯一的数据，distinct的第二个参数每500毫秒就会产生一个数据，这个数据是什么值不重要，重要的是它会清空distinct以前积压的所有唯一数据。使用了distinct的第二个参数，distinct表现出来的行为就会和以前不一样，传递给下游的数据并不是在整个上游所有数据中唯一的，而只是在一段时间范围内是唯一的，是否使用这个参数要根据实际应用需求来判断。</p>
+</li>
+<li><p>❑ distinctUntilChanged</p>
+<p>  也是淘汰掉重复的数据，但distinct-UntilChanged拿到一个数据不是和一个“唯一数据集合”比较，而是直接和上一个数据比较，也就是说，这个操作符要保存上游产生的上一个数据就足够，当然，也就没有了distinct潜在的内</p>
+</li>
+<li><p>❑ distinctUntilKeyChanged</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">of</span>(<br>  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-attr">version</span>: <span class="hljs-string">&#x27;v4&#x27;</span>&#125;,<br>  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;React&#x27;</span>, <span class="hljs-attr">version</span>: <span class="hljs-string">&#x27;v15&#x27;</span>&#125;,<br>  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;React&#x27;</span>, <span class="hljs-attr">version</span>: <span class="hljs-string">&#x27;v16&#x27;</span>&#125;,<br>  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-attr">version</span>: <span class="hljs-string">&#x27;v5&#x27;</span>&#125;<br>);<br><span class="hljs-keyword">const</span> distinct$ = source$.<span class="hljs-title function_">distinctUntilKeyChanged</span>(<span class="hljs-string">&#x27;name&#x27;</span>);<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="其他过滤方式"><a href="#其他过滤方式" class="headerlink" title="其他过滤方式"></a>其他过滤方式</h2><p>❑ ignoreElement</p>
+<p>ignoreElments就是要忽略所有的元素，这里的元素是指上游产生的数据，忽略所有上游数据，只关心complete和error事件。下面是使用ignoreElements的示例代码：</p>
+<p>❑ elementAt</p>
+<p>elementAt把上游数据当数组，只获取指定下标的那一个数据，就这个简单功能，使用first配合函数参数也一样能够实现。不过elementAt还有一个附加功能体现了自己的存在价值，它的第二个参数可以指定没有对应下标数据时的默认值。</p>
+<p>❑ single</p>
+<p>elementAt把上游数据当数组，只获取指定下标的那一个数据，就这个简单功能，使用first配合函数参数也一样能够实现。不过elementAt还有一个附加功能体现了自己的存在价值，它的第二个参数可以指定没有对应下标数据时的默认值。</p>
+<p>本章介绍RxJS中过滤数据的方法，在数据管道中，对数据很重要的一部分操作就是把不相关的数据清理掉，这就是过滤类操作符的工作。在数据管道中，当数据产生的速度过快，超过下游处理能力时，就会产生回压现象。数据过滤是进行回压控制的最简单方法，通过抛弃一些数据来缓解压力。但是具体抛弃哪些数据，需要根据不同应用场景来决定使用什么样的过滤类操作符。</p>
+<h1 id="十一、转化数据流"><a href="#十一、转化数据流" class="headerlink" title="十一、转化数据流"></a>十一、转化数据流</h1><p>transformation 操作符</p>
+<p><img src="/img/Untitled%2019.png" srcset="/img/loading.gif" lazyload alt="Untitled%2019.png"></p>
+<p>对数据的转化可以分为两种：</p>
+<p>❑ 对每个数据做转化。上游的数据和下游的数据依然是一对一的关系，只不过传给下游的数据已经是另一个数据，比如上游传下来的是数据A，传给下游的是数据f（A），其中f是一个函数，以A为输入返回一个新的数据，下节介绍的“映射数据”就是这一种方法。</p>
+<p>❑ 不转化单个数据，而是把数据重新组合。比如上游传下来的是A、B、C三个数据，传给下游的是一个数组数据[A, B, C]，并没有改变上游数据本身，只是把它们都塞到了一个数组对象中传给下游。本章后面介绍的无损回压控制操作符就是这种转化方式。</p>
+<h3 id="映射数据-有损，舍弃掉一些数据"><a href="#映射数据-有损，舍弃掉一些数据" class="headerlink" title="映射数据(有损，舍弃掉一些数据)"></a>映射数据(有损，舍弃掉一些数据)</h3><ul>
+<li><p>map</p>
+<p>  mapFunc这个函数是map的第一个参数，充当project的功能，同时，map还有第二个参数context对象，如果用上这个参数，那么mapFunc在每次执行的时候，this就是map的这个参数context，所以，在mapFunc中this.separator的值就是冒号（:）。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">Observable</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/Observable&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/observable/of&#x27;</span>;<br>    <span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/map&#x27;</span>;<br><br>    <span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">of</span>(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>);<br>    <span class="hljs-keyword">const</span> mapFunc = <span class="hljs-keyword">function</span>(<span class="hljs-params">value, index</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;value&#125;</span> <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.separator&#125;</span> <span class="hljs-subst">$&#123;index&#125;</span>`</span>;<br>    &#125;;<br>    <span class="hljs-keyword">const</span> context = &#123;<span class="hljs-attr">separator</span>: <span class="hljs-string">&#x27;:&#x27;</span>&#125;;<br>    <span class="hljs-keyword">const</span> result$ = source$.<span class="hljs-title function_">map</span>(mapFunc, context);<br>    result$.<span class="hljs-title function_">subscribe</span>(<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>,<br>      <span class="hljs-literal">null</span>,<br>      <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;complete&#x27;</span>)<br>    );<br></code></pre></td></tr></table></figure>
+
+<p>  这是map的一个小的功能细节，但是，并不建议使用，因为按照函数式编程的原则，应该尽量让函数成为纯函数，如果一个函数的执行依赖于this，那么就难以预料这个函数的执行结果，并不是什么好事。所以，虽然我们知道map有这个功能，但要尽量避免使用它。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">of</span>(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>);<br>    <span class="hljs-keyword">const</span> context = &#123;<span class="hljs-attr">separator</span>: <span class="hljs-string">&#x27;:&#x27;</span>&#125;;<br>    <span class="hljs-keyword">const</span> mapFunc = (<span class="hljs-keyword">function</span> (<span class="hljs-params">separator</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span>(<span class="hljs-params">value, index</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;value&#125;</span> <span class="hljs-subst">$&#123;separator&#125;</span> <span class="hljs-subst">$&#123;index&#125;</span>`</span>;<br>      &#125;;<br>    &#125;)(context.<span class="hljs-property">separator</span>)<br>    <span class="hljs-keyword">const</span> result$ = source$.<span class="hljs-title function_">map</span>(mapFunc);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>mapTo</p>
+</li>
+<li><p>pluck</p>
+</li>
+</ul>
+<h3 id="缓存窗口：无损回压控制"><a href="#缓存窗口：无损回压控制" class="headerlink" title="缓存窗口：无损回压控制"></a>缓存窗口：无损回压控制</h3><p>将上游数据放在数组中传给下游的操作符都包含buffer这个词:</p>
+<p>❑ bufferTime</p>
+<p>❑ bufferCount</p>
+<p>❑ bufferWhen</p>
+<p>❑ bufferToggle</p>
+<p>❑ buffer</p>
+<p>此外，将上游数据放在Observable中传给下游的操作符都包含window这个词，包括：</p>
+<p>❑ windowTime</p>
+<p>❑ windowCount</p>
+<p>❑ windowWhen</p>
+<p>❑ windowToggle</p>
+<p>❑ window</p>
+<p><strong>windowTime和bufferTime</strong></p>
+<p><img src="/img/Untitled%2020.png" srcset="/img/loading.gif" lazyload alt="Untitled%2020.png"></p>
+<p><strong>windowCount和bufferCount</strong></p>
+<p><img src="/img/Untitled%2021.png" srcset="/img/loading.gif" lazyload alt="Untitled%2021.png"></p>
+<p><strong>windowWhen和bufferWhen</strong></p>
+<p>closingSelector之所以没有参数，是因为调用closingSelector的时机和上游数据的产生没有任何关系，windowWhen并不是在上游产生数据的时候调用closingSelector，而是在被订阅的那个时刻或者缓冲区间结束时就调用closingSelector。因为closingSelector没有参数，所以，这种灵活性其实并不容易真正实现。如果让closingSelector是纯函数，因为没有参数，就只能通过访问外部变量来获得变化因素，这显然违背函数式编程的原则；或者，保持closingSelector为纯函数，但是返回一个数据源在外部的Observable对象，下面是一个例子：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">closingSelector</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">fromEvent</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;#click&quot;</span>, <span class="hljs-string">&quot;click&quot;</span>));<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>其中的closingSelector依然是一个纯函数，但是返回的Observable对象中的数据却是可以变化，以此实现了灵活的控制，但是这种灵活本身并不好应用，所以，windowWhen和bufferWhen属于挺鸡肋的两个操作符，</p>
+<p><strong>windowToggle和bufferToggle</strong></p>
+<p>windowToggle和bufferToggle需要两个参数，第一个参数opening$是一个Observable对象，每当opening$产生一个数据，代表一个缓冲窗口的开始，同时，第二个参数closingSelector也会被调用，用来获得缓冲窗口结束的通知。windowToggle和bufferToggle的closingSelector函数参数是有参数的，参数就是openings$产生的数据，如此一来，由opening$控制每个缓冲窗口的开始时间，由closingSelector来控制每个缓冲窗口的结束时间，就可以完全控制产生高阶Observable对象的节奏。</p>
+<p>如果closingSelector产生的Observable对象产生数据的延时超过了opening$产生数据的延迟，windowToggle产生的内部Observable之间有可能产生数据重叠。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>);<br><span class="hljs-keyword">const</span> openings$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">0</span>, <span class="hljs-number">400</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">closingSelector</span> = value =&gt; &#123;<br>  <span class="hljs-keyword">return</span> value % <span class="hljs-number">2</span> === <span class="hljs-number">0</span> ? <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">200</span>) : <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">100</span>);<br>&#125;;<br><span class="hljs-keyword">const</span> result$ = source$.<span class="hljs-title function_">windowToggle</span>(openings$, closingSelector);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/Untitled%2022.png" srcset="/img/loading.gif" lazyload alt="Untitled%2022.png"></p>
+<p><strong>window和buffer</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>);<br><span class="hljs-keyword">const</span> notifer$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>);<br><span class="hljs-keyword">const</span> result$ = source$.<span class="hljs-title function_">window</span>(notifer$);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/Untitled%2023.png" srcset="/img/loading.gif" lazyload alt="Untitled%2023.png"></p>
+<h2 id="高阶的map"><a href="#高阶的map" class="headerlink" title="高阶的map"></a>高阶的map</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">project</span> = (<span class="hljs-params">value, index</span>) =&gt; &#123;<br>          <span class="hljs-keyword">return</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">100</span>).<span class="hljs-title function_">take</span>(<span class="hljs-number">5</span>);<br>        &#125;<br><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">200</span>);<br>        <span class="hljs-keyword">const</span> result$ = source$.<span class="hljs-title function_">map</span>(project);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/Untitled%2024.png" srcset="/img/loading.gif" lazyload alt="Untitled%2024.png"></p>
+<p>所有高阶map的操作符都有一个函数参数project，但是和普通map不同，普通map只是把一个数据映射为另一个数据，而高阶map的函数参数project把一个数据映射为一个Observable对象。</p>
+<p>高阶map，所做的事情就是比普通的map更进一步，不只是把project返回的结果丢给下游就完事，而是把每个内部Observable中的数据做组合，通俗一点说就是“砸平”</p>
+<p>RxJS提供的高阶map操作符有如下几个：</p>
+<ul>
+<li><p>❑ concatMap</p>
+<p>  <img src="/img/Untitled%2025.png" srcset="/img/loading.gif" lazyload alt="Untitled%2025.png"></p>
+<ul>
+<li><p>最好场景是实现DOM拖拽</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> box = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#box&#x27;</span>);<br><span class="hljs-keyword">const</span> mouseDown$ = <span class="hljs-title class_">Rx</span>.<span class="hljs-property">Observable</span>.<span class="hljs-title function_">fromEvent</span>(box, <span class="hljs-string">&#x27;mousedown&#x27;</span>);<br><span class="hljs-keyword">const</span> mouseUp$ = <span class="hljs-title class_">Rx</span>.<span class="hljs-property">Observable</span>.<span class="hljs-title function_">fromEvent</span>(box, <span class="hljs-string">&#x27;mouseup&#x27;</span>);<br><span class="hljs-keyword">const</span> mouseOut$ = <span class="hljs-title class_">Rx</span>.<span class="hljs-property">Observable</span>.<span class="hljs-title function_">fromEvent</span>(box, <span class="hljs-string">&#x27;mouseout&#x27;</span>);<br><span class="hljs-keyword">const</span> mouseMove$ = <span class="hljs-title class_">Rx</span>.<span class="hljs-property">Observable</span>.<span class="hljs-title function_">fromEvent</span>(box, <span class="hljs-string">&#x27;mousemove&#x27;</span>);<br><br><span class="hljs-keyword">const</span> drag$ = mouseDown$.<span class="hljs-title function_">concatMap</span>(<span class="hljs-function">(<span class="hljs-params">startEvent</span>)=&gt;</span> &#123;<br><span class="hljs-keyword">const</span> initialLeft = box.<span class="hljs-property">offsetLeft</span>;<br><span class="hljs-keyword">const</span> initialTop = box.<span class="hljs-property">offsetTop</span>;<br><span class="hljs-keyword">const</span> stop$ = mouseUp$.<span class="hljs-title function_">merge</span>(mouseOut$);<br><br><span class="hljs-keyword">return</span> mouseMove$.<span class="hljs-title function_">takeUntil</span>(stop$)).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">moveEvent</span> =&gt;</span> &#123;<br>	  <span class="hljs-keyword">return</span> &#123;<br>	    <span class="hljs-attr">x</span>: moveEvent.<span class="hljs-property">x</span> - startEvent.<span class="hljs-property">x</span> + initialLeft,<br>	    <span class="hljs-attr">y</span>: moveEvent.<span class="hljs-property">y</span> - startEvent.<span class="hljs-property">y</span> + initialTop,<br>	  &#125;;<br>	&#125;);<br>&#125;);<br>drag$.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> &#123;<br>  box.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = event.<span class="hljs-property">x</span> + <span class="hljs-string">&#x27;px&#x27;</span>;<br>  box.<span class="hljs-property">style</span>.<span class="hljs-property">top</span> = event.<span class="hljs-property">y</span> + <span class="hljs-string">&#x27;px&#x27;</span>;<br>&#125;);<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>❑ mergeMap</p>
+<p>  <img src="/img/Untitled%2026.png" srcset="/img/loading.gif" lazyload alt="Untitled%2026.png"></p>
+<ul>
+<li><p>适用AJAX场景</p>
+<p>  mergeMap能够解决异步操作的问题，最典型的应用场景就是对于AJAX请求的处理。在一个网页应用中，一个很典型的场景，每点击某个元素就需要发送一个AJAX请求给服务器端，同时还要根据返回结果更新网页中的状态，AJAX的处理当然是一个异步过程，使用传统的方法来解决这样的异步过程代码会十分繁杂。</p>
+</li>
+</ul>
+</li>
+<li><p>❑ switchMap</p>
+<p>  switchMap依然在上游产生数据的时候去调用函数参数project，但它和concatMap和mergeMap都不一样的是，后产生的内部Observable对象优先级总是更高，只要有新的内部Observable对象产生，就立刻退订之前的内部Observable对象，改为从最新的内部Observable对象拿数据。就像switch的含义一样，switchMap做的是一个“切换”，只要有更新的内部Observable对象，就切换到最新的内部Observable对象</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">200</span>).<span class="hljs-title function_">take</span>(<span class="hljs-number">2</span>);<br><span class="hljs-keyword">const</span> result$ = source$.<span class="hljs-title function_">switchMap</span>(project);<br></code></pre></td></tr></table></figure>
+
+<p>  <img src="/img/Untitled%2027.png" srcset="/img/loading.gif" lazyload alt="Untitled%2027.png"></p>
+</li>
+<li><p>❑ exhaustMap</p>
+<p>  exhaustMap对数据的处理策略和switchMap正好相反，先产生的内部Observable优先级总是更高，后产生的内部Observable对象被利用的唯一机会，就是之前的内部Observable对象已经完结。</p>
+</li>
+</ul>
+<p>concatMap &#x3D; map + concatAll<br>mergeMap &#x3D; map + mergeAll<br>switchMap &#x3D; map + switch<br>exhaustMap &#x3D; map + exhaust</p>
+<h2 id="高阶的MapTo"><a href="#高阶的MapTo" class="headerlink" title="高阶的MapTo"></a>高阶的MapTo</h2><p>❑ concatMapTo</p>
+<p>❑ mergeMapTo</p>
+<p>❑ switchMapTo</p>
+<ul>
+<li><p>❑ expand</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">Observable</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/Observable&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/observable/interval&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/observable/of&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/delay&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/expand&#x27;</span>;<br><br><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">of</span>(<span class="hljs-number">1</span>);<br><span class="hljs-keyword">const</span> result$ = source$.<span class="hljs-title function_">expand</span>(<br>  <span class="hljs-function">(<span class="hljs-params">value, index</span>) =&gt;</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">of</span>(value * <span class="hljs-number">2</span>).<span class="hljs-title function_">delay</span>(<span class="hljs-number">1000</span>)<br>);<br><br>result$.<span class="hljs-title function_">subscribe</span>(<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>,<br>  <span class="hljs-literal">null</span>,<br>  <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;complete&#x27;</span>)<br>);<br><span class="hljs-comment">//---</span><br><span class="hljs-keyword">import</span> &#123; fromEvent, <span class="hljs-keyword">of</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; expand, mapTo, delay, take &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/operators&#x27;</span>;<br><br><span class="hljs-keyword">const</span> clicks = <span class="hljs-title function_">fromEvent</span>(<span class="hljs-variable language_">document</span>, <span class="hljs-string">&#x27;click&#x27;</span>);<br><span class="hljs-keyword">const</span> powersOfTwo = clicks.<span class="hljs-title function_">pipe</span>(<br>  <span class="hljs-title function_">mapTo</span>(<span class="hljs-number">1</span>),<br>  <span class="hljs-title function_">expand</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-title function_">of</span>(<span class="hljs-number">2</span> * x).<span class="hljs-title function_">pipe</span>(<span class="hljs-title function_">delay</span>(<span class="hljs-number">1000</span>))),<br>  <span class="hljs-title function_">take</span>(<span class="hljs-number">10</span>),<br>);<br>powersOfTwo.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x));<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="数据分组"><a href="#数据分组" class="headerlink" title="数据分组"></a>数据分组</h2><p>回压控制类的操作符也提供数据分组的功能，比如window这个操作符，也是把上游的数据放到不同的内部Observable对象中，但是window传给一个数据流的总是连续的数据。实际情况中，需要分组的数据可能是交叉出现的，比如对于随机的整数序列，需要把奇数放在一个分组，把偶数放在另一个分组，这样window就是肯定做不到的。</p>
+<p>为了支持数据分组，RxJS提供如下的操作符：</p>
+<ul>
+<li><p>❑ groupBy</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> intervalStream$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1000</span>);<br><span class="hljs-keyword">const</span> groupByStream$ = intervalStream$.<span class="hljs-title function_">groupBy</span>(<br>  <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x % <span class="hljs-number">2</span><br>);<br></code></pre></td></tr></table></figure>
+
+<p>  <img src="/img/Untitled%2028.png" srcset="/img/loading.gif" lazyload alt="Untitled%2028.png"></p>
+</li>
+<li><p>❑ partition</p>
+<p>  对于很多具体问题，使用groupBy显得是牛刀杀鸡，比如上游数据是整数序列，需要把奇数和偶数分组处理，如果用groupBy的话，产生的高阶Observable中也无法确定第一个Observable是代表奇数还是第二个Observable是代表奇数，因为这完全取决于上游是先出现奇数还是偶数，而且，实际上我们只需要产生两个Observable对象，但是却不得不去处理一个高阶Observable对象。RxJS提供的partition就能简化这样问题的处理，对于需要把一个Observable对象分为两个Observable对象的操作，partition比groupBy更直观更易用。</p>
+<p>  partition是RxJS提供的操作符中唯一的不返回Observable对象的操作符，它返回的是一个数组，包含两个元素，第一个元素是容纳满足判定条件的Observable对象，第二个元素自然是不满足判定条件的Observable对象。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">Observable</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/Observable&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/observable/timer&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/partition&#x27;</span>;<br><br><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>);<br><span class="hljs-keyword">const</span> [even$, odd$] = source$.<span class="hljs-title function_">partition</span>(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>);<br><br>even$.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;even:&#x27;</span>, value));<br>odd$.<span class="hljs-title function_">subscribe</span>(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;odd:&#x27;</span>, value));<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="累计数据"><a href="#累计数据" class="headerlink" title="累计数据"></a>累计数据</h2><ul>
+<li><p>❑ scan</p>
+<p>  scan可能是RxJS中对构建交互式应用程序最重要的一个操作符，因为它能够维持应用的当前状态，一方面可以根据数据流持续更新这些状态，另一方面可以持续把更新的状态传给另一个数据<br>  流用来做必要处理。</p>
+<p>  scan实际上实现了一个看不见的累计值变量，每一个上游数据都会更新这个累计值，这个累计值就可以用来保存应用中的状态，有了scan，我们就不需要一个全局变量来维持应用状态，因为状态隐藏在每一次调用scan之中，一个应用中如果使用了多个scan，这些内部状态也绝对不会互相干扰。</p>
+<p>  在使用RxJS的应用中，如果需要维持应用的状态，scan是首选。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">Observable</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/Observable&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/observable/interval&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;rxjs/add/operator/scan&#x27;</span>;<br><br><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">100</span>);<br><span class="hljs-keyword">const</span> result$ = source$.<span class="hljs-title function_">scan</span>(<span class="hljs-function">(<span class="hljs-params">accumulation, value</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> accumulation + value;<br>&#125;);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>❑ mergeScan</p>
+<ul>
+<li>规约函数返回的Observable对象如果返回多个数据如何处理？</li>
+<li>规约函数的accumulation参数会是什么值？</li>
+</ul>
+<p>  因为规约函数返回的Observable对象可能在上游再次推送数据下来的时候还没有完结，而mergeScan以类似merge的方式组合所有的Observable对象，导致各个Observable对象的数据可能会交叉传递给下游。这种交叉情况发生的时候，到底哪个Observable对象的数据是“最后一次传递给下游的数据”很难确定，所以下一次调用规约函数的accumulation参数也很难确定。因此，最好不要让mergeScan的规约函数返回包含多个数据的Observable对象，不然很容易失控。</p>
+<p>  <strong>适用场景：</strong></p>
+<p>  如果涉及多个AJAX请求之间的依赖关系，比如第一个AJAX请求的结果决定第二个AJAX请求的参数，那么mergeScan可能帮得上忙，在这个场景下，mergeScan的规约函数会返回Observable对象，但是这个Observable对象也最好只包含一个数据。</p>
+<p>  能够想象得到的最适合mergeScan的应用场景就是无限向下扩展功能，类似于微博和Twitter的界面，当用户滚动到网页底部，网页会发送一个AJAX请求获取更多的内容，从而让网页中的内容向下扩展，下面是示例代码：</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> result$ = throttledScrollToEnd$.<span class="hljs-title function_">mergeScan</span>(<span class="hljs-function">(<span class="hljs-params">allTweets, value</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">getTweets</span>(allTweets[allTweets.<span class="hljs-property">length</span>-<span class="hljs-number">1</span>]).<span class="hljs-title function_">map</span>(<br>      <span class="hljs-function"><span class="hljs-params">newTweets</span> =&gt;</span> allTweets.<span class="hljs-title function_">concat</span>(newTweets)<br>  );<br>&#125;, []);<br></code></pre></td></tr></table></figure>
+
+<p>  其中，throttleScrollToEnd$是一个使用回压控制处理过的滚动到网页底部的事件数据流，每当用户界面滚动到底部，mergeScan就产生作用。每一次规约，都会通过getTweets函数发送一个AJAX请求，为了获得向下扩展的内容，需要知道当前获得的最后一条tweet，所以要把allTweets最后一个元素作为参数传递给getTweets, getTweets也应该返回一个Observable对象元素，内容是从服务器端获得的新内容newTweets，通过map，把allTweets和newTweets合并，就是mergeScan规约的结果。总之，实际应用中如果使用mergeScan，最好让规约函数返回的Observable对象不要太复杂，即最好只包含一个数据，如果只是要维持应用状态，绝大部分情况使用scan就足够。</p>
+</li>
+</ul>
+<blockquote>
+<p>最简单的数据转化只是把上游的某个数据转化为对应的一个下游数据，但是数据转化不限于单个数据的转化，还包括把上游的多个数据合并为一个数据传给下游。这种合并转化操作不同于合并类操作符的操作，因为合并类操作符只是搬运上游数据，并不会改变数据自身。转化类操作符也可以用来控制回压，这是一种无损的回压控制方法，本质上是把如何过滤掉无关信息的决策权交给了下游。本章还介绍了转化类操作符对高阶Observable的支持，本质上，可以认为是map和某个合并类操作符的组合，比如concatMap就是map和concatAll的组合。</p>
+</blockquote>
+<h1 id="十二、异常错误处理"><a href="#十二、异常错误处理" class="headerlink" title="十二、异常错误处理"></a>十二、异常错误处理</h1><p><img src="/img/Untitled%2029.png" srcset="/img/loading.gif" lazyload alt="Untitled%2029.png"></p>
+<h3 id="try-x2F-catch只支持同步运算"><a href="#try-x2F-catch只支持同步运算" class="headerlink" title="try&#x2F;catch只支持同步运算"></a>try&#x2F;catch只支持同步运算</h3><p>try&#x2F;catch方式只适用于同步代码指令，对于异步操作，try&#x2F;catch就完全无用武之地了</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> invalidJsonString = <span class="hljs-string">&#x27;Not Found&#x27;</span>;<br><span class="hljs-keyword">try</span> &#123;<br>  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(invalidJsonString);<br>  &#125;, <span class="hljs-number">1000</span>);<br>&#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;catch error&#x27;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="回调函数的局限"><a href="#回调函数的局限" class="headerlink" title="回调函数的局限"></a>回调函数的局限</h3><p>回调地狱</p>
+<h3 id="Promise的异常处理"><a href="#Promise的异常处理" class="headerlink" title="Promise的异常处理"></a>Promise的异常处理</h3><p>Promise的异常处理依然存在不足之处。最主要的缺点就是，Promise不能够重试。</p>
+<p>对错误异常的处理可以分为两类：</p>
+<p>❑ 恢复（recover）</p>
+<p>就是本来虽然产生了错误异常，但是依然让运算继续下去。最常见的场景就是在获取某个数据的过程中发生了错误，这时候自然没有获得正确数据，但是用一个默认值当做返回的结果，让运算继续。</p>
+<p>❑ 重试（retry）</p>
+<p>就是当发生错误异常的时候，认为这个错误只是临时的，重新尝试之前发生错误的操作，寄希望于重试之后能够获得正常的结果。</p>
+<p>RxJS中有如下四个操作符来支持异常操作：</p>
+<p>❑ catch</p>
+<p>❑ retry</p>
+<p>retry这个操作符还不满足延时重试的要求，所以，还需要另外一个操作符，那就是retryWhen。</p>
+<ul>
+<li><p>❑ retryWhen</p>
+<p>  retryWhen接受一个函数作为参数，这个参数称为notifer，用于控制“重试”的节奏和次数，这比retry单纯只能控制重试次数要前进一步。notifer返回一个Observable对象，当上游扔下来错误的时候，retryWhen就会调用notifer，然后根据notifer返回的Observable对象来决定何时重试，这个返回的Observable就是一个“节奏控制器”，“节奏控制器”每吐出一个数据，就会进行一次重试。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);<br><span class="hljs-keyword">const</span> error$ = source$.<span class="hljs-title function_">map</span>(throwOnUnluckyNumber);<br><span class="hljs-keyword">const</span> retryWhen$ = error$.<span class="hljs-title function_">retryWhen</span>(err$ =&gt; <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">interval</span>(<span class="hljs-number">1000</span>));<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>延时重试</li>
+</ul>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);<br><span class="hljs-keyword">const</span> error$ = source$.<span class="hljs-title function_">map</span>(throwOnUnluckyNumber);<br><span class="hljs-keyword">const</span> retry$ = error$.<span class="hljs-title function_">retryWhen</span>(err$ =&gt; err$.<span class="hljs-title function_">delay</span>(<span class="hljs-number">1000</span>));<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>用retryWhen实现retry</li>
+</ul>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-title class_">Observable</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">retryCount</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">maxCount</span>) &#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">retryWhen</span>(err$ =&gt; &#123;<br>	  <span class="hljs-keyword">return</span> err$.<span class="hljs-title function_">scan</span>(<span class="hljs-function">(<span class="hljs-params">errorCount, err</span>) =&gt;</span> &#123;<br>	    <span class="hljs-keyword">if</span> (errorCount &gt;= maxCount) &#123;<br>	      <span class="hljs-keyword">throw</span> err;<br>	    &#125;<br>	    <span class="hljs-keyword">return</span> errorCount + <span class="hljs-number">1</span>;<br>	    &#125;, <span class="hljs-number">0</span>)<br>  &#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>延时并有上限的重试</li>
+</ul>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-title class_">Observable</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">retryWithDelay</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">maxCount, delayMilliseconds</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">retryWhen</span>(err$ =&gt; &#123;<br>    <span class="hljs-keyword">return</span> err$.<span class="hljs-title function_">scan</span>(<span class="hljs-function">(<span class="hljs-params">errorCount, err</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">if</span> (errorCount &gt;= maxCount) &#123;<br>        <span class="hljs-keyword">throw</span> err;<br>      &#125;<br>      <span class="hljs-keyword">return</span> errorCount + <span class="hljs-number">1</span>;<br>    &#125;, <span class="hljs-number">0</span>).<span class="hljs-title function_">delay</span>(delayMilliseconds);<br>  &#125;);<br>&#125;;<br><br><span class="hljs-keyword">const</span> source$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>);<br><span class="hljs-keyword">const</span> error$ = source$.<span class="hljs-title function_">map</span>(throwOnUnluckyNumber);<br><span class="hljs-keyword">const</span> retry$ = error$.<span class="hljs-title function_">retryWithDelay</span>(<span class="hljs-number">2</span>, <span class="hljs-number">1000</span>);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>递增延时重试</li>
+</ul>
+<p>  比如，访问某个服务器API，第一次失败，可以等100毫秒之后再尝试，结果又失败了，这时候一个比较经验性的做法不是再等100毫秒之后重试，过去的100毫秒服务器没有恢复，那估计再等100毫秒恢复的概率也不高，而且访问太频繁对服务器造成压力也不大好，所以，可以选择200毫秒之后重试，如果再失败，就进一步增加重试延迟，400毫秒之后重试，然后800毫秒后重试，以每次失败选择2n×100毫秒的延时，n为失败次数。</p>
+  <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-title class_">Observable</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">retryWithExpotentialDelay</span>  =  <span class="hljs-keyword">function</span>  (<span class="hljs-params">maxRetry,</span><br><span class="hljs-params">  initialDelay</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">retryWhen</span>(<br>    err$ =&gt; &#123;<br>      <span class="hljs-keyword">return</span> err$.<span class="hljs-title function_">scan</span>(<span class="hljs-function">(<span class="hljs-params">errorCount, err</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span> (errorCount &gt;= maxRetry) &#123;<br>          <span class="hljs-keyword">throw</span> err;<br>        &#125;<br>        <span class="hljs-keyword">return</span> errorCount + <span class="hljs-number">1</span>;<br>      &#125;, <span class="hljs-number">0</span>)<br>      .<span class="hljs-title function_">delayWhen</span>(<span class="hljs-function"><span class="hljs-params">errorCount</span> =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> delayTime = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">pow</span>(<span class="hljs-number">2</span>, errorCount -<span class="hljs-number">1</span>) ＊ initialDelay;<br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">timer</span>(delayTime);<br>      &#125;);<br>    &#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>  在retryWithExpotentialDelay中，我们使用了delayWhen这个操作符，就和retryWhen利用Observable然后能力比retry强大很多一样，delayWhen利用Observable所以能力也比delay强大很多。delayWhen从上游scan得到的数据是重试的次数，根据重试次数计算出延时时间，这样就让重试延时不局限于一个固定时间。</p>
+</li>
+</ul>
+<p>❑ finally</p>
+<p>finally和do操作符很像，它们传入的函数无法影响数据流，所以要做点事只能通过其他副作用，比如释放数据流之外的资源，输出一个日志信息之类。finally和do也有很大的不同，finally的参数只在上游数据完结或者出错的时候才执行，一个数据流中finally只会发挥一次作用；而do是对上游吐出的每个数据均执行。finally和do这二者配合使用可以覆盖数据流上可能发生的所有事件。</p>
+<h2 id="重试的本质"><a href="#重试的本质" class="headerlink" title="重试的本质"></a>重试的本质</h2><p>因为无论是retryWhen还是retry，所谓的“重试”，其实就是重新订阅（subscribe）一遍上游Observable对象的过程，在订阅上游的同时，会退订上一次的订阅，所以，如此一来，上面代码中上游只有0才有机会被吐出，之后的数据都因为退订而没有出头之日了。理解“重试”其实就是退订加上订阅的操作非常重要，如果上游Observable是一个Hot数据流，可能结果并不是一次“重试”</p>
+<p><strong>对于Hot数据流，即使使用了retry和retryWhen，也并不是“重试”，只不过是重新订阅而已。</strong></p>
+<hr>
+<p>在这一章中，我们了解了JavaScript自带的异常处理方式，通过try&#x2F;catch指令可以处理同步操作的异常，但是不能处理异步操作的异常。使用回调函数，并在回调函数中利用参数传递错误异常，可以解决异步操作的问题，但是却可能造成“回调函数地狱”。Promise可以解决回调函数方式的问题，但是Promise自身不能够重试。RxJS自带的操作符比较完美地解决了所有问题，使用catch、retry和retryWhen，可以方便地支持“恢复”和“重试”两类异常处理方式。retryWhen和scan、delay等操作符结合，可以非常方便定制出任意重试功能，可见RxJS功能的强大。</p>
+<h1 id="十三、多播（multicast）"><a href="#十三、多播（multicast）" class="headerlink" title="十三、多播（multicast）"></a>十三、多播（multicast）</h1><blockquote>
+<p>多播就是让一个数据流的内容被多个Observer订阅。</p>
+</blockquote>
+<p>为了实现多播，需要引入一种特殊的类型Subject，在RxJS中除了Subject这个类型，还有如下几个扩充的形态：</p>
+<p>❑ BehaviorSubject</p>
+<p>❑ ReplaySubject</p>
+<p>❑ AsyncSubject</p>
+<p>RxJS还提供一系列操作符用于支持多播：</p>
+<p><img src="/img/Untitled%2030.png" srcset="/img/loading.gif" lazyload alt="Untitled%2030.png"></p>
+<p>播放内容的方式可以分为三种：</p>
+<p>❑ <strong>单播（unicast）</strong></p>
+<p>一个播放者对应一个收听者，一对一的关系</p>
+<p>❑ <strong>广播（broadcast）</strong></p>
+<p>一个接受者，但是有时候我们希望所有人都知道某个消息，这就是广播，</p>
+<p><strong>缺点：</strong>广播的问题是，发布消息的根本不知道听众是什么样的人，于是筛选消息的责任就完全落在了接收方的身上，而且广播中容易造成频道冲突，就像无线电的共用频段，如果不同的几组人都在用一个频段交流，有的人说的是交通拥堵情况，有的人协调的是餐厅服务，这样很容易乱套。因为广播这种方式影响全局环境，难以控制，和RxJS的设计初衷就违背，所以，我们不考虑用RxJS实现广播。</p>
+<p>❑ <strong>多播（multicast）</strong></p>
+<p>还有一些八卦消息，你想要分享给一群朋友，但并不想分享给所有人，或者不想在公共场合大声嚷嚷，于是你在微信上把相关朋友拉进一个群，在群里说出这个消息，只有被选中的朋友才能收到这条消息，这就叫做“多播”</p>
+<p><img src="/img/Untitled%2031.png" srcset="/img/loading.gif" lazyload alt="Untitled%2031.png"></p>
+<h2 id="Hot和Cold数据流差异"><a href="#Hot和Cold数据流差异" class="headerlink" title="Hot和Cold数据流差异"></a>Hot和Cold数据流差异</h2><p>不难看出，这些产生Hot Observable对象的操作符数据源都在外部，或者是来自于Promise，或者是来自于DOM，或者是来自于Event Emitter，真正的数据源和有没有Observer没有任何关系。真正的多播，必定是无论有多少Observer来subscribe，推给Observer的都是一样的数据源，满足这种条件的，就是Hot Observable，因为Hot Observable中的内容创建和订阅者无关。</p>
+<p>Hot和Cold Observable都具有“懒”的特质，不过Cold更“懒”一些，两者的数据管道内逻辑都是只有存在订阅者存在才执行，Cold Observable更“懒”体现在，如果没有订阅者，连数据都不会真正产生，对于Hot Observable，没有订阅者的情况下，数据依然会产生，只不过不传入数据管道。</p>
+<p>Cold Observable实现的是单播，Hot Observable实现的多播</p>
+<p>下面几个产生的是Hot Observable：</p>
+<p>❑ fromPromise</p>
+<p>❑ fromEvent</p>
+<p>❑ fromEventPattern</p>
+<p>既然interval产生的是Cold Observable，那么接下来的问题就是：如何把Cold Observable变成Hot Observable呢？答案就是要使用RxJS中的Subject。</p>
+<h2 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h2><p><strong>主要解决热订阅</strong></p>
+<p>我们知道，在函数式编程的世界里，有一个要求是保持“不可变性”（Immutable），所以，要把一个Cold Observable对象转换成一个Hot Observable对象，并不是去改变这个ColdObservable对象本身，而是产生一个新的Observable对象，包装之前Cold Observable对象，这样在数据流管道中，新的Observable对象就成为了下游，想要Hot数据源的Observer要订阅的是这个作为下游的Observable对象。要实现这个转化，很明显需要一个“中间人”做串接的事情，这个中间人有两个职责：</p>
+<p>❑ 中间人要提供subscribe方法，让其他人能够订阅自己的数据源。</p>
+<p>❑ 中间人要能够有办法接受推送的数据，包括Cold Observable推送的数据。</p>
+<p>上面所说的第一个职责，相当于一个Observable，第二个工作，相当于一个Observer。在RxJS中，提供了名为Subject的类型，一个Subject既有Observable的接口，也具有Observer的接口，一个Subject就具备上述的两个职责。</p>
+<p>虽然有习惯把Observable对象的变量名带上$后缀，而且Subject其实也是一种Observable，但是业界并没有习惯把Subject对象的变量名加上$后缀。</p>
+<p>e.g:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">Subject</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs/Subject&#x27;</span>;<br><span class="hljs-keyword">const</span> subject = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Subject</span>();<br><br><span class="hljs-keyword">const</span> subscription1 = subject.<span class="hljs-title function_">subscribe</span>(<br>  <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;on observer 1 data: &#x27;</span> + value),<br>  <span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;on observer 1 error: &#x27;</span> + err.<span class="hljs-property">message</span>),<br>  <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;on observer 1 complete&#x27;</span>)<br>);<br><br>subject.<span class="hljs-title function_">next</span>(<span class="hljs-number">1</span>);<br><br>subject.<span class="hljs-title function_">subscribe</span>(<br>  <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;on observer 2 data: &#x27;</span> + value),<br>  <span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;on observer 2 error: &#x27;</span> + err.<span class="hljs-property">message</span>),<br>  <span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;on observer 2 complete&#x27;</span>)<br>);<br><br>subject.<span class="hljs-title function_">next</span>(<span class="hljs-number">2</span>);<br>subscription1.<span class="hljs-title function_">unsubscribe</span>();<br>subject.<span class="hljs-title function_">complete</span>();<br><br><span class="hljs-comment">//on observer 1 data: 1</span><br><span class="hljs-comment">//on observer 1 data: 2</span><br><span class="hljs-comment">//on observer 2 data: 2</span><br><span class="hljs-comment">//on observer 2 complete</span><br><span class="hljs-comment">//从这个例子看得出来，后加入的观察者，并不会获得加入之前Subject对象上通过next推送的数据，这个特点，让Subject可以用来实现Cold Observable到Hot Observable的转换，从而实现真正的多播。</span><br></code></pre></td></tr></table></figure>
+
+<p>Subject同时也是一个Observer，作为Observer会接受和消化“生产者”推过来的数据，最简单的消化方法，就是把数据、错误和完结通知都一股脑原样推给Subject自己的Observer。</p>
+<p><img src="/img/Untitled%2032.png" srcset="/img/loading.gif" lazyload alt="Untitled%2032.png"></p>
+<h3 id="makeHot操作符"><a href="#makeHot操作符" class="headerlink" title="makeHot操作符"></a>makeHot操作符</h3><p>但是可惜Subject并不是一个操作符，所以无法链式调用，不过，可以创造一个新的操作符来达到链式调用的效果。</p>
+<p>新创建的操作符可以把上游的Cold Observable转化成Hot Observable，所以命名为makeHot，代码如下：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-title class_">Observable</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">makeHot</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> cold$ = <span class="hljs-variable language_">this</span>;<br>  <span class="hljs-keyword">const</span> subject = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Subject</span>();<br>  cold$.<span class="hljs-title function_">subscribe</span>(subject);<br>  <span class="hljs-keyword">return</span> subject;<br>&#125;<br><span class="hljs-comment">// 可能会调用complete来影响下游，改造如下</span><br><span class="hljs-title class_">Observable</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">makeHot</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> cold$ = <span class="hljs-variable language_">this</span>;<br>  <span class="hljs-keyword">const</span> subject = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Subject</span>();<br>  cold$.<span class="hljs-title function_">subscribe</span>(subject);<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Observable</span>.<span class="hljs-title function_">create</span>(<span class="hljs-function">(<span class="hljs-params">observer</span>) =&gt;</span> subject.<span class="hljs-title function_">subscribe</span>(observer));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Subject不能重复使用"><a href="#Subject不能重复使用" class="headerlink" title="Subject不能重复使用"></a>Subject不能重复使用</h3><p>Subject对象也是一个Observable对象，但是因为它有自己的状态，所以不像Cold Observable对象一样每次被subscribe都是一个新的开始，正因为如此，Subject对象是不能重复使用的，所谓不能重复使用，指的是一个Subject对象一旦被调用了complete或者error函数，那么，它作为Observable的生命周期也就结束了，后续还想调用这个Subject对象的next函数传递数据给下游，就如同泥牛入大海，一去不回，没有任何反应。</p>
+<h3 id="Subject可以有多个上游"><a href="#Subject可以有多个上游" class="headerlink" title="Subject可以有多个上游"></a>Subject可以有多个上游</h3><p>如果让一个Subject订阅多个数据流，起到的作用就是把多个数据源的内容汇聚到一个Observable中</p>
+<p>虽然Subject理论上可以合并多个数据流，但是，因为任何一个上游数据流的完结或者出错信息都可以终结Subject对象的生命，<strong>让Subject来做合并数据流的工作显得并不合适。</strong></p>
+<h3 id="Subject的错误处理"><a href="#Subject的错误处理" class="headerlink" title="Subject的错误处理"></a>Subject的错误处理</h3><p>可以想象，Subject中为了给所有Observer推送数据，会有类似下面这样的代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> observer <span class="hljs-keyword">of</span> allObservers) &#123;<br>  observer.<span class="hljs-title function_">next</span>(data);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>一个<code>Observers</code>出错会阻塞其他的<code>Observers</code> 。</p>
+<p>所以subject下游每个Observers必须加入catch</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/">#JavaScript</a>
+      
+        <a href="/tags/RxJS/">#RxJS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>《深入浅出RxJS》笔记</div>
+      <div>https://www.zwjay.cn/2020/06/27/2020-06-27-《深入浅出RxJS》笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mr.Jaxson</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年6月27日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/30/2022-05-30-centos%E5%AE%89%E8%A3%85traivs/" title="CentOS安装Traivs步骤">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CentOS安装Traivs步骤</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/11/15/2019-11-15-git%E5%86%8D%E5%AD%A6%E4%B9%A0/" title="git再学习">
+                        <span class="hidden-mobile">git再学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'http-zwjay-cn',
+              apikey: ''
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?0c5ab9917e153a67360172154ba0dc64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,788 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mr.Jaxson">
+  <meta name="keywords" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
+  
+    <meta name="description" content="返回字符串长度，汉字计数为212345678910function strLength(str) &amp;#123;var a &#x3D; 0;for (var i &#x3D; 0; i &lt; str.length; i++) &amp;#123;  if (str.charCodeAt(i) &gt; 255)      a +&#x3D; 2;&#x2F;&#x2F;按照预期计数增加2  else      a++;&amp;#125;return a;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript常用方法总结">
+<meta property="og:url" content="https://www.zwjay.cn/2017/07/17/2017-07-17-javascript-commonly-used-method/index.html">
+<meta property="og:site_name" content="Jaxson&#39;Blog">
+<meta property="og:description" content="返回字符串长度，汉字计数为212345678910function strLength(str) &amp;#123;var a &#x3D; 0;for (var i &#x3D; 0; i &lt; str.length; i++) &amp;#123;  if (str.charCodeAt(i) &gt; 255)      a +&#x3D; 2;&#x2F;&#x2F;按照预期计数增加2  else      a++;&amp;#125;return a;&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-07-17T03:51:00.000Z">
+<meta property="article:modified_time" content="2017-07-17T03:51:00.000Z">
+<meta property="article:author" content="Mr.Jaxson">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>JavaScript常用方法总结 - Jaxson&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.zwjay.cn","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"0c5ab9917e153a67360172154ba0dc64","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 30vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jaxson&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JavaScript常用方法总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mr.Jaxson
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2017-07-17 11:51" pubdate>
+          2017年7月17日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          17k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          139 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JavaScript常用方法总结</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="返回字符串长度，汉字计数为2"><a href="#返回字符串长度，汉字计数为2" class="headerlink" title="返回字符串长度，汉字计数为2"></a>返回字符串长度，汉字计数为2</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">strLength</span>(<span class="hljs-params">str</span>) &#123;<br><span class="hljs-keyword">var</span> a = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; str.<span class="hljs-property">length</span>; i++) &#123;<br>  <span class="hljs-keyword">if</span> (str.<span class="hljs-title function_">charCodeAt</span>(i) &gt; <span class="hljs-number">255</span>)<br>      a += <span class="hljs-number">2</span>;<span class="hljs-comment">//按照预期计数增加2</span><br>  <span class="hljs-keyword">else</span><br>      a++;<br>&#125;<br><span class="hljs-keyword">return</span> a;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h1 id="获取url中的参数"><a href="#获取url中的参数" class="headerlink" title="获取url中的参数"></a>获取url中的参数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">GetQueryStringRegExp</span>(<span class="hljs-params">name,url</span>) &#123;<br><span class="hljs-keyword">var</span> reg = <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(<span class="hljs-string">&quot;(^|\?|&amp;)&quot;</span> + name + <span class="hljs-string">&quot;=([^&amp;]*)(\s|&amp;|$)&quot;</span>, <span class="hljs-string">&quot;i&quot;</span>);<br><span class="hljs-keyword">if</span> (reg.<span class="hljs-title function_">test</span>(url)) <span class="hljs-keyword">return</span> <span class="hljs-built_in">decodeURIComponent</span>(<span class="hljs-title class_">RegExp</span>.<span class="hljs-property">$2</span>.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/+/g</span>, <span class="hljs-string">&quot; &quot;</span>)); <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;<br>&#125;　<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="js绑定事件适用于任何浏览器的元素绑定"><a href="#js绑定事件适用于任何浏览器的元素绑定" class="headerlink" title="js绑定事件适用于任何浏览器的元素绑定"></a>js绑定事件适用于任何浏览器的元素绑定</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">eventBind</span>(<span class="hljs-params">obj, eventType, callBack</span>) &#123;<br>  <span class="hljs-keyword">if</span> (obj.<span class="hljs-property">addEventListener</span>) &#123;<br>      obj.<span class="hljs-title function_">addEventListener</span>(eventType, callBack, <span class="hljs-literal">false</span>);<br>  &#125;<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">attachEvent</span>) &#123;<br>      obj.<span class="hljs-title function_">attachEvent</span>(<span class="hljs-string">&#x27;on&#x27;</span> + eventType, callBack);<br>  &#125;<br>  <span class="hljs-keyword">else</span> &#123;<br>      obj[<span class="hljs-string">&#x27;on&#x27;</span> + eventType] = callBack;<br>  &#125;<br>&#125;;<br><span class="hljs-title function_">eventBind</span>(<span class="hljs-variable language_">document</span>, <span class="hljs-string">&#x27;click&#x27;</span>, bodyClick);<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="获得当前浏览器JS的版本"><a href="#获得当前浏览器JS的版本" class="headerlink" title="获得当前浏览器JS的版本"></a>获得当前浏览器JS的版本</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getjsversion</span>(<span class="hljs-params"></span>)&#123;<br><span class="hljs-keyword">var</span> n = navigator;<br><span class="hljs-keyword">var</span> u = n.<span class="hljs-property">userAgent</span>;<br><span class="hljs-keyword">var</span> apn = n.<span class="hljs-property">appName</span>;<br><span class="hljs-keyword">var</span> v = n.<span class="hljs-property">appVersion</span>;<br><span class="hljs-keyword">var</span> ie = v.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;MSIE &#x27;</span>);<br><span class="hljs-keyword">if</span> (ie &gt; <span class="hljs-number">0</span>)&#123;<br>  apv = <span class="hljs-built_in">parseInt</span>(i = v.<span class="hljs-title function_">substring</span>(ie + <span class="hljs-number">5</span>));<br>  <span class="hljs-keyword">if</span> (apv &gt; <span class="hljs-number">3</span>) &#123;<br>      apv = <span class="hljs-built_in">parseFloat</span>(i);<br>  &#125;<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  apv = <span class="hljs-built_in">parseFloat</span>(v);<br>&#125;<br><span class="hljs-keyword">var</span> isie = (apn == <span class="hljs-string">&#x27;Microsoft Internet Explorer&#x27;</span>);<br><span class="hljs-keyword">var</span> ismac = (u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;Mac&#x27;</span>) &gt;= <span class="hljs-number">0</span>);<br><span class="hljs-keyword">var</span> javascriptVersion = <span class="hljs-string">&quot;1.0&quot;</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-title class_">String</span> &amp;&amp; <span class="hljs-title class_">String</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>) &#123;<br>  javascriptVersion = <span class="hljs-string">&#x27;1.1&#x27;</span>;<br>  <span class="hljs-keyword">if</span> (javascriptVersion.<span class="hljs-property">match</span>) &#123;<br>      javascriptVersion = <span class="hljs-string">&#x27;1.2&#x27;</span>;<br>      <span class="hljs-keyword">var</span> tm = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>;<br>      <span class="hljs-keyword">if</span> (tm.<span class="hljs-property">setUTCDate</span>) &#123;<br>          javascriptVersion = <span class="hljs-string">&#x27;1.3&#x27;</span>;<br>          <span class="hljs-keyword">if</span> (isie &amp;&amp; ismac &amp;&amp; apv &gt;= <span class="hljs-number">5</span>) javascriptVersion = <span class="hljs-string">&#x27;1.4&#x27;</span>;<br>          <span class="hljs-keyword">var</span> pn = <span class="hljs-number">0</span>;<br>          <span class="hljs-keyword">if</span> (pn.<span class="hljs-property">toPrecision</span>) &#123;<br>              javascriptVersion = <span class="hljs-string">&#x27;1.5&#x27;</span>;<br>              a = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>;<br>              <span class="hljs-keyword">if</span> (a.<span class="hljs-property">forEach</span>) &#123;<br>                  javascriptVersion = <span class="hljs-string">&#x27;1.6&#x27;</span>;<br>                  i = <span class="hljs-number">0</span>;<br>                  o = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>;<br>                  tcf = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-string">&#x27;var e,i=0;try&#123;i=new Iterator(o)&#125;catch(e)&#123;&#125;return i&#x27;</span>);<br>                  i = <span class="hljs-title function_">tcf</span>(o);<br>                  <span class="hljs-keyword">if</span> (i &amp;&amp; i.<span class="hljs-property">next</span>) &#123;<br>                      javascriptVersion = <span class="hljs-string">&#x27;1.7&#x27;</span>;<br>                  &#125;<br>              &#125;<br>          &#125;<br>      &#125;<br>  &#125;<br>&#125;<br><span class="hljs-keyword">return</span> javascriptVersion;<br>&#125;　　<br></code></pre></td></tr></table></figure>
+
+<h1 id="获取当前点击事件的Object对象"><a href="#获取当前点击事件的Object对象" class="headerlink" title="获取当前点击事件的Object对象"></a>获取当前点击事件的Object对象</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getEvent</span>(<span class="hljs-params"></span>) &#123;<br><span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">all</span>) &#123;<br>   <span class="hljs-keyword">return</span> <span class="hljs-variable language_">window</span>.<span class="hljs-property">event</span>; <span class="hljs-comment">//如果是ie</span><br>&#125;<br>func = getEvent.<span class="hljs-property">caller</span>;<br><span class="hljs-keyword">while</span> (func != <span class="hljs-literal">null</span>) &#123;<br>   <span class="hljs-keyword">var</span> arg0 = func.<span class="hljs-property">arguments</span>[<span class="hljs-number">0</span>];<br>   <span class="hljs-keyword">if</span> (arg0) &#123;<br>       <span class="hljs-keyword">if</span> ((arg0.<span class="hljs-property">constructor</span> == <span class="hljs-title class_">Event</span> || arg0.<span class="hljs-property">constructor</span> == <span class="hljs-title class_">MouseEvent</span>)<br>|| (<span class="hljs-keyword">typeof</span> (arg0) == <span class="hljs-string">&quot;object&quot;</span> &amp;&amp; arg0.<span class="hljs-property">preventDefault</span> &amp;&amp; arg0.<span class="hljs-property">stopPropagation</span>)) &#123;<br>           <span class="hljs-keyword">return</span> arg0;<br>       &#125;<br>   &#125;<br>   func = func.<span class="hljs-property">caller</span>;<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>&#125;;　<br><br></code></pre></td></tr></table></figure>
+
+<h1 id="字符串截取方法"><a href="#字符串截取方法" class="headerlink" title="字符串截取方法"></a>字符串截取方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><br><span class="hljs-attr">getCharactersLen</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">charStr, cutCount</span>) &#123;<br>   <span class="hljs-keyword">if</span> (charStr == <span class="hljs-literal">null</span> || charStr == <span class="hljs-string">&#x27;&#x27;</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>;<br>   <span class="hljs-keyword">var</span> totalCount = <span class="hljs-number">0</span>;<br>   <span class="hljs-keyword">var</span> newStr = <span class="hljs-string">&#x27;&#x27;</span>;<br>   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; charStr.<span class="hljs-property">length</span>; i++) &#123;<br>       <span class="hljs-keyword">var</span> c = charStr.<span class="hljs-title function_">charCodeAt</span>(i);<br>       <span class="hljs-keyword">if</span> (c &lt; <span class="hljs-number">255</span> &amp;&amp; c &gt; <span class="hljs-number">0</span>) &#123;<br>           totalCount++;<br>       &#125; <span class="hljs-keyword">else</span> &#123;<br>           totalCount += <span class="hljs-number">2</span>;<br>       &#125;<br>       <span class="hljs-keyword">if</span> (totalCount &gt;= cutCount) &#123;<br>           newStr += charStr.<span class="hljs-title function_">charAt</span>(i);<br>           <span class="hljs-keyword">break</span>;<br>       &#125;<br>       <span class="hljs-keyword">else</span> &#123;<br>           newStr += charStr.<span class="hljs-title function_">charAt</span>(i);<br>       &#125;<br>   &#125;<br>   <span class="hljs-keyword">return</span> newStr;<br>&#125;　　<br></code></pre></td></tr></table></figure>
+
+<h1 id="JS弹出新窗口全屏"><a href="#JS弹出新窗口全屏" class="headerlink" title="JS弹出新窗口全屏"></a>JS弹出新窗口全屏</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><br><span class="hljs-keyword">var</span> tmp = <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">open</span>(<span class="hljs-string">&quot;about:blank&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;fullscreen=1&quot;</span>)<br>                       tmp.<span class="hljs-title function_">moveTo</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>                       tmp.<span class="hljs-title function_">resizeTo</span>(screen.<span class="hljs-property">width</span> + <span class="hljs-number">20</span>, screen.<span class="hljs-property">height</span>);<br>                       tmp.<span class="hljs-title function_">focus</span>();<br>                       tmp.<span class="hljs-property">location</span>.<span class="hljs-property">href</span> = <span class="hljs-string">&#x27;http://www.che168.com/pinggu/eva_&#x27;</span> + msgResult.<span class="hljs-property">message</span>[<span class="hljs-number">0</span>] + <span class="hljs-string">&#x27;.html&#x27;</span>;<br><br><span class="hljs-keyword">var</span> config_ = <span class="hljs-string">&quot;left=0,top=0,width=&quot;</span> + (<span class="hljs-variable language_">window</span>.<span class="hljs-property">screen</span>.<span class="hljs-property">Width</span>) + <span class="hljs-string">&quot;,height=&quot;</span> + (<span class="hljs-variable language_">window</span>.<span class="hljs-property">screen</span>.<span class="hljs-property">Height</span>);<br>                       <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">open</span>(<span class="hljs-string">&#x27;http://www.che168.com/pinggu/eva_&#x27;</span> + msgResult.<span class="hljs-property">message</span>[<span class="hljs-number">0</span>] + <span class="hljs-string">&#x27;.html&#x27;</span>, <span class="hljs-string">&quot;winHanle&quot;</span>, config_);<br><span class="hljs-comment">//模拟form提交打开新页面</span><br><span class="hljs-keyword">var</span> f = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;form&quot;</span>);<br>                       f.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;action&#x27;</span>, <span class="hljs-string">&#x27;http://www.che168.com/pinggu/eva_&#x27;</span> + msgResult.<span class="hljs-property">message</span>[<span class="hljs-number">0</span>] + <span class="hljs-string">&#x27;.html&#x27;</span>);<br>                       f.<span class="hljs-property">target</span> = <span class="hljs-string">&#x27;_blank&#x27;</span>;<br>                       <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(f);<br>                       f.<span class="hljs-title function_">submit</span>();　<br></code></pre></td></tr></table></figure>
+
+<h1 id="全选-x2F-全不选"><a href="#全选-x2F-全不选" class="headerlink" title="全选&#x2F;全不选"></a>全选&#x2F;全不选</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">selectAll</span>(<span class="hljs-params">objSelect</span>) &#123;<br>       <span class="hljs-keyword">if</span> (objSelect.<span class="hljs-property">checked</span> == <span class="hljs-literal">true</span>) &#123;<br>           $(<span class="hljs-string">&quot;input[name=&#x27;chkId&#x27;]&quot;</span>).<span class="hljs-title function_">attr</span>(<span class="hljs-string">&quot;checked&quot;</span>, <span class="hljs-literal">true</span>);<br>           $(<span class="hljs-string">&quot;input[name=&#x27;chkAll&#x27;]&quot;</span>).<span class="hljs-title function_">attr</span>(<span class="hljs-string">&quot;checked&quot;</span>, <span class="hljs-literal">true</span>);<br>       &#125;<br>       <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (objSelect.<span class="hljs-property">checked</span> == <span class="hljs-literal">false</span>) &#123;<br>           $(<span class="hljs-string">&quot;input[name=&#x27;chkId&#x27;]&quot;</span>).<span class="hljs-title function_">attr</span>(<span class="hljs-string">&quot;checked&quot;</span>, <span class="hljs-literal">false</span>);<br>           $(<span class="hljs-string">&quot;input[name=&#x27;chkAll&#x27;]&quot;</span>).<span class="hljs-title function_">attr</span>(<span class="hljs-string">&quot;checked&quot;</span>, <span class="hljs-literal">false</span>);<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> browser = &#123;<br>	<span class="hljs-attr">versions</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>		<span class="hljs-keyword">var</span> u = navigator.<span class="hljs-property">userAgent</span>, app = navigator.<span class="hljs-property">appVersion</span>;<br>		<span class="hljs-keyword">return</span> &#123;<span class="hljs-comment">//移动终端浏览器版本信息</span><br>			<span class="hljs-attr">dingTalk</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;DingTalk&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">weibo</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;weibo&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">qq</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;QQ/&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">qqBrowser</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;MQQBrowser&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">weChat</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;MicroMessenger&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">trident</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Trident&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">presto</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Presto&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">webKit</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;AppleWebKit&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">gecko</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Gecko&quot;</span>) &gt; -<span class="hljs-number">1</span> &amp;&amp; u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;KHTML&quot;</span>) == -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">mobile</span>: !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/AppleWebKit.*Mobile.*/</span>) || !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/Windows Phone/</span>) || !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/Android/</span>) || !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/MQQBrowser/</span>),<br>			<span class="hljs-attr">ios</span>: !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>),<br>			<span class="hljs-attr">android</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Android&quot;</span>) &gt; -<span class="hljs-number">1</span> || u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Linux&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">iPhone</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;iPhone&quot;</span>) &gt; -<span class="hljs-number">1</span> || u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Mac&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">iPad</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;iPad&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">webApp</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Safari&quot;</span>) == -<span class="hljs-number">1</span><br>		&#125;;<br>	&#125;(),<br>	<span class="hljs-attr">language</span>: (navigator.<span class="hljs-property">browserLanguage</span> || navigator.<span class="hljs-property">language</span>).<span class="hljs-title function_">toLowerCase</span>()<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h1 id="手机类型判断"><a href="#手机类型判断" class="headerlink" title="手机类型判断"></a>手机类型判断</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> <span class="hljs-title class_">BrowserInfo</span> = &#123;<br>	<span class="hljs-attr">userAgent</span>: navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">toLowerCase</span>(),<br>	<span class="hljs-attr">isAndroid</span>: <span class="hljs-title class_">Boolean</span>(navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/android/ig</span>)),<br>	<span class="hljs-attr">isIphone</span>: <span class="hljs-title class_">Boolean</span>(navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/iphone|ipod/ig</span>)),<br>	<span class="hljs-attr">isIpad</span>: <span class="hljs-title class_">Boolean</span>(navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/ipad/ig</span>)),<br>	<span class="hljs-attr">isWeixin</span>: <span class="hljs-title class_">Boolean</span>(navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/MicroMessenger/ig</span>))<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="判断浏览器"><a href="#判断浏览器" class="headerlink" title="判断浏览器"></a>判断浏览器</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getOs</span>(<span class="hljs-params"></span>) &#123;<br><span class="hljs-keyword">if</span> (navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;MSIE 8.0&quot;</span>) &gt; <span class="hljs-number">0</span>) &#123;<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;MSIE8&quot;</span>;<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;MSIE 6.0&quot;</span>) &gt; <span class="hljs-number">0</span>) &#123;<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;MSIE6&quot;</span>;<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;MSIE 7.0&quot;</span>) &gt; <span class="hljs-number">0</span>) &#123;<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;MSIE7&quot;</span>;<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isFirefox = navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Firefox&quot;</span>) &gt; <span class="hljs-number">0</span>) &#123;<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Firefox&quot;</span>;<br>&#125;<br><span class="hljs-keyword">if</span> (navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Chrome&quot;</span>) &gt; <span class="hljs-number">0</span>) &#123;<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Chrome&quot;</span>;<br>&#125;<br><span class="hljs-keyword">else</span> &#123;<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Other&quot;</span>;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="JS判断两个日期大小-适合-2012-09-09-与2012-9-9-两种格式的对比"><a href="#JS判断两个日期大小-适合-2012-09-09-与2012-9-9-两种格式的对比" class="headerlink" title="JS判断两个日期大小 适合 2012-09-09 与2012-9-9 两种格式的对比"></a>JS判断两个日期大小 适合 2012-09-09 与2012-9-9 两种格式的对比</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//得到日期值并转化成日期格式，replace(/-/g, &quot;/&quot;)是根据验证表达式把日期转化成长日期格式，这样再进行判断就好判断了</span><br>   <span class="hljs-keyword">function</span> <span class="hljs-title function_">ValidateDate</span>(<span class="hljs-params"></span>) &#123;<br>       <span class="hljs-keyword">var</span> beginDate = $(<span class="hljs-string">&quot;#t_datestart&quot;</span>).<span class="hljs-title function_">val</span>();<br>       <span class="hljs-keyword">var</span> endDate = $(<span class="hljs-string">&quot;#t_dateend&quot;</span>).<span class="hljs-title function_">val</span>();<br>       <span class="hljs-keyword">if</span> (beginDate.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span> &amp;&amp; endDate.<span class="hljs-property">length</span>&gt;<span class="hljs-number">0</span>) &#123;<br>           <span class="hljs-keyword">var</span> sDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(beginDate.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/-/g</span>, <span class="hljs-string">&quot;/&quot;</span>));<br>           <span class="hljs-keyword">var</span> eDate= <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(endDate.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/-/g</span>, <span class="hljs-string">&quot;/&quot;</span>));<br>           <span class="hljs-keyword">if</span> (sDate &gt; eDate) &#123;<br>               <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;开始日期要小于结束日期&#x27;</span>);<br>               <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>           &#125;<br>       &#125;<br>   &#125;　<br></code></pre></td></tr></table></figure>
+
+<h1 id="移除事件"><a href="#移除事件" class="headerlink" title="移除事件"></a>移除事件</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">moveBind</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">objId, eventType, callBack</span>) &#123;<br><span class="hljs-keyword">var</span> obj = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(objId);<br><span class="hljs-keyword">if</span> (obj.<span class="hljs-property">removeEventListener</span>) &#123;<br>   obj.<span class="hljs-title function_">removeEventListener</span>(eventType, callBack, <span class="hljs-literal">false</span>);<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">detachEvent</span>) &#123;<br>   obj.<span class="hljs-title function_">detachEvent</span>(<span class="hljs-string">&#x27;on&#x27;</span> + eventType, callBack);<br>&#125;<br><span class="hljs-keyword">else</span> &#123;<br>   obj[<span class="hljs-string">&#x27;on&#x27;</span> + eventType] = <span class="hljs-literal">null</span>;<br>&#125;<br>&#125;　<br></code></pre></td></tr></table></figure>
+<h1 id="回车提交"><a href="#回车提交" class="headerlink" title="回车提交"></a>回车提交</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><br>$(<span class="hljs-string">&quot;id&quot;</span>).<span class="hljs-property">onkeypress</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) &#123;<br>event = (event) ? event : ((<span class="hljs-variable language_">window</span>.<span class="hljs-property">event</span>) ? <span class="hljs-variable language_">window</span>.<span class="hljs-property">event</span> : <span class="hljs-string">&quot;&quot;</span>)<br>keyCode = event.<span class="hljs-property">keyCode</span> ? event.<span class="hljs-property">keyCode</span> : (event.<span class="hljs-property">which</span> ? event.<span class="hljs-property">which</span> : event.<span class="hljs-property">charCode</span>);<br><span class="hljs-keyword">if</span> (keyCode == <span class="hljs-number">13</span>) &#123;<br>   $(<span class="hljs-string">&quot;SubmitLogin&quot;</span>).<span class="hljs-title function_">onclick</span>();<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="JS-执行计时器"><a href="#JS-执行计时器" class="headerlink" title="JS 执行计时器"></a>JS 执行计时器</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><br>timeStart = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getTime</span>();<br>timesEnd = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getTime</span>();<br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;time&quot;</span>).<span class="hljs-property">innerHTML</span> = timesEnd - timeStart;<br></code></pre></td></tr></table></figure>
+<h1 id="JS-写Cookie"><a href="#JS-写Cookie" class="headerlink" title="JS 写Cookie"></a>JS 写Cookie</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">setCookie</span>(<span class="hljs-params">name, value, expires, path, domain</span>) &#123;<br><span class="hljs-keyword">if</span> (!expires) expires = -<span class="hljs-number">1</span>;<br><span class="hljs-keyword">if</span> (!path) path = <span class="hljs-string">&quot;/&quot;</span>;<br><span class="hljs-keyword">var</span> d = <span class="hljs-string">&quot;&quot;</span> + name + <span class="hljs-string">&quot;=&quot;</span> + value;<br><span class="hljs-keyword">var</span> e;<br><span class="hljs-keyword">if</span> (expires &lt; <span class="hljs-number">0</span>) &#123;<br>   e = <span class="hljs-string">&quot;&quot;</span>;<br>&#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (expires == <span class="hljs-number">0</span>) &#123;<br>   <span class="hljs-keyword">var</span> f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(<span class="hljs-number">1970</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);<br>   e = <span class="hljs-string">&quot;;expires=&quot;</span> + f.<span class="hljs-title function_">toUTCString</span>();<br>&#125;<br><span class="hljs-keyword">else</span> &#123;<br>   <span class="hljs-keyword">var</span> now = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br>   <span class="hljs-keyword">var</span> f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(now.<span class="hljs-title function_">getTime</span>() + expires * <span class="hljs-number">1000</span>);<br>   e = <span class="hljs-string">&quot;;expires=&quot;</span> + f.<span class="hljs-title function_">toUTCString</span>();<br>&#125;<br><span class="hljs-keyword">var</span> dm;<br><span class="hljs-keyword">if</span> (!domain) &#123;<br>   dm = <span class="hljs-string">&quot;&quot;</span>;<br>&#125;<br><span class="hljs-keyword">else</span> &#123;<br>   dm = <span class="hljs-string">&quot;;domain=&quot;</span> + domain;<br>&#125;<br><span class="hljs-variable language_">document</span>.<span class="hljs-property">cookie</span> = name + <span class="hljs-string">&quot;=&quot;</span> + value + <span class="hljs-string">&quot;;path=&quot;</span> + path + e + dm;<br>&#125;;　　<br></code></pre></td></tr></table></figure>
+<h1 id="JS读Cookie"><a href="#JS读Cookie" class="headerlink" title="JS读Cookie"></a>JS读Cookie</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">readCookie</span>(<span class="hljs-params">name</span>) &#123;<br><span class="hljs-keyword">var</span> nameEQ = name + <span class="hljs-string">&quot;=&quot;</span>;<br><span class="hljs-keyword">var</span> ca = <span class="hljs-variable language_">document</span>.<span class="hljs-property">cookie</span>.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;;&#x27;</span>);<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; ca.<span class="hljs-property">length</span>; i++) &#123;<br>   <span class="hljs-keyword">var</span> c = ca[i];<br>   <span class="hljs-keyword">while</span> (c.<span class="hljs-title function_">charAt</span>(<span class="hljs-number">0</span>) == <span class="hljs-string">&#x27; &#x27;</span>) c = c.<span class="hljs-title function_">substring</span>(<span class="hljs-number">1</span>, c.<span class="hljs-property">length</span>);<br>   <span class="hljs-keyword">if</span> (c.<span class="hljs-title function_">indexOf</span>(nameEQ) == <span class="hljs-number">0</span>) &#123;<br>       <span class="hljs-keyword">return</span> <span class="hljs-built_in">decodeURIComponent</span>(c.<span class="hljs-title function_">substring</span>(nameEQ.<span class="hljs-property">length</span>, c.<span class="hljs-property">length</span>))<br>   &#125;<br>&#125; <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="Ajax请求"><a href="#Ajax请求" class="headerlink" title="Ajax请求"></a>Ajax请求</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br>C.<span class="hljs-property">ajax</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">args</span>) &#123;<br><span class="hljs-keyword">var</span> self = <span class="hljs-variable language_">this</span>;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">options</span> = &#123;<br>   <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;GET&#x27;</span>,<br>   <span class="hljs-attr">async</span>: <span class="hljs-literal">true</span>,<br>   <span class="hljs-attr">contentType</span>: <span class="hljs-string">&#x27;application/x-www-form-urlencoded&#x27;</span>,<br>   <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;about:blank&#x27;</span>,<br>   <span class="hljs-attr">data</span>: <span class="hljs-literal">null</span>,<br>   <span class="hljs-attr">success</span>: &#123;&#125;,<br>   <span class="hljs-attr">error</span>: &#123;&#125;<br>&#125;;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">getXmlHttp</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>   <span class="hljs-keyword">var</span> xmlHttp;<br>   <span class="hljs-keyword">try</span> &#123;<br>       xmlhttp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>();<br>   &#125;<br>   <span class="hljs-keyword">catch</span> (e) &#123;<br>       <span class="hljs-keyword">try</span> &#123;<br>           xmlhttp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ActiveXObject</span>(<span class="hljs-string">&quot;Msxml2.XMLHTTP&quot;</span>);<br>       &#125;<br>       <span class="hljs-keyword">catch</span> (e) &#123;<br>           xmlHttp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ActiveXObject</span>(<span class="hljs-string">&quot;Microsoft.XMLHTTP&quot;</span>);<br>       &#125;<br>   &#125;<br>   <span class="hljs-keyword">if</span> (!xmlhttp) &#123;<br>       <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;您的浏览器不支持AJAX&#x27;</span>);<br>       <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>   &#125;<br>   <span class="hljs-keyword">return</span> xmlhttp;<br>&#125;;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">send</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>   C.<span class="hljs-title function_">each</span>(self.<span class="hljs-property">options</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">key, val</span>) &#123;<br>       self.<span class="hljs-property">options</span>[key] = (args[key] == <span class="hljs-literal">null</span>) ? val : args[key];<br>   &#125;);<br><br>   <span class="hljs-keyword">var</span> xmlHttp = <span class="hljs-keyword">new</span> self.<span class="hljs-title function_">getXmlHttp</span>();<br>   <span class="hljs-keyword">if</span> (self.<span class="hljs-property">options</span>.<span class="hljs-property">type</span>.<span class="hljs-title function_">toUpperCase</span>() == <span class="hljs-string">&#x27;GET&#x27;</span>) &#123;<br>       xmlHttp.<span class="hljs-title function_">open</span>(self.<span class="hljs-property">options</span>.<span class="hljs-property">type</span>, self.<span class="hljs-property">options</span>.<span class="hljs-property">url</span> + (self.<span class="hljs-property">options</span>.<span class="hljs-property">data</span> == <span class="hljs-literal">null</span> ? <span class="hljs-string">&quot;&quot;</span> : ((<span class="hljs-regexp">/[?]$/</span>.<span class="hljs-title function_">test</span>(self.<span class="hljs-property">options</span>.<span class="hljs-property">url</span>) ? <span class="hljs-string">&#x27;&amp;&#x27;</span> : <span class="hljs-string">&#x27;?&#x27;</span>) + self.<span class="hljs-property">options</span>.<span class="hljs-property">data</span>)), self.<span class="hljs-property">options</span>.<span class="hljs-property">async</span>);<br>   &#125;<br>   <span class="hljs-keyword">else</span> &#123;<br>       xmlHttp.<span class="hljs-title function_">open</span>(self.<span class="hljs-property">options</span>.<span class="hljs-property">type</span>, self.<span class="hljs-property">options</span>.<span class="hljs-property">url</span>, self.<span class="hljs-property">options</span>.<span class="hljs-property">async</span>);<br>       xmlHttp.<span class="hljs-title function_">setRequestHeader</span>(<span class="hljs-string">&#x27;Content-Length&#x27;</span>, self.<span class="hljs-property">options</span>.<span class="hljs-property">data</span>.<span class="hljs-property">length</span>);<br>   &#125;<br>   xmlHttp.<span class="hljs-title function_">setRequestHeader</span>(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, self.<span class="hljs-property">options</span>.<span class="hljs-property">contentType</span>);<br>   xmlHttp.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>       <span class="hljs-keyword">if</span> (xmlHttp.<span class="hljs-property">readyState</span> == <span class="hljs-number">4</span>) &#123;<br>           <span class="hljs-keyword">if</span> (xmlHttp.<span class="hljs-property">status</span> == <span class="hljs-number">200</span> || xmlHttp.<span class="hljs-property">status</span> == <span class="hljs-number">0</span>) &#123;<br>               <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> self.<span class="hljs-property">options</span>.<span class="hljs-property">success</span> == <span class="hljs-string">&#x27;function&#x27;</span>) self.<span class="hljs-property">options</span>.<span class="hljs-title function_">success</span>(xmlHttp.<span class="hljs-property">responseText</span>);<br>               xmlHttp = <span class="hljs-literal">null</span>;<br>           &#125;<br>           <span class="hljs-keyword">else</span> &#123;<br>               <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> self.<span class="hljs-property">options</span>.<span class="hljs-property">error</span> == <span class="hljs-string">&#x27;function&#x27;</span>) self.<span class="hljs-property">options</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;Server Status: &#x27;</span> + xmlHttp.<span class="hljs-property">status</span>);<br>           &#125;<br>       &#125;<br>   &#125;;<br><br>   xmlHttp.<span class="hljs-title function_">send</span>(self.<span class="hljs-property">options</span>.<span class="hljs-property">type</span>.<span class="hljs-title function_">toUpperCase</span>() == <span class="hljs-string">&#x27;POST&#x27;</span> ? self.<span class="hljs-property">options</span>.<span class="hljs-property">data</span>.<span class="hljs-title function_">toString</span>() : <span class="hljs-literal">null</span>);<br>&#125;;<br><span class="hljs-variable language_">this</span>.<span class="hljs-title function_">send</span>();<br>&#125;;　　<br></code></pre></td></tr></table></figure>
+
+<h1 id="JS-StringBuilder-用法"><a href="#JS-StringBuilder-用法" class="headerlink" title="JS StringBuilder 用法"></a>JS StringBuilder 用法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">StringBuilder</span>(<span class="hljs-params"></span>) &#123;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">strings</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>;<br>&#125;;<br><span class="hljs-title class_">StringBuilder</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">append</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">str</span>) &#123;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">strings</span>.<span class="hljs-title function_">push</span>(str);<br>&#125;;<br><span class="hljs-title class_">StringBuilder</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">toString</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br><span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">strings</span>.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;&#x27;</span>);<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+<h1 id="JS加载到顶部LoadJS"><a href="#JS加载到顶部LoadJS" class="headerlink" title="JS加载到顶部LoadJS"></a>JS加载到顶部LoadJS</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">loadJS</span> (url, fn) &#123;<br>   <span class="hljs-keyword">var</span> ss = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByName</span>(<span class="hljs-string">&#x27;script&#x27;</span>),<br>       loaded = <span class="hljs-literal">false</span>;<br>   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, len = ss.<span class="hljs-property">length</span>; i &lt; len; i++) &#123;<br>       <span class="hljs-keyword">if</span> (ss[i].<span class="hljs-property">src</span> &amp;&amp; ss[i].<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;src&#x27;</span>) == url) &#123;<br>           loaded = <span class="hljs-literal">true</span>;<br>           <span class="hljs-keyword">break</span>;<br>       &#125;<br>   &#125;<br>   <span class="hljs-keyword">if</span> (loaded) &#123;<br>       <span class="hljs-keyword">if</span> (fn &amp;&amp; <span class="hljs-keyword">typeof</span> fn != <span class="hljs-string">&#x27;undefined&#x27;</span> &amp;&amp; fn <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Function</span>) <span class="hljs-title function_">fn</span>();<br>       <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>   &#125;<br>   <span class="hljs-keyword">var</span> s = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;script&#x27;</span>),<br>       b = <span class="hljs-literal">false</span>;<br>   s.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;type&#x27;</span>, <span class="hljs-string">&#x27;text/javascript&#x27;</span>);<br>   s.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;src&#x27;</span>, url);<br>   s.<span class="hljs-property">onload</span> = s.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>       <span class="hljs-keyword">if</span> (!b &amp;&amp; (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">readyState</span> || <span class="hljs-variable language_">this</span>.<span class="hljs-property">readyState</span> == <span class="hljs-string">&#x27;loaded&#x27;</span> || <span class="hljs-variable language_">this</span>.<span class="hljs-property">readyState</span> == <span class="hljs-string">&#x27;complete&#x27;</span>)) &#123;<br>           b = <span class="hljs-literal">true</span>;<br>           <span class="hljs-keyword">if</span> (fn &amp;&amp; <span class="hljs-keyword">typeof</span> fn != <span class="hljs-string">&#x27;undefined&#x27;</span> &amp;&amp; fn <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Function</span>) <span class="hljs-title function_">fn</span>();<br>       &#125;<br>   &#125;;<br>   <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;head&#x27;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">appendChild</span>(s);<br>&#125;<br><span class="hljs-attr">bind</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">objId, eventType, callBack</span>) &#123;  <span class="hljs-comment">//适用于任何浏览器的绑定</span><br>   <span class="hljs-keyword">var</span> obj = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(objId);<br>   <span class="hljs-keyword">if</span> (obj.<span class="hljs-property">addEventListener</span>) &#123;<br>       obj.<span class="hljs-title function_">addEventListener</span>(eventType, callBack, <span class="hljs-literal">false</span>);<br>   &#125;<br>   <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">window</span>.<span class="hljs-property">attachEvent</span>) &#123;<br>       obj.<span class="hljs-title function_">attachEvent</span>(<span class="hljs-string">&#x27;on&#x27;</span> + eventType, callBack);<br>   &#125;<br>   <span class="hljs-keyword">else</span> &#123;<br>       obj[<span class="hljs-string">&#x27;on&#x27;</span> + eventType] = callBack;<br>   &#125;<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">JSLoad</span> (args) &#123;<br>   s = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;script&quot;</span>);<br>   s.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;type&quot;</span>, <span class="hljs-string">&quot;text/javascript&quot;</span>);<br>   s.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;src&quot;</span>, args.<span class="hljs-property">url</span>);<br>   s.<span class="hljs-property">onload</span> = s.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>       <span class="hljs-keyword">if</span> (!s.<span class="hljs-property">readyState</span> || s.<span class="hljs-property">readyState</span> == <span class="hljs-string">&quot;loaded&quot;</span> || s.<span class="hljs-property">readyState</span> == <span class="hljs-string">&quot;complete&quot;</span>) &#123;<br>           <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> args.<span class="hljs-property">callback</span> == <span class="hljs-string">&quot;function&quot;</span>) args.<span class="hljs-title function_">callback</span>(<span class="hljs-variable language_">this</span>, args);<br>           s.<span class="hljs-property">onload</span> = s.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-literal">null</span>;<br>           <span class="hljs-keyword">try</span> &#123;<br>               s.<span class="hljs-property">parentNode</span> &amp;&amp; s.<span class="hljs-property">parentNode</span>.<span class="hljs-title function_">removeChild</span>(s);<br>           &#125; <span class="hljs-keyword">catch</span> (e) &#123; &#125;<br>       &#125;<br>   &#125;;<br>   <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&quot;head&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">appendChild</span>(s);<br>&#125;　　<br></code></pre></td></tr></table></figure>
+
+<h1 id="清空LoadJS加载到顶部的js引用"><a href="#清空LoadJS加载到顶部的js引用" class="headerlink" title="清空LoadJS加载到顶部的js引用"></a>清空LoadJS加载到顶部的js引用</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">ClearHeadJs</span>  (src) &#123;<br>   <span class="hljs-keyword">var</span> js = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;head&#x27;</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">children</span>;<br>   <span class="hljs-keyword">var</span> obj = <span class="hljs-literal">null</span>;<br>   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; js.<span class="hljs-property">length</span>; i++) &#123;<br>       <span class="hljs-keyword">if</span> (js[i].<span class="hljs-property">tagName</span>.<span class="hljs-title function_">toLowerCase</span>() == <span class="hljs-string">&quot;script&quot;</span> &amp;&amp; js[i].<span class="hljs-property">attributes</span>[<span class="hljs-string">&#x27;src&#x27;</span>].<span class="hljs-property">value</span>.<span class="hljs-title function_">indexOf</span>(src) &gt; <span class="hljs-number">0</span>) &#123;<br>           obj = js[i];<br>       &#125;<br>   &#125;<br>   <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;head&#x27;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">removeChild</span>(obj);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="JS替换非法字符主要用在密码验证上出现的特殊字符"><a href="#JS替换非法字符主要用在密码验证上出现的特殊字符" class="headerlink" title="JS替换非法字符主要用在密码验证上出现的特殊字符"></a>JS替换非法字符主要用在密码验证上出现的特殊字符</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">URLencode</span>(<span class="hljs-params">sStr</span>) &#123;<br><span class="hljs-keyword">return</span> <span class="hljs-built_in">escape</span>(sStr).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/+/g</span>, <span class="hljs-string">&#x27;%2B&#x27;</span>).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&quot;/g</span>, <span class="hljs-string">&#x27;%22&#x27;</span>).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&#x27;/g</span>, <span class="hljs-string">&#x27;%27&#x27;</span>).<span class="hljs-title function_">replace</span>(<span class="hljs-comment">///g, &#x27;%2F&#x27;);</span><br>&#125;;　<br></code></pre></td></tr></table></figure>
+
+<h1 id="按Ctrl-Entert-直接提交表单"><a href="#按Ctrl-Entert-直接提交表单" class="headerlink" title="按Ctrl + Entert 直接提交表单"></a>按Ctrl + Entert 直接提交表单</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">onkeydown</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) &#123;<br>evt = evt ? evt : (<span class="hljs-variable language_">window</span>.<span class="hljs-property">event</span> ? <span class="hljs-variable language_">window</span>.<span class="hljs-property">event</span> : <span class="hljs-literal">null</span>);<br><span class="hljs-keyword">if</span> (<span class="hljs-number">13</span> == evt.<span class="hljs-property">keyCode</span> &amp;&amp; evt.<span class="hljs-property">ctrlKey</span>) &#123;<br><br>   evt.<span class="hljs-property">returnValue</span> = <span class="hljs-literal">false</span>;<br>   evt.<span class="hljs-property">cancel</span> = <span class="hljs-literal">true</span>;<br>   <span class="hljs-title class_">PostData</span>();<br>&#125;<br>&#125;;　<br></code></pre></td></tr></table></figure>
+
+<h1 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">GetCurrentDate</span>(<span class="hljs-params"></span>) &#123;<br>   <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();<br>   <span class="hljs-keyword">var</span> y = d.<span class="hljs-title function_">getYear</span>()+<span class="hljs-number">1900</span>;<br>   month = <span class="hljs-title function_">add_zero</span>(d.<span class="hljs-title function_">getMonth</span>() + <span class="hljs-number">1</span>),<br>   days = <span class="hljs-title function_">add_zero</span>(d.<span class="hljs-title function_">getDate</span>()),<br>   hours = <span class="hljs-title function_">add_zero</span>(d.<span class="hljs-title function_">getHours</span>());<br>   minutes = <span class="hljs-title function_">add_zero</span>(d.<span class="hljs-title function_">getMinutes</span>()),<br>   seconds = <span class="hljs-title function_">add_zero</span>(d.<span class="hljs-title function_">getSeconds</span>());<br>   <span class="hljs-keyword">var</span> str = y + <span class="hljs-string">&#x27;-&#x27;</span> + month + <span class="hljs-string">&#x27;-&#x27;</span> + days + <span class="hljs-string">&#x27; &#x27;</span> + hours + <span class="hljs-string">&#x27;:&#x27;</span> + minutes + <span class="hljs-string">&#x27;:&#x27;</span> + seconds;<br>   <span class="hljs-keyword">return</span> str;<br>&#125;;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">add_zero</span>(<span class="hljs-params">temp</span>) &#123;<br>   <span class="hljs-keyword">if</span> (temp &lt; <span class="hljs-number">10</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;0&quot;</span> + temp;<br>   <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> temp;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Js去掉空格方法"><a href="#Js去掉空格方法" class="headerlink" title="Js去掉空格方法"></a>Js去掉空格方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-title class_">String</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">Trim</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)<br>&#123; <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/(^s*)|(s*$)/g</span>, <span class="hljs-string">&quot;&quot;</span>); &#125;<br><span class="hljs-title class_">String</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">LTrim</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)<br>&#123;<span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/(^s*)/g</span>, <span class="hljs-string">&quot;&quot;</span>);&#125;<br><span class="hljs-title class_">String</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">RTrim</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)<br>&#123;<span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/(s*$)/g</span>, <span class="hljs-string">&quot;&quot;</span>);&#125;　<br></code></pre></td></tr></table></figure>
+
+<h1 id="Js动态移除head里的js引用"><a href="#Js动态移除head里的js引用" class="headerlink" title="Js动态移除head里的js引用"></a>Js动态移除head里的js引用</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-variable language_">this</span>.<span class="hljs-property">ClearHeadJs</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">src</span>) &#123;<br><span class="hljs-keyword">var</span> js = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;head&#x27;</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">children</span>;<br><span class="hljs-keyword">var</span> obj = <span class="hljs-literal">null</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; js.<span class="hljs-property">length</span>; i++) &#123;<br>   <span class="hljs-keyword">if</span> (js[i].<span class="hljs-property">tagName</span>.<span class="hljs-title function_">toLowerCase</span>() == <span class="hljs-string">&quot;script&quot;</span> &amp;&amp; js[i].<span class="hljs-property">attributes</span>[<span class="hljs-string">&#x27;src&#x27;</span>].<span class="hljs-property">value</span>.<span class="hljs-title function_">indexOf</span>(src) &gt; <span class="hljs-number">0</span>) &#123;<br>       obj = js[i];<br>   &#125;<br>&#125;<br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;head&#x27;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">removeChild</span>(obj);<br>&#125;;　<br><br></code></pre></td></tr></table></figure>
+
+<h1 id="动态加载js脚本文件"><a href="#动态加载js脚本文件" class="headerlink" title="动态加载js脚本文件"></a>动态加载js脚本文件</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">async</span>(<span class="hljs-params">src, callBack</span>) &#123;<br>	<span class="hljs-keyword">var</span> $body = <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>;<br>	<span class="hljs-keyword">var</span> <span class="hljs-title class_">EleScript</span> = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;script&quot;</span>);<br>	<span class="hljs-title class_">EleScript</span>.<span class="hljs-property">src</span> = src;<br>	$body.<span class="hljs-title function_">appendChild</span>(<span class="hljs-title class_">EleScript</span>);<br>	<span class="hljs-keyword">if</span> (callBack) &#123;<br>		<span class="hljs-title class_">EleScript</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;load&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>			<span class="hljs-title function_">callBack</span>(<span class="hljs-literal">null</span>, e);<br>		&#125;, <span class="hljs-literal">false</span>);<br>	&#125;<br>	$body.<span class="hljs-title function_">appendChild</span>(<span class="hljs-title class_">EleScript</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="手机分享页唤起APP"><a href="#手机分享页唤起APP" class="headerlink" title="手机分享页唤起APP"></a>手机分享页唤起APP</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//操作系统</span><br><span class="hljs-keyword">var</span> browser = &#123;<br>	<span class="hljs-attr">versions</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>		<span class="hljs-keyword">var</span> u = navigator.<span class="hljs-property">userAgent</span>, app = navigator.<span class="hljs-property">appVersion</span>;<br>		<span class="hljs-keyword">return</span> &#123;<span class="hljs-comment">//移动终端浏览器版本信息</span><br>			<span class="hljs-attr">dingTalk</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;DingTalk&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">weibo</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;weibo&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">qq</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;QQ/&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">qqBrowser</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;MQQBrowser&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">weChat</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;MicroMessenger&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">trident</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Trident&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">presto</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Presto&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">webKit</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;AppleWebKit&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">gecko</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Gecko&quot;</span>) &gt; -<span class="hljs-number">1</span> &amp;&amp; u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;KHTML&quot;</span>) == -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">mobile</span>: !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/AppleWebKit.*Mobile.*/</span>) || !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/Windows Phone/</span>) || !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/Android/</span>) || !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/MQQBrowser/</span>),<br>			<span class="hljs-attr">ios</span>: !!u.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>),<br>			<span class="hljs-attr">android</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Android&quot;</span>) &gt; -<span class="hljs-number">1</span> || u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Linux&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">iPhone</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;iPhone&quot;</span>) &gt; -<span class="hljs-number">1</span> || u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Mac&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">iPad</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;iPad&quot;</span>) &gt; -<span class="hljs-number">1</span>,<br>			<span class="hljs-attr">webApp</span>: u.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Safari&quot;</span>) == -<span class="hljs-number">1</span><br>		&#125;;<br>	&#125;(),<br>	<span class="hljs-attr">language</span>: (navigator.<span class="hljs-property">browserLanguage</span> || navigator.<span class="hljs-property">language</span>).<span class="hljs-title function_">toLowerCase</span>()<br>&#125;;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">OpenApp</span>(<span class="hljs-params"></span>) &#123;<br>	<span class="hljs-keyword">if</span> (!<span class="hljs-title class_">IsPC</span>()) &#123;<br>		<span class="hljs-keyword">if</span> (browser.<span class="hljs-property">versions</span>.<span class="hljs-property">weChat</span> || browser.<span class="hljs-property">versions</span>.<span class="hljs-property">qq</span> || browser.<span class="hljs-property">versions</span>.<span class="hljs-property">dingTalk</span> || browser.<span class="hljs-property">versions</span>.<span class="hljs-property">weibo</span>) &#123;<br>			<span class="hljs-title class_">ShowGuide</span>();<br>			<span class="hljs-keyword">if</span> (browser.<span class="hljs-property">versions</span>.<span class="hljs-property">ios</span>) &#123;<br>				<span class="hljs-title class_">ShowIosGuide</span>();<br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				<span class="hljs-title class_">ShowAdrGuide</span>();<br>			&#125;<br>		&#125; <span class="hljs-keyword">else</span> &#123;<br>			<span class="hljs-comment">//打开APP</span><br>			<span class="hljs-keyword">if</span> (navigator.<span class="hljs-property">onLine</span>) &#123;<br>				<span class="hljs-comment">//&#x27;&amp;usr=&#x27; + getURLParameter(&quot;openid&quot;) +</span><br>				<span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">href</span> = <span class="hljs-string">&quot;fivekilometres://articleDetail?id=&quot;</span> + <span class="hljs-title function_">getURLParameter</span>(<span class="hljs-string">&quot;articleId&quot;</span>) + <span class="hljs-string">&quot;&amp;type=&quot;</span> + <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&quot;contentType&quot;</span>) + <span class="hljs-string">&quot;&amp;sharer=&quot;</span> + <span class="hljs-title function_">getURLParameter</span>(<span class="hljs-string">&quot;sharer&quot;</span>);<br>				<span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>					<span class="hljs-comment">// alert(&quot;即将上线，敬请期待&quot;);</span><br>					<span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>						<span class="hljs-title function_">download</span>();<br>					&#125;, <span class="hljs-number">2000</span>);<br>				&#125;, <span class="hljs-number">3000</span>);<br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				<span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;请查看您的网络链接&quot;</span>);<br>			&#125;<br>			<span class="hljs-comment">//如果打开APP超时就提示用户下载</span><br>		&#125;<br>	&#125; <span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-title function_">download</span>();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/">#JavaScript</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JavaScript常用方法总结</div>
+      <div>https://www.zwjay.cn/2017/07/17/2017-07-17-javascript-commonly-used-method/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mr.Jaxson</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2017年7月17日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/04/13/2018-4-14-git-worlflow/" title="GIT工作流方式">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">GIT工作流方式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/07/07/2017-07-07-NodeJS-save-png/" title="Express保存base64图片">
+                        <span class="hidden-mobile">Express保存base64图片</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'http-zwjay-cn',
+              apikey: ''
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?0c5ab9917e153a67360172154ba0dc64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

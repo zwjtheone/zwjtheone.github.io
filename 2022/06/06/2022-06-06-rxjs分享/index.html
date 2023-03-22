@@ -1,0 +1,833 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mr.Jaxson">
+  <meta name="keywords" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
+  
+    <meta name="description" content="rxjs分享函数式编程：声明式和声明式相对应的编程方式叫做命令式编程（Imperative Programming）， 命令式编程也是最常见的一种编程方式。 1234567function addOne(arr) &amp;#123;  const results &#x3D; []  for (let i &#x3D; 0; i &lt; arr.length; i++)&amp;#123;    results.push(arr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rxjs分享">
+<meta property="og:url" content="https://www.zwjay.cn/2022/06/06/2022-06-06-rxjs%E5%88%86%E4%BA%AB/index.html">
+<meta property="og:site_name" content="Jaxson&#39;Blog">
+<meta property="og:description" content="rxjs分享函数式编程：声明式和声明式相对应的编程方式叫做命令式编程（Imperative Programming）， 命令式编程也是最常见的一种编程方式。 1234567function addOne(arr) &amp;#123;  const results &#x3D; []  for (let i &#x3D; 0; i &lt; arr.length; i++)&amp;#123;    results.push(arr">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-22T17:56:16.329Z">
+<meta property="article:author" content="Mr.Jaxson">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="RxJS">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>rxjs分享 - Jaxson&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.zwjay.cn","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"0c5ab9917e153a67360172154ba0dc64","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 30vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jaxson&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="rxjs分享"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mr.Jaxson
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-06 00:00" pubdate>
+          2022年6月6日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">rxjs分享</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年3月23日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="rxjs分享"><a href="#rxjs分享" class="headerlink" title="rxjs分享"></a>rxjs分享</h1><h1 id="函数式编程："><a href="#函数式编程：" class="headerlink" title="函数式编程："></a>函数式编程：</h1><h3 id="声明式"><a href="#声明式" class="headerlink" title="声明式"></a>声明式</h3><p>和声明式相对应的编程方式叫做命令式编程（Imperative Programming），</p>
+<p>命令式编程也是最常见的一种编程方式。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">addOne</span>(<span class="hljs-params">arr</span>) &#123;<br>  <span class="hljs-keyword">const</span> results = []<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; arr.<span class="hljs-property">length</span>; i++)&#123;<br>    results.<span class="hljs-title function_">push</span>(arr[i] + <span class="hljs-number">1</span>)<br>  &#125;<br>  <span class="hljs-keyword">return</span> results<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="纯函数（pure-Function）"><a href="#纯函数（pure-Function）" class="headerlink" title="纯函数（pure Function）"></a>纯函数（pure Function）</h3><p>❑ 函数的执行过程完全由输入参数决定，不会受除参数之外的任何数据影响。</p>
+<p>❑ 函数不会修改任何外部状态，比如修改全局变量或传入的参数对象。</p>
+<h3 id="不纯函数（Impure-Function）"><a href="#不纯函数（Impure-Function）" class="headerlink" title="不纯函数（Impure Function）"></a>不纯函数（Impure Function）</h3><p>❑ 改变全局变量的值。</p>
+<p>❑ 改变输入参数引用的对象，就像上面不是纯函数的arrayPush实现。</p>
+<p>❑ 读取用户输入，比如调用了alert或者confirm函数。</p>
+<p>❑ 抛出一个异常。</p>
+<p>❑ 网络输入&#x2F;输出操作，比如通过AJAX调用一个服务器的API。</p>
+<p>❑ 操作浏览器的DOM。</p>
+<h3 id="数据不可变"><a href="#数据不可变" class="headerlink" title="数据不可变"></a>数据不可变</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">//bad</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">arrayPush</span> (arr, newValue) &#123;<br>  arr.<span class="hljs-title function_">push</span>(newValue);<br>  <span class="hljs-keyword">return</span> arr;<br>&#125;<br><span class="hljs-comment">//good</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">arrayPush</span> (arr, newValue) &#123;<br>  <span class="hljs-keyword">return</span> [...arr, newValue];<br>&#125;<br><span class="hljs-comment">//-----</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">double</span>(<span class="hljs-params">arr</span>) &#123;<br>  <span class="hljs-keyword">return</span> arr.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item * <span class="hljs-number">2</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>rx是一种思想</p>
+<hr>
+<blockquote>
+<p>Think of RxJS as Lodash for events.</p>
+</blockquote>
+<p>❑ 数据流抽象了很多现实问题。</p>
+<p>❑ 擅长处理异步操作。</p>
+<p>❑ 把复杂问题分解成简单问题的组合。</p>
+<ul>
+<li><strong>Observable:</strong> represents the idea of an invokable collection of future values or events.</li>
+<li><strong>Observer:</strong> is a collection of callbacks that knows how to listen to values delivered by the Observable.</li>
+<li><strong>Subscription:</strong> represents the execution of an Observable, is primarily useful for cancelling the execution.</li>
+<li><strong>Operators:</strong> are pure functions that enable a functional programming style of dealing with collections with operations like <code>map</code>, <code>filter</code>, <code>concat</code>, <code>reduce</code>, etc.</li>
+<li><strong>Subject:</strong> is the equivalent to an EventEmitter, and the only way of multicasting a value or event to multiple Observers.</li>
+<li><strong>Schedulers:</strong> are centralized dispatchers to control concurrency, allowing us to coordinate when computation happens on e.g. <code>setTimeout</code> or <code>requestAnimationFrame</code> or others.</li>
+</ul>
+<p>引入rxjs主要是处理异步问题</p>
+<p>之前方式是</p>
+<p>回调</p>
+<p>事件</p>
+<p>Promise</p>
+<p>Generator</p>
+<p>![rxjs%E5%88%86%E4%BA%AB%20a28ecda1f359473b8972a4b50f16cb33&#x2F;Untitled.png](&#x2F;img&#x2F;Untitled 33.png)</p>
+<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>❑ 如何产生事件，这是发布者的责任，在RxJS中是Observable对象的工作。</p>
+<p>❑ 如何响应事件，这是观察者的责任，在RxJS中由subscribe的参数来决定。</p>
+<p>❑ 什么样的发布者关联什么样的观察者，也就是何时调用subscribe。</p>
+<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p>通常所说的是“拉”式的迭代器实现，而RxJS实现的是“推”式的迭代器实现。</p>
+<p>Observable &#x3D; Publisher+Iterator</p>
+<p>Observable产生的事件，只有Observer通过subscribe订阅之后才会收到，在unsubscribe之后就不会再收到。</p>
+<h3 id="操作符类型"><a href="#操作符类型" class="headerlink" title="操作符类型"></a>操作符类型</h3><p>❑ 创建类（creation）</p>
+<p>❑ 转化类（transformation）</p>
+<p>❑ 过滤类（filtering）</p>
+<p>❑ 合并类（combination）</p>
+<p>❑ 多播类（multicasting）</p>
+<p>❑ 错误处理类（error Handling）</p>
+<p>❑ 辅助工具类（utility）</p>
+<p>❑ 条件分支类（conditional &amp; boolean）</p>
+<p>❑ 数学和合计类（mathmatical &amp; aggregate）</p>
+<p>RxJS提供了各种API来创建数据流：</p>
+<ul>
+<li>单值：of, empty, never</li>
+<li>多值：from</li>
+<li>定时：interval, timer</li>
+<li>从事件创建：fromEvent</li>
+<li>从Promise创建：fromPromise</li>
+<li>自定义创建：create</li>
+</ul>
+<p>创建出来的数据流是一种可观察的序列，可以被订阅，也可以被用来做一些转换操作，比如：</p>
+<ul>
+<li>改变数据形态：map, mapTo, pluck</li>
+<li>过滤一些值：filter, skip, first, last, take</li>
+<li>时间轴上的操作：delay, timeout, throttle, debounce, audit, bufferTime</li>
+<li>累加：reduce, scan</li>
+<li>异常处理：throw, catch, retry, finally</li>
+<li>条件执行：takeUntil, delayWhen, retryWhen, subscribeOn, ObserveOn</li>
+<li>转接：switch</li>
+</ul>
+<p>也可以对若干个数据流进行组合：</p>
+<ul>
+<li>concat，保持原来的序列顺序连接两个数据流</li>
+<li>merge，合并序列</li>
+<li>race，预设条件为其中一个数据流完成</li>
+<li>forkJoin，预设条件为所有数据流都完成</li>
+<li>zip，取各来源数据流最后一个值合并为对象</li>
+<li>combineLatest，取各来源数据流最后一个值合并为数组</li>
+</ul>
+<p>subject慎用，因为是热订阅，难以查询到堆栈调用。所以要使用dispatch模式。</p>
+<p>写的代码逻辑不能有断层</p>
+<p>observable是可观察对象，都可以用pipe管道来操作</p>
+<p>理解管道的概念</p>
+<p>不能强行用observable，要合理使用，不能强行炫技。要理解清楚为什么要用再用。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Observable</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span><br><br><span class="hljs-keyword">const</span> $input = &lt;<span class="hljs-title class_">HTMLInputElement</span>&gt;<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.todo-val&#x27;</span>)<br><br><span class="hljs-keyword">const</span> input$ = <span class="hljs-title class_">Observable</span>.<span class="hljs-property">fromEvent</span>&lt;<span class="hljs-title class_">KeyboardEvent</span>&gt;($input, <span class="hljs-string">&#x27;keydown&#x27;</span>)<br>  .<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> r.<span class="hljs-property">keyCode</span> === <span class="hljs-number">13</span>)<br>  .<span class="hljs-title function_">do</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(r))<br><br>input$$.<span class="hljs-title function_">subscribe</span>()<br></code></pre></td></tr></table></figure>
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/">#JavaScript</a>
+      
+        <a href="/tags/RxJS/">#RxJS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>rxjs分享</div>
+      <div>https://www.zwjay.cn/2022/06/06/2022-06-06-rxjs分享/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mr.Jaxson</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月6日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/06/2022-06-06-vue%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" title="vue2最佳实践">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">vue2最佳实践</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/06/2022-06-06-vue%E7%9B%91%E5%90%AC%EF%BC%8Cval%E3%80%81oldVal%E5%80%BC%E7%9B%B8%E5%90%8C%E9%97%AE%E9%A2%98/" title="vue监听，val、oldVal值相同问题">
+                        <span class="hidden-mobile">vue监听，val、oldVal值相同问题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'http-zwjay-cn',
+              apikey: ''
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?0c5ab9917e153a67360172154ba0dc64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

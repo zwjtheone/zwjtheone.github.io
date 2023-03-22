@@ -1,0 +1,779 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mr.Jaxson">
+  <meta name="keywords" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
+  
+    <meta name="description" content="javascript设计模式之单例模式定义和用法在传统开发工程师眼里，单例就是保证一个类只有一个实例，实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。在JavaScript里，单例作为一个命名空间提供者，从全局命名空间里提供一个唯一的访问点来访问该对象。 正文在JavaScript里，实现单例的方式有很多种，其中最简单的一个方式是使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈javacript 笔记系列--- 设计模式 之单例模式">
+<meta property="og:url" content="https://www.zwjay.cn/2016/06/11/2016-07-11-javascript-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Jaxson&#39;Blog">
+<meta property="og:description" content="javascript设计模式之单例模式定义和用法在传统开发工程师眼里，单例就是保证一个类只有一个实例，实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。在JavaScript里，单例作为一个命名空间提供者，从全局命名空间里提供一个唯一的访问点来访问该对象。 正文在JavaScript里，实现单例的方式有很多种，其中最简单的一个方式是使">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-06-11T03:57:13.000Z">
+<meta property="article:modified_time" content="2023-03-22T17:56:16.325Z">
+<meta property="article:author" content="Mr.Jaxson">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>浅谈javacript 笔记系列--- 设计模式 之单例模式 - Jaxson&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.zwjay.cn","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"0c5ab9917e153a67360172154ba0dc64","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 30vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jaxson&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="浅谈javacript 笔记系列--- 设计模式 之单例模式"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mr.Jaxson
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2016-06-11 11:57" pubdate>
+          2016年6月11日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          34 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">浅谈javacript 笔记系列--- 设计模式 之单例模式</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年3月23日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="javascript设计模式之单例模式"><a href="#javascript设计模式之单例模式" class="headerlink" title="javascript设计模式之单例模式"></a>javascript设计模式之单例模式</h1><h2 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h2><p>在传统开发工程师眼里，单例就是保证一个类只有一个实例，实现的方法一般是先判断实例存在与否，如果存在直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。在JavaScript里，单例作为一个命名空间提供者，从全局命名空间里提供一个唯一的访问点来访问该对象。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>在JavaScript里，实现单例的方式有很多种，其中最简单的一个方式是使用对象字面量的方法，其字面量里可以包含大量的属性和方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">var mySingleton = &#123;<br>  property1: <span class="hljs-string">&quot;something&quot;</span>,<br>  property2: <span class="hljs-string">&quot;something else&quot;</span>,<br>  method1: <span class="hljs-function"><span class="hljs-title">function</span></span> () &#123;<br>      console.log(<span class="hljs-string">&#x27;hello world&#x27;</span>);<br>  &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+<p>如果以后要扩展该对象，你可以添加自己的私有成员和方法，然后使用闭包在其内部封装这些变量和函数声明。只暴露你想暴露的public成员和方法，样例代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">var mySingleton = <span class="hljs-function"><span class="hljs-title">function</span></span>() &#123; /* 这里声明私有变量和方法 */<br>  var privateVariable = <span class="hljs-string">&#x27;something private&#x27;</span>;<br><br>  <span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">showPrivate</span></span>() &#123;<br>    console.log(privateVariable);<br>  &#125;<br>  /* 公有变量和方法（可以访问私有变量和方法） */<br>  <span class="hljs-built_in">return</span> &#123;<br>    publicMethod: <span class="hljs-function"><span class="hljs-title">function</span></span>() &#123;<br>      showPrivate();<br>    &#125;,<br>    publicVar: <span class="hljs-string">&#x27;the public can see this!&#x27;</span><br>  &#125;;<br>&#125;;<br>var single = mySingleton();<br>single.publicMethod(); // 输出 <span class="hljs-string">&#x27;something private&#x27;</span><br>console.log(single.publicVar); // 输出 <span class="hljs-string">&#x27;the public can see this!&#x27;</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="如何拥有私有成员的单体"><a href="#如何拥有私有成员的单体" class="headerlink" title="如何拥有私有成员的单体"></a>如何拥有私有成员的单体</h2><h3 id="下划线标示法"><a href="#下划线标示法" class="headerlink" title="下划线标示法"></a>下划线标示法</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-built_in">var</span> <span class="hljs-keyword">namespace</span> = &#123;&#125;;<br><span class="hljs-keyword">namespace</span>.DataParser = &#123;<br>  _stripWhitespace:function(<span class="hljs-built_in">str</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">str</span>.replace(/s+/,<span class="hljs-string">&#x27;&#x27;</span>);<br>  &#125;,<br>  _stringSplit:funtion(<span class="hljs-built_in">str</span>,delimiter) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">str</span>.split(delimiter);<br>  &#125;,<br>  <span class="hljs-comment">//共有方法</span><br>  stringToArray:function(<span class="hljs-built_in">str</span>,delimiter,stripWs) &#123;<br>    <span class="hljs-keyword">if</span>(stripWs) &#123;<br>      <span class="hljs-built_in">str</span> = <span class="hljs-keyword">this</span>._stringWhitespace(<span class="hljs-built_in">str</span>);<br>    &#125;<br>    <span class="hljs-built_in">var</span> outputArray = <span class="hljs-keyword">this</span>._stringSplit(<span class="hljs-built_in">str</span>,delimiter);<br>    <span class="hljs-keyword">return</span> outputArray;<br>  &#125;<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="使用闭包"><a href="#使用闭包" class="headerlink" title="使用闭包"></a>使用闭包</h3><p>单体只会被实例化一次，每个方法和属性都只会创建一次，所以你可以把他们都声明在构造函数内部，例如：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> <span class="hljs-keyword">namespace</span> = &#123;&#125;;<br><br><span class="hljs-comment">// 1、最简单的单例</span><br>namspace.singeton = &#123;&#125;<br><br><span class="hljs-comment">// 2、现在我们用一个在定义之后立即执行的函数创造单体</span><br><span class="hljs-keyword">namespace</span>.singleton = <span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>  <span class="hljs-keyword">return</span> &#123;&#125;<br>&#125;();<br><br></code></pre></td></tr></table></figure>
+
+<p>上述的1、2两个例子中创建的namespace.singeton 完全相同，但是要注意的是第二个例子的匿名函数加了一个括号，这代表着，立即执行返回一个对象给namespace.singleton</p>
+<p>有些程序员喜欢在那个匿名函数中在套上一对圆括号，以表示会在声明之后立即执行。这在创建单体较为庞大的时候尤其重要，因为你只要一眼就能看出该函数是用来创建一个闭包。格外加上圆括号，就变成下面这个样子：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">namespace</span>.singleton = (<span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>  <span class="hljs-keyword">return</span> &#123;&#125;<br>&#125;)();<br><br><span class="hljs-comment">// 你可以把公用成员添加到单体返回的对象里面</span><br><span class="hljs-keyword">namespace</span>.singleton = (<span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>  <span class="hljs-comment">// 私有成员</span><br>  <span class="hljs-keyword">var</span> _priviteName = <span class="hljs-string">&quot;dfdfasfd&quot;</span>;<br>  <span class="hljs-keyword">var</span> _priviteMethod = <span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> _priviteName;<br>  &#125;<br><br>  <span class="hljs-comment">// 公用成员</span><br>  <span class="hljs-keyword">return</span> &#123;<br>    publiceAttribute:<span class="hljs-literal">true</span>,<br>    publiceAttribute2:<span class="hljs-number">1</span>,<br>    publiceMenthod:<span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>      ...<br>    &#125;<br>  &#125;<br><br>  &#125;)()<br></code></pre></td></tr></table></figure>
+
+<p>** 包装函数创建了一个用来正真添加私有成员的闭包，防止程序员调用到私有成员**<br>任何声明在这个匿名函数中（但不是那个字面量中）的变量或者函数都只能被在同一个闭包中声明的其他函数访问。这个闭包在匿名函数执行后依然存在，所以在其中声明的函数和变量总能从匿名函数所返回的对象内部（并且只能从内部）访问</p>
+<p>相比前者，后者不必再用this.或者namespace.singleton 去访问对象中发成员了</p>
+<h2 id="惰性单例"><a href="#惰性单例" class="headerlink" title="惰性单例"></a>惰性单例</h2><p>前面所讲的单体模式都有一个共同特点：单体对象都是在脚本加载完成之后创建出来的。对于资源密集型或者配置开销很大的单体，也许更加合理的方式是将实例化推迟到需要的时候，这种技术被称为惰性加载，它通常用于那些比较大量数据的单体。</p>
+<p>我们如何将普通的闭包单体修改为惰性单体呢？</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> <span class="hljs-keyword">namespace</span> = &#123;&#125;;<br><span class="hljs-keyword">namespace</span>.singleton = (<span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br><span class="hljs-comment">// 第一步，将单体的所有代码移动到一个名为constructor的方法中</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Constructor</span><span class="hljs-params">()</span> &#123;<br>   <span class="hljs-keyword">var</span> _priviteName = <span class="hljs-string">&quot;dfdfasfd&quot;</span>;<br>    <span class="hljs-keyword">var</span> _priviteMethod = <span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>      <span class="hljs-keyword">return</span> _priviteName;<br>    &#125;<br>&#125;<br> <span class="hljs-comment">// 公用成员</span><br>  <span class="hljs-keyword">return</span> &#123;<br>    publiceAttribute:<span class="hljs-literal">true</span>,<br>    publiceAttribute2:<span class="hljs-number">1</span>,<br>    publiceMenthod:<span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>      ...<br>    &#125;<br>  &#125;<br>&#125;)();<br><br></code></pre></td></tr></table></figure>
+
+<p>这个方法不能从外部访问，这是一件好事，因为我们可以完全控制其调用时机。公用方法getInstance就是来实现这种控制的。为了使其成为公用方法，只需将其放到一个对象字面量中并返回该对象即可：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> <span class="hljs-keyword">namespace</span> = &#123;&#125;;<br><span class="hljs-keyword">namespace</span>.singleton = (<span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br><span class="hljs-comment">// 第一步，将单体的所有代码移动到一个名为constructor的方法中</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Constructor</span><span class="hljs-params">()</span> &#123;<br>   <span class="hljs-keyword">var</span> _priviteName = <span class="hljs-string">&quot;dfdfasfd&quot;</span>;<br>    <span class="hljs-keyword">var</span> _priviteMethod = <span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>      <span class="hljs-keyword">return</span> _priviteName;<br>    &#125;<br>&#125;<br> <span class="hljs-comment">// 公用成员</span><br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-comment">// 第二步编写getInstance方法</span><br>    getInstance: <span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>      ...<br>    &#125;<br>  &#125;<br>&#125;)();<br><br></code></pre></td></tr></table></figure>
+
+<p>现在开始编写控制单体类实例化时机的代码。它需要做两件事情。第一，它必须知道该类是否已经被示例化过。第二，如果该类已经实例化，那么它需要掌握其实例的情况，以便能返回这个实例。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> <span class="hljs-keyword">namespace</span> = &#123;&#125;;<br><span class="hljs-keyword">namespace</span>.singleton = (<span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br> <span class="hljs-keyword">var</span> instance;<br><span class="hljs-comment">// 第一步，将单体的所有代码移动到一个名为constructor的方法中</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">Constructor</span><span class="hljs-params">()</span> &#123;<br>   <span class="hljs-keyword">var</span> _priviteName = <span class="hljs-string">&quot;dfdfasfd&quot;</span>;<br>    <span class="hljs-keyword">var</span> _priviteMethod = <span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>      <span class="hljs-keyword">return</span> _priviteName;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> &#123;<br>      getName:<span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;23123&quot;</span><br>      &#125;,<br>      publiceMethod2:<span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> _priviteMethod()<br>      &#125;<br>    &#125;<br>&#125;<br> <span class="hljs-comment">// 公用成员</span><br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-comment">// 第二步编写getInstance方法</span><br>    getInstance: <span class="hljs-keyword">function</span><span class="hljs-params">()</span> &#123;<br>      <span class="hljs-keyword">if</span>(!instance) &#123;<br>        instance = Constructor();<br>      &#125;<br>      <span class="hljs-keyword">return</span> instance;<br>    &#125;<br>  &#125;<br>&#125;)();<br><br></code></pre></td></tr></table></figure>
+
+
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/">#JavaScript</a>
+      
+        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#设计模式</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>浅谈javacript 笔记系列--- 设计模式 之单例模式</div>
+      <div>https://www.zwjay.cn/2016/06/11/2016-07-11-javascript-设计模式-单例模式/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mr.Jaxson</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2016年6月11日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/11/18/2016-11-18-cordova-ionic-common-commands/" title="cordova ionic 常用命令">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">cordova ionic 常用命令</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2016/03/25/2016-03-25-RegExp/" title="JavaScript 正则表达式学习笔记">
+                        <span class="hidden-mobile">JavaScript 正则表达式学习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'http-zwjay-cn',
+              apikey: ''
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?0c5ab9917e153a67360172154ba0dc64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mr.Jaxson">
+  <meta name="keywords" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
+  
+    <meta name="description" content="ion-content的回弹效果没有了 在 &lt;ion-content&gt; 标签加上 &#96;overflow-scroll&#x3D;”false” has-bouncing&#x3D;”true”  view之间的数据传输1 .使用 $state.go(to [, toParams] [, options])在第二个参数传入一个JSON对象，在 to 的路由加上params:{} 定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ionic 笔记">
+<meta property="og:url" content="https://www.zwjay.cn/2016/11/30/2016-11-30-Ionic-notes/index.html">
+<meta property="og:site_name" content="Jaxson&#39;Blog">
+<meta property="og:description" content="ion-content的回弹效果没有了 在 &lt;ion-content&gt; 标签加上 &#96;overflow-scroll&#x3D;”false” has-bouncing&#x3D;”true”  view之间的数据传输1 .使用 $state.go(to [, toParams] [, options])在第二个参数传入一个JSON对象，在 to 的路由加上params:{} 定">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-11-29T23:08:08.000Z">
+<meta property="article:modified_time" content="2016-11-29T17:08:08.000Z">
+<meta property="article:author" content="Mr.Jaxson">
+<meta property="article:tag" content="Ionic">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Ionic 笔记 - Jaxson&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.zwjay.cn","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"0c5ab9917e153a67360172154ba0dc64","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 30vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jaxson&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Ionic 笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mr.Jaxson
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2016-11-30 07:08" pubdate>
+          2016年11月30日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          15k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          124 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Ionic 笔记</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2016年11月30日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="ion-content的回弹效果没有了"><a href="#ion-content的回弹效果没有了" class="headerlink" title="ion-content的回弹效果没有了"></a>ion-content的回弹效果没有了</h1><ul>
+<li>在 <code>&lt;ion-content&gt;</code> 标签加上 &#96;overflow-scroll&#x3D;”false” has-bouncing&#x3D;”true”</li>
+</ul>
+<h1 id="view之间的数据传输"><a href="#view之间的数据传输" class="headerlink" title="view之间的数据传输"></a>view之间的数据传输</h1><h2 id="1-使用-state-go-to-toParams-options"><a href="#1-使用-state-go-to-toParams-options" class="headerlink" title="1 .使用 $state.go(to [, toParams] [, options])"></a>1 .使用 <code>$state.go(to [, toParams] [, options])</code></h2><p>在第二个参数传入一个JSON对象，在 <code>to</code> 的路由加上params:{} 定义传输的参数,然后在 <code>to</code> 的 <code>controller</code> 注入 <code>$stateParams</code> 接收数据。</p>
+<span id="more"></span>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$state.<span class="hljs-title function_">go</span>(<span class="hljs-string">&quot;tab.lazy&quot;</span>, &#123;<span class="hljs-attr">lazyId</span>:<span class="hljs-number">1</span>, <span class="hljs-attr">lazyName</span>:<span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-attr">inherit</span>:<span class="hljs-literal">false</span>&#125;);<br><br>-------------------------------------------------------------------<br><br>.<span class="hljs-title function_">state</span>(<span class="hljs-string">&#x27;tab.lazy&#x27;</span>, &#123;<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;/lazy&#x27;</span>,<br>        <span class="hljs-attr">views</span>: &#123;<br>          <span class="hljs-string">&#x27;tab-lazy&#x27;</span>: &#123;<br>            <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;templates/lazy.html&#x27;</span>,<br>            <span class="hljs-attr">controller</span>: <span class="hljs-string">&#x27;LazyCtrl&#x27;</span><br>          &#125;<br>        &#125;,<br>        <span class="hljs-attr">params</span>: &#123;<br>          <span class="hljs-attr">lazyId</span>: <span class="hljs-literal">null</span>,<br>          <span class="hljs-attr">lazyName</span>: <span class="hljs-literal">null</span><br>        &#125;<br>&#125;)<br>      <br>-------------------------------------------------------------------<br><br>.<span class="hljs-title function_">controller</span>(<span class="hljs-string">&#x27;venueDetailsCtrl&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">$scope, $stateParams, $http</span>) &#123;<br>    $scope.<span class="hljs-property">lazyId</span> = $stateParams.<span class="hljs-property">lazyId</span><br>    $scope.<span class="hljs-property">lazyName</span> = $stateParams.<span class="hljs-property">lazyName</span><br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p><strong>第三个配置参数： Object</strong></p>
+<ul>
+<li><code>location</code> <em>Boolean or “replace” (default true)</em>, If <code>true</code> will update the url in the location bar, if <code>false</code> will not. If string <code>&quot;replace&quot;</code>, will update url and also replace last history record.</li>
+<li><code>inherit</code> <em>Boolean (default true)</em>, If <code>true</code> will inherit url parameters from current url.</li>
+<li><code>relative</code> <em>stateObject (default $state.$current)</em>, When transitioning with relative path (e.g ‘^’), defines which state to be relative from.</li>
+<li><code>notify</code> <em>Boolean (default true)</em>, If <code>true</code> will broadcast $stateChangeStart and $stateChangeSuccess events.</li>
+<li><code>reload</code> <code>v0.2.5</code> <em>Boolean (default false)</em>, If <code>true</code> will force transition even if the state or params have not changed, aka a reload of the same state. It differs from reloadOnSearch because you’d use this when you want to force a reload when <em>everything</em> is the same, including search params.</li>
+</ul>
+<ul>
+<li>如果<code>$state.go</code> 跳转没有动画效果，可以加上<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$ionicViewSwitcher.<span class="hljs-title function_">nextDirection</span>(<span class="hljs-string">&#x27;forward&#x27;</span>); <span class="hljs-comment">// &#x27;forward&#x27;, &#x27;back&#x27;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="2-利用ui-serf"><a href="#2-利用ui-serf" class="headerlink" title="2 .利用ui-serf"></a>2 .利用ui-serf</h2><p>在<code>ui-serf=&#39;lazy&#39;</code> 后面加上参数-&gt; <code>ui-serf=&#39;lazy(&#123;lazyId: 1,lazyName: 2&#125;)&#39;</code> ,一样在路由上加params,用$stateParams接收。</p>
+<h2 id="3-利用url（a-标签）"><a href="#3-利用url（a-标签）" class="headerlink" title="3 .利用url（a 标签）"></a>3 .利用url（a 标签）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$stateProvider<br>    .<span class="hljs-title function_">state</span>(<span class="hljs-string">&#x27;contacts.detail&#x27;</span>, &#123;<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;/contacts/:contactId&quot;</span>,<br>        <span class="hljs-attr">templateUrl</span>: <span class="hljs-string">&#x27;contacts.detail.html&#x27;</span>,<br>        <span class="hljs-attr">controller</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">$stateParams</span>) &#123;<br>            <span class="hljs-comment">// If we got here from a url of /contacts/42</span><br>            <span class="hljs-title function_">expect</span>($stateParams).<span class="hljs-title function_">toBe</span>(&#123;<span class="hljs-attr">contactId</span>: <span class="hljs-string">&quot;42&quot;</span>&#125;);<br>        &#125;<br>    &#125;)<br></code></pre></td></tr></table></figure>
+
+<p>主要在 <code>:contactId</code> ,注意前面要加上<code>/</code>,当然也可以用花括号,<code>url: &quot;/contacts/&#123;contactId&#125;&quot; </code>,</p>
+<ul>
+<li>‘&#x2F;hello&#x2F;‘ - Matches only if the path is exactly ‘&#x2F;hello&#x2F;‘. There is no special treatment for trailing slashes, and patterns have to match the entire path, not just a prefix.</li>
+<li>‘&#x2F;user&#x2F;:id’ - Matches ‘&#x2F;user&#x2F;bob’ or ‘&#x2F;user&#x2F;1234!!!’ or even ‘&#x2F;user&#x2F;‘ but not ‘&#x2F;user’ or ‘&#x2F;user&#x2F;bob&#x2F;details’. The second path segment will be captured as the parameter ‘id’.</li>
+<li>‘&#x2F;user&#x2F;{id}’ - Same as the previous example, but using curly brace syntax.</li>
+<li>‘&#x2F;user&#x2F;{id:int}’ - The param is interpreted as Integer.</li>
+</ul>
+<p><strong>用法</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">ui-sref</span>=<span class="hljs-string">&quot;contacts.detail(&#123;contactId: id&#125;)&quot;</span>&gt;</span>View Contact<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="数据更新-页面没有更新"><a href="#数据更新-页面没有更新" class="headerlink" title="数据更新,页面没有更新"></a>数据更新,页面没有更新</h1><h2 id="apply-方法-作用："><a href="#apply-方法-作用：" class="headerlink" title="$apply  方法 作用："></a>$apply  方法 作用：</h2><p>Scope 提供$apply 方法传播 Model 的变化</p>
+<h3 id="apply-方法-使用情景-："><a href="#apply-方法-使用情景-：" class="headerlink" title="$apply  方法 使用情景 ："></a>$apply  方法 使用情景 ：</h3><p>AngularJS 外部的控制器（DOM 事件、外部的回调函数如 jQuery UI 空间等）调用了 AngularJS 函数之<br>后，必须调用$apply。在这种情况下，你需要命令 AngularJS 刷新自已（模型、视图等） ，$apply 就是<br>用来做这件事情的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript">xxx<br>$scope.<span class="hljs-title function_">apply</span>();<br>___<br>$scope.<span class="hljs-title function_">apply</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>  xxx<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="apply-方法-注意事项-："><a href="#apply-方法-注意事项-：" class="headerlink" title="$apply  方法 注意事项 ："></a>$apply  方法 注意事项 ：</h3><p>只要可以， 请把要执行的代码和函数传递给$apply 去执行， 而不要自已执行那些函数然后再调用$apply。</p>
+<h1 id="跳转过渡动画"><a href="#跳转过渡动画" class="headerlink" title="跳转过渡动画"></a>跳转过渡动画</h1><h2 id="state-go"><a href="#state-go" class="headerlink" title="$state.go"></a>$state.go</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$state.<span class="hljs-title function_">go</span>(<span class="hljs-string">&#x27;myState&#x27;</span>,&#123;<br>    <span class="hljs-attr">navTransition</span>:<span class="hljs-string">&#x27;android&#x27;</span>,<br><span class="hljs-string">&#x27;navDirection&#x27;</span>:<span class="hljs-string">&#x27;forward&#x27;</span><br>&#125;);<br></code></pre></td></tr></table></figure>
+<h2 id="ui-sref"><a href="#ui-sref" class="headerlink" title="ui-sref"></a>ui-sref</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ui-sref</span>=<span class="hljs-string">&#x27;myState&#x27;</span> <span class="hljs-attr">nav-direction</span>=<span class="hljs-string">&quot;forward&quot;</span> <span class="hljs-attr">nav-transition</span>=<span class="hljs-string">&#x27;android&#x27;</span>&gt;</span>Some element<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="ionicViewSwitcher"><a href="#ionicViewSwitcher" class="headerlink" title="$ionicViewSwitcher"></a>$ionicViewSwitcher</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$ionicViewSwitcher.<span class="hljs-title function_">nextDirection</span>(<span class="hljs-string">&#x27;forward&#x27;</span>);<span class="hljs-comment">// &#x27;forward&#x27;, &#x27;back&#x27;, etc.</span><br>$state.<span class="hljs-title function_">go</span>(<span class="hljs-string">&#x27;myState&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h1 id="Angular-获取事件焦点或其他信息-（ng-click-on-tap-等事件）"><a href="#Angular-获取事件焦点或其他信息-（ng-click-on-tap-等事件）" class="headerlink" title="Angular 获取事件焦点或其他信息 （ng-click on-tap 等事件）"></a>Angular 获取事件焦点或其他信息 （ng-click on-tap 等事件）</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;brandFnc($event)&quot;</span>&gt;</span>brList<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$scope.<span class="hljs-property">brandFnc</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">$event</span>)&#123;<br>    <span class="hljs-comment">// 通过 $event.target 来获取</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="ionic-actionsheet-安卓样式问题"><a href="#ionic-actionsheet-安卓样式问题" class="headerlink" title="ionic actionsheet 安卓样式问题"></a>ionic actionsheet 安卓样式问题</h1><p>如果想统一为ios的样式，打开ionic css文件，找到这一段 注释掉。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs css"><br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet-backdrop</span><span class="hljs-selector-class">.active</span> &#123;<br><span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">rgba</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.2</span>);<br>&#125;<br><br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet</span> &#123;<br><span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet</span> <span class="hljs-selector-class">.action-sheet-title</span>,<br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet</span> <span class="hljs-selector-class">.button</span> &#123;<br><span class="hljs-attribute">text-align</span>: left;<br><span class="hljs-attribute">border-color</span>: transparent;<br><span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;<br><span class="hljs-attribute">color</span>: inherit;<br>&#125;<br><br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet</span> <span class="hljs-selector-class">.action-sheet-title</span> &#123;<br><span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;<br><span class="hljs-attribute">padding</span>: <span class="hljs-number">16px</span>;<br><span class="hljs-attribute">color</span>: <span class="hljs-number">#666</span>;<br>&#125;<br><br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet</span> <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.active</span>,<br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet</span> <span class="hljs-selector-class">.button</span><span class="hljs-selector-class">.activated</span> &#123;<br><span class="hljs-attribute">background</span>: <span class="hljs-number">#e8e8e8</span>;<br>&#125;<br><br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet-group</span> &#123;<br><span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br><span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;<br><span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fafafa</span>;<br>&#125;<br><br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet-cancel</span> &#123;<br><span class="hljs-attribute">display</span>: none;<br>&#125;<br><br><span class="hljs-selector-class">.platform-android</span> <span class="hljs-selector-class">.action-sheet-has-icons</span> <span class="hljs-selector-class">.button</span> &#123;<br><span class="hljs-attribute">padding-left</span>: <span class="hljs-number">56px</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h1 id="angular-选中当前节点"><a href="#angular-选中当前节点" class="headerlink" title="angular 选中当前节点"></a>angular 选中当前节点</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$scope.<span class="hljs-property">brandFnc</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">$event</span>)&#123;<br>    $event.<span class="hljs-property">currentTarget</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="ionic中使用-iframe-可能遇到的问题"><a href="#ionic中使用-iframe-可能遇到的问题" class="headerlink" title="ionic中使用 iframe 可能遇到的问题"></a>ionic中使用 iframe 可能遇到的问题</h1><h2 id="无法访问外部url的问题–两个步骤解决："><a href="#无法访问外部url的问题–两个步骤解决：" class="headerlink" title="无法访问外部url的问题–两个步骤解决："></a>无法访问外部url的问题–两个步骤解决：</h2><p>1.iframe的src属性用ng-src属性替代，并指明绑定对象： ng-src&#x3D;”“<br>2.在controller里，调用$sce: $scope.targetUrl &#x3D; $sce.trustAsResourceUrl(url)</p>
+<h2 id="高度无法最大化的问题–两个步骤解决："><a href="#高度无法最大化的问题–两个步骤解决：" class="headerlink" title="高度无法最大化的问题–两个步骤解决："></a>高度无法最大化的问题–两个步骤解决：</h2><p>1.ion-content 属性里添加  scroll&#x3D;”true” overflow-scroll&#x3D;”true”，<a target="_blank" rel="noopener" href="https://github.com/driftyco/ionic/issues/1151">参考</a><br>2.iframe的style里添加 min-height: 100%，<a target="_blank" rel="noopener" href="https://forum.ionicframework.com/t/fill-content-container/605">参考</a></p>
+<h1 id="Angular-上传中-file-change-ng-change无效的解决方法"><a href="#Angular-上传中-file-change-ng-change无效的解决方法" class="headerlink" title="Angular 上传中 file change ng-change无效的解决方法"></a>Angular 上传中 file change ng-change无效的解决方法</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-controller</span>=<span class="hljs-string">&quot;form-cntlr&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">ng-click</span>=<span class="hljs-string">&quot;selectFile()&quot;</span>&gt;</span>Upload Your File<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:none&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&#x27;file&#x27;</span> </span><br><span class="hljs-tag">         <span class="hljs-attr">onchange</span>=<span class="hljs-string">&quot;angular.element(this).scope().fileNameChanged(this)&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/danialfarid/ng-file-upload">ng-file-upload</a><br><a target="_blank" rel="noopener" href="http://ngmodules.org/modules/ngUpload">ngUpload - An AngularJS Service for uploading files using iframe</a></p>
+<h1 id="ionic打包-resource报错"><a href="#ionic打包-resource报错" class="headerlink" title="ionic打包 resource报错"></a>ionic打包 resource报错</h1><blockquote>
+<p>ionic 文件夹中的文件不能带有中文。</p>
+</blockquote>
+<h1 id="ionic-锚点跳转"><a href="#ionic-锚点跳转" class="headerlink" title="ionic 锚点跳转"></a>ionic 锚点跳转</h1><p><a target="_blank" rel="noopener" href="https://forum.ionicframework.com/t/anchor-scroll-flash/4390/9">https://forum.ionicframework.com/t/anchor-scroll-flash/4390/9</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$scope.<span class="hljs-property">scrollNextActivity</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">index</span>)&#123; <br>    $location.<span class="hljs-title function_">hash</span>(index); <br>    $ionicScrollDelegate.<span class="hljs-title function_">anchorScroll</span>(<span class="hljs-literal">true</span>); <br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>进入页面时或者触发某操作时调用 scrollNextActivity(‘id’) 即可</p>
+<h1 id="ionic获取距离顶部的距离"><a href="#ionic获取距离顶部的距离" class="headerlink" title="ionic获取距离顶部的距离"></a>ionic获取距离顶部的距离</h1><blockquote>
+<p>getScrollPosition()</p>
+<blockquote>
+<p>Returns: <code>object</code> The scroll position of this view, with the following properties:<br><code>&#123;number&#125;</code> <code>left</code> The distance the user has scrolled from the left (starts at 0).<br><code>&#123;number&#125;</code> <code>top</code> The distance the user has scrolled from the top (starts at 0).<br><code>&#123;number&#125;</code> <code>zoom</code> The current zoom level.</p>
+</blockquote>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$ionicScrollDelegate.<span class="hljs-title function_">getScrollPosition</span>().<span class="hljs-property">top</span> <br></code></pre></td></tr></table></figure>
+
+<h1 id="ionic-判断滚动到页面底部"><a href="#ionic-判断滚动到页面底部" class="headerlink" title="ionic 判断滚动到页面底部"></a>ionic 判断滚动到页面底部</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ion-scroll</span> <span class="hljs-attr">delegate-handle</span>=<span class="hljs-string">&quot;scroller&quot;</span> <span class="hljs-attr">direction</span>=<span class="hljs-string">&quot;y&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 100%; height: 100%&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Your Ionic App Scrollable Content Here <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ion-scroll</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$scope.<span class="hljs-property">checkScroll</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> currentTop = $ionicScrollDelegate.$getByHandle(<span class="hljs-string">&#x27;scroller&#x27;</span>).<span class="hljs-title function_">getScrollPosition</span>().<span class="hljs-property">top</span>;<br>    <span class="hljs-keyword">var</span> maxScrollableDistanceFromTop = $ionicScrollDelegate.$getByHandle(<span class="hljs-string">&#x27;scroller&#x27;</span>).<span class="hljs-title function_">getScrollView</span>().<span class="hljs-property">__maxScrollTop</span>;<br>    <br>    <span class="hljs-keyword">if</span> (currentTop &gt;= maxScrollableDistanceFromTop)<br>    &#123;<br>      $scope.<span class="hljs-title function_">toggleTopMenu</span>();<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="ionic-input-点击时-弹出键盘挡住input输入框"><a href="#ionic-input-点击时-弹出键盘挡住input输入框" class="headerlink" title="ionic input 点击时 弹出键盘挡住input输入框"></a>ionic input 点击时 弹出键盘挡住input输入框</h1><p><a target="_blank" rel="noopener" href="http://www.ionic.wang/js_doc-index-id-66.html">http://www.ionic.wang/js_doc-index-id-66.html</a></p>
+<p>使用该插件的用法可以参考 <a target="_blank" rel="noopener" href="https://github.com/driftyco/ionic-plugins-keyboard">https://github.com/driftyco/ionic-plugins-keyboard</a></p>
+<p><a target="_blank" rel="noopener" href="http://ionicframework.com/docs/api/directive/keyboardAttach/">http://ionicframework.com/docs/api/directive/keyboardAttach/</a></p>
+<h1 id="ionic-serve-打开时显示ios和android两个视图"><a href="#ionic-serve-打开时显示ios和android两个视图" class="headerlink" title="ionic serve 打开时显示ios和android两个视图"></a>ionic serve 打开时显示ios和android两个视图</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs r">ionic serve <span class="hljs-operator">-</span>l <span class="hljs-operator">-</span><span class="hljs-built_in">c</span> <span class="hljs-operator">-</span><span class="hljs-operator">-</span><span class="hljs-built_in">browser</span><br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/leob/ionic-quickstarter">https://github.com/leob/ionic-quickstarter</a></p>
+<h1 id="ionic-禁止横屏"><a href="#ionic-禁止横屏" class="headerlink" title="ionic 禁止横屏"></a>ionic 禁止横屏</h1><p>1、添加插件</p>
+<blockquote>
+<p>cordova plugin add net.yoik.cordova.plugins.screenorientation  </p>
+</blockquote>
+<p>2、添加屏幕配置 (Config.xml文件里面添加)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">preference</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;orientation&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;portrait&quot;</span> /&gt;</span>  <br></code></pre></td></tr></table></figure>
+
+<p>3、在Index.html 界面 添加JS 屏幕监听事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script&gt;  <br>    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;deviceready&quot;</span>, onDeviceReady, <span class="hljs-literal">false</span>);  <br>    <span class="hljs-keyword">function</span> <span class="hljs-title function_">onDeviceReady</span>(<span class="hljs-params"></span>)  <br>    &#123;  <br>  <br>       <span class="hljs-keyword">var</span> so = cordova.<span class="hljs-property">plugins</span>.<span class="hljs-property">screenorientation</span>;  <br>       so.<span class="hljs-title function_">setOrientation</span>(so.<span class="hljs-property">Orientation</span>.<span class="hljs-property">LANDSCAPE</span>);  <br>    &#125;  <br>&lt;/script&gt;  <br></code></pre></td></tr></table></figure>
+
+
+<h1 id="ionic-android-按两下后退件退出APP"><a href="#ionic-android-按两下后退件退出APP" class="headerlink" title="ionic android 按两下后退件退出APP"></a>ionic android 按两下后退件退出APP</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> backbutton = <span class="hljs-number">0</span>;<br>$ionicPlatform.<span class="hljs-title function_">registerBackButtonAction</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">if</span> ($location.<span class="hljs-title function_">path</span>() === <span class="hljs-string">&quot;/home&quot;</span>) &#123;<br>    <span class="hljs-keyword">if</span>(backbutton == <span class="hljs-number">0</span>)&#123;<br>      backbutton++;<br>      $cordovaToast.<span class="hljs-title function_">showLongBottom</span>(<span class="hljs-string">&#x27;Press again to exit&#x27;</span>);<br>      <span class="hljs-comment">// $timeout(function()&#123;</span><br>      <span class="hljs-comment">//   backbutton=1;</span><br>      <span class="hljs-comment">// &#125;,5000);</span><br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>      navigator.<span class="hljs-property">app</span>.<span class="hljs-title function_">exitApp</span>();<br>    &#125;<br>  &#125;<span class="hljs-keyword">else</span>&#123;<br>    $ionicHistory.<span class="hljs-title function_">goBack</span>();<br>  &#125;<br>&#125;, <span class="hljs-number">100</span>);<br></code></pre></td></tr></table></figure>
+<h1 id="ionic-tab图标自定义用png图片"><a href="#ionic-tab图标自定义用png图片" class="headerlink" title="ionic tab图标自定义用png图片"></a>ionic tab图标自定义用png图片</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.tabs</span> <span class="hljs-selector-class">.tab-item</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-class">.my-icon-AA-on</span> &#123;<br>  <span class="hljs-attribute">background-repeat</span>: no-repeat;<br>  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">background-size</span>: <span class="hljs-number">25px</span>;<br>  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;../img/tabs/aa-on.png&quot;</span>);<br>&#125;<br><br><span class="hljs-selector-class">.tabs</span> <span class="hljs-selector-class">.tab-item</span> <span class="hljs-selector-class">.icon</span><span class="hljs-selector-class">.my-icon-AA-off</span> &#123;<br>  <span class="hljs-attribute">background-repeat</span>: no-repeat;<br>  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">background-size</span>: <span class="hljs-number">25px</span>;<br>  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;../img/tabs/aa-off.png&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在<code>tab.html</code>中,icon-off icon-on 为自定义的类名。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ion-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;AA&quot;</span> <span class="hljs-attr">icon-off</span>=<span class="hljs-string">&quot;my-icon-AA-off&quot;</span> <span class="hljs-attr">icon-on</span>=<span class="hljs-string">&quot;my-icon-AA-on&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#/tab/aa_against&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ion-nav-view</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;tab-aa&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ion-nav-view</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ion-tab</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="报错events-js-72throw-er-x2F-x2F-Unhandled-‘error’-event"><a href="#报错events-js-72throw-er-x2F-x2F-Unhandled-‘error’-event" class="headerlink" title="报错events.js:72throw er; &#x2F;&#x2F; Unhandled ‘error’ event"></a>报错events.js:72throw er; &#x2F;&#x2F; Unhandled ‘error’ event</h1><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-section">The error is:</span><br><span class="hljs-section">=======================================</span><br>events.js:72<br>throw er; // Unhandled <span class="hljs-emphasis">&#x27;error&#x27;</span> event<br>^<br>Error: spawn ENOENT<br>at errnoException (child<span class="hljs-emphasis">_process.js:1000:11)</span><br><span class="hljs-emphasis">at Process.ChildProcess._handle.onexit (child_</span>process.js:791:34)<br><br></code></pre></td></tr></table></figure>
+
+<p>解决的方法很简单，将ionic换成cordova即可。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">cd myApp<br>cordova <span class="hljs-built_in">platform</span> <span class="hljs-built_in">add</span> android<span class="hljs-comment"> //这行可能会报错</span><br>cordova build android<br>cordova emulate android<br></code></pre></td></tr></table></figure>
+
+<h1 id="生成项目-ionic-start-myApp-tabs-时可能会报错"><a href="#生成项目-ionic-start-myApp-tabs-时可能会报错" class="headerlink" title="生成项目(ionic start myApp tabs)时可能会报错"></a>生成项目(ionic start myApp tabs)时可能会报错</h1><p><code>Error: command failed:fatal:could not create work tree dir:&#39;C:\Users/ADMINI~1\AppData\Local\Temp\plugman\git\1402853493773&#39;.:No such file or directory</code></p>
+<p>解决办法：进入上面对应的目录，建立对应的文件。比如在temp目录下建立plugman目录，在plugman目录下建立git目录，然后再git下建立1402853493773目录。即可，经测试有效。</p>
+<h1 id="node-gyp-Permission-denied-安装软件包报错"><a href="#node-gyp-Permission-denied-安装软件包报错" class="headerlink" title="node-gyp: Permission denied 安装软件包报错"></a>node-gyp: Permission denied 安装软件包报错</h1><p>这个一般是centos等系统，在root用户下安装会报错。主要是权限问题，报错详情：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs awk">&gt; node-gyp rebuild<br><br> sh: <span class="hljs-number">1</span>: node-gyp: Permission denied<br> \<br> &gt; ws@<span class="hljs-number">0.4</span>.<span class="hljs-number">32</span> install <span class="hljs-regexp">/root/</span>.nvm<span class="hljs-regexp">/versions/</span>node<span class="hljs-regexp">/v0.12.4/</span>lib<span class="hljs-regexp">/node_modules/</span>log.io<span class="hljs-regexp">/node_modules/</span>socket.io-client<span class="hljs-regexp">/node_modules/</span>ws<br> &gt; (node​​-gyp rebuild <span class="hljs-number">2</span>&gt; builderror.log) || (<span class="hljs-keyword">exit</span> <span class="hljs-number">0</span>)<br><br><br> &gt; ws@<span class="hljs-number">0.4</span>.<span class="hljs-number">32</span> install <span class="hljs-regexp">/root/</span>.nvm<span class="hljs-regexp">/versions/</span>node<span class="hljs-regexp">/v0.12.4/</span>lib<span class="hljs-regexp">/node_modules/</span>log.io<span class="hljs-regexp">/node_modules/</span>socket.io<span class="hljs-regexp">/node_modules/</span>socket.io-client<span class="hljs-regexp">/node_modules/</span>ws<br> &gt; (node​​-gyp rebuild <span class="hljs-number">2</span>&gt; builderror.log) || (<span class="hljs-keyword">exit</span> <span class="hljs-number">0</span>)<br><br> npm ERR! Linux <span class="hljs-number">3.13</span>.<span class="hljs-number">0</span>-<span class="hljs-number">48</span>-generic<br> npm ERR! argv <span class="hljs-string">&quot;/root/.nvm/versions/node/v0.12.4/bin/node&quot;</span> <span class="hljs-string">&quot;/root/.nvm/versions/node/v0.12.4/bin/npm&quot;</span> <span class="hljs-string">&quot;install&quot;</span> <span class="hljs-string">&quot;-g&quot;</span> <span class="hljs-string">&quot; log.io&quot;</span><br> npm ERR! node v0.<span class="hljs-number">12.4</span><br> npm ERR! npm v2.<span class="hljs-number">10.1</span><br> npm ERR! file sh<br> npm ERR! code ELIFECYCLE<br> npm ERR! errno ENOENT<br> npm ERR! syscall spawn<br><br> npm ERR! contextify@<span class="hljs-number">0.1</span>.<span class="hljs-number">14</span> install: `node-gyp rebuild`<br> npm ERR! spawn ENOENT<br> npm ERR!<br> npm ERR! Failed at the contextify@<span class="hljs-number">0.1</span>.<span class="hljs-number">14</span> install script <span class="hljs-string">&#x27;node-gyp rebuild&#x27;</span>.<br> npm ERR! This is most likely a problem with the contextify package,<br> npm ERR! not with npm itself.<br> npm ERR! Tell the author that this fails on your system:<br> npm ERR! node-gyp rebuild<br> npm ERR! You can get their info via:<br> npm ERR! npm owner ls contextify<br> npm ERR! There is likely additional logging output above.<br><br> npm ERR! Please include the following file with any support request:<br> npm ERR! <span class="hljs-regexp">/root/</span>npm-debug.log<br></code></pre></td></tr></table></figure>
+
+<p>可以清楚看到讯息中提示我们在执行node-gyp 的时候权限不足。查询一下Google ，找到别人blog写得简单解决方法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">npm<span class="hljs-built_in"> config </span><span class="hljs-built_in">set</span> unsafe-perm <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>接下来安装就正常了。 至于npm config的使用方法， 请参考 <a target="_blank" rel="noopener" href="https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com.sg&sl=zh-TW&u=https://docs.npmjs.com/misc/config&usg=ALkJrhjNU7KHzjR4I6JC5IMFf4Ffcg3KaA">此处</a> .<br>我们可以从npm config set unsafe-perm的解说中看到，我们刚刚修改的意思。</p>
+<h1 id="gitignore-默认排除了-plugins-文件夹，团队其他人-clone-了项目后缺少插件，一个一个装太麻烦"><a href="#gitignore-默认排除了-plugins-文件夹，团队其他人-clone-了项目后缺少插件，一个一个装太麻烦" class="headerlink" title=".gitignore 默认排除了 plugins 文件夹，团队其他人 clone 了项目后缺少插件，一个一个装太麻烦"></a>.gitignore 默认排除了 plugins 文件夹，团队其他人 clone 了项目后缺少插件，一个一个装太麻烦</h1><p><code>ionic platform add/remove xxx</code> 以及 <code>ionic plugin add/remove xxx</code> 的时候，<code>Ionic CLI</code> 都在 <code>package.json</code> 中保存了项目的状态。clone 完后可以使用 <strong><code>ionic state restore</code></strong> 命令快速恢复<br>也可以在<code>.gitignore</code>中删除<code>plugins一行</code></p>
+<h1 id="在哪里查看-Ionic-带的所有图标？"><a href="#在哪里查看-Ionic-带的所有图标？" class="headerlink" title="在哪里查看 Ionic 带的所有图标？"></a>在哪里查看 Ionic 带的所有图标？</h1><p><a target="_blank" rel="noopener" href="http://ionicons.com/">http://ionicons.com</a></p>
+<h1 id="第一次ionic-platform-add-xxx-会等很久"><a href="#第一次ionic-platform-add-xxx-会等很久" class="headerlink" title="第一次ionic platform add xxx 会等很久"></a>第一次<code>ionic platform add xxx</code> 会等很久</h1><p>正常，第一次会下载gradle等打包文件，约100M左右，先睡一觉吧，建议挂上VPN，也可以百度自己手动添加gradle。</p>
+<h1 id="tel-xxxxx-sms-xxxxxx-mailto-xxxxxx-geo-xxxxxx-一类的链接不能唤起其他应用。"><a href="#tel-xxxxx-sms-xxxxxx-mailto-xxxxxx-geo-xxxxxx-一类的链接不能唤起其他应用。" class="headerlink" title="tel:xxxxx sms:xxxxxx mailto:xxxxxx geo:xxxxxx 一类的链接不能唤起其他应用。"></a>tel:xxxxx sms:xxxxxx mailto:xxxxxx geo:xxxxxx 一类的链接不能唤起其他应用。</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">access</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;*&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">access</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;tel:*&quot;</span> <span class="hljs-attr">launch-external</span>=<span class="hljs-string">&quot;yes&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">access</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;sms:*&quot;</span> <span class="hljs-attr">launch-external</span>=<span class="hljs-string">&quot;yes&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">access</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;mailto:*&quot;</span> <span class="hljs-attr">launch-external</span>=<span class="hljs-string">&quot;yes&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">access</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;geo:*&quot;</span> <span class="hljs-attr">launch-external</span>=<span class="hljs-string">&quot;yes&quot;</span>/&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">allow-intent</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;tel:*&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">allow-intent</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;sms:*&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">allow-intent</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;mailto:*&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">allow-intent</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;geo:*&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="mac-chrome-对真机运行的app进行调试。"><a href="#mac-chrome-对真机运行的app进行调试。" class="headerlink" title="mac,chrome 对真机运行的app进行调试。"></a>mac,chrome 对真机运行的app进行调试。</h1><p>插上数据线。打开应用<br>mac，打开safari，Safari -&gt; 开发 -&gt; 手机名 -&gt; 应用名。<br>chrome，地址栏输入 chrome:&#x2F;&#x2F;inspect , 点击inspect。</p>
+<h1 id="ionic-serve-或在实机调试时开启了-livereload-功能时的跨域问题"><a href="#ionic-serve-或在实机调试时开启了-livereload-功能时的跨域问题" class="headerlink" title="ionic serve 或在实机调试时开启了 livereload 功能时的跨域问题"></a>ionic serve 或在实机调试时开启了 livereload 功能时的跨域问题</h1><p>chrome 搜索插件，<code>Access-Control-Allow-Credentials</code> 安装打开，可以屏蔽跨域限制。</p>
+<h1 id="APP开启检测网络并提示开启"><a href="#APP开启检测网络并提示开启" class="headerlink" title="APP开启检测网络并提示开启"></a>APP开启检测网络并提示开启</h1><p>1、<a target="_blank" rel="noopener" href="https://github.com/apache/cordova-plugin-network-information">https://github.com/apache/cordova-plugin-network-information</a><br>2、<a target="_blank" rel="noopener" href="https://github.com/apache/cordova-plugin-dialogs">https://github.com/apache/cordova-plugin-dialogs</a><br>3、<a target="_blank" rel="noopener" href="https://github.com/deefactorial/Cordova-open-native-settings">https://github.com/deefactorial/Cordova-open-native-settings</a></p>
+<p>具体用法请查看文档。</p>
+<h1 id="极光推送设置分组的坑"><a href="#极光推送设置分组的坑" class="headerlink" title="极光推送设置分组的坑"></a>极光推送设置分组的坑</h1><p>服务器端网上代码很多，不多说了，客户端中有个坑</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">plugins</span>.<span class="hljs-property">jPushPlugin</span>.<span class="hljs-title function_">setTagsWithAlias</span>(tagname,alias);<br></code></pre></td></tr></table></figure>
+
+<p>其中 <code>tagname/alias</code> 都为 <code>string</code> , （看网上好多人这么搞的，不明白他们怎么成功的？）<br>返回错误 <code>Error reading tagAlias JSON</code><br>再试</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">plugins</span>.<span class="hljs-property">jPushPlugin</span>.<span class="hljs-title function_">setTagsWithAlias</span>([tagname],alias);<br></code></pre></td></tr></table></figure>
+
+<p>这样OK。 换句话说， tags是<code>数组</code>， alias是<code>string</code></p>
+<h1 id="ionicLoading-以及网络超时写法"><a href="#ionicLoading-以及网络超时写法" class="headerlink" title="ionicLoading 以及网络超时写法"></a>ionicLoading 以及网络超时写法</h1><p>app.js中，先注册rootScope的广播</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs javascript">.<span class="hljs-title function_">run</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">$ionicPlatform,$ionicLoading,ToastService, $rootScope</span>) &#123;<br>    $rootScope.$on(<span class="hljs-string">&#x27;loading:show&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        $ionicLoading.<span class="hljs-title function_">show</span>(&#123; <span class="hljs-attr">template</span>: <span class="hljs-string">&#x27;努力为您加载中...&#x27;</span> &#125;)<br>    &#125;)<br>    $rootScope.$on(<span class="hljs-string">&#x27;loading:hide&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        $ionicLoading.<span class="hljs-title function_">hide</span>()<br>    &#125;)<br><br>.<span class="hljs-title function_">config</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">$httpProvider</span>) &#123;<br>$httpProvider.<span class="hljs-property">defaults</span>.<span class="hljs-property">timeout</span> = <span class="hljs-number">5000</span>; <span class="hljs-comment">//默认超时为5秒</span><br>$httpProvider.<span class="hljs-property">interceptors</span>.<span class="hljs-title function_">push</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">$rootScope</span>) &#123;<br>        <span class="hljs-keyword">return</span> &#123;<br>            <span class="hljs-attr">request</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">config</span>) &#123;<br>               $rootScope.$broadcast(<span class="hljs-string">&#x27;loading:show&#x27;</span>)<br>                <span class="hljs-keyword">return</span> config<br>            &#125;,<br>            <span class="hljs-attr">response</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) &#123;<br>               $rootScope.$broadcast(<span class="hljs-string">&#x27;loading:hide&#x27;</span>)<br>                <span class="hljs-keyword">return</span> response<br>            &#125;,<br>            <span class="hljs-attr">responseError</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) &#123;<br>           $rootScope.$broadcast(<span class="hljs-string">&#x27;loading:hide&#x27;</span>)<br>                <span class="hljs-keyword">return</span> response<br><br>            &#125;,<br>            <span class="hljs-attr">requestError</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">config</span>) &#123;<br>                 $rootScope.$broadcast(<span class="hljs-string">&#x27;loading:hide&#x27;</span>)<br>                <span class="hljs-keyword">return</span> config<br>            &#125;<br>        &#125;<br>    &#125;)<br></code></pre></td></tr></table></figure>
+
+<h1 id="在ion-content中，由于scorll-更新了页面数据后不能拖动到底部"><a href="#在ion-content中，由于scorll-更新了页面数据后不能拖动到底部" class="headerlink" title="在ion-content中，由于scorll 更新了页面数据后不能拖动到底部"></a>在ion-content中，由于scorll 更新了页面数据后不能拖动到底部</h1><p>由于scorll 更新了页面数据后不能拖动到底部，html页面不能完全加载，原因在于当前页面没有更新size，解决方法引入$ionicScrollDelegate；<br>在controller里改变高度的地方调用方法：</p>
+<p><code>$ionicScrollDelegate.resize</code></p>
+<h1 id="cordova插件-splashscreen-启动白屏的问题"><a href="#cordova插件-splashscreen-启动白屏的问题" class="headerlink" title="cordova插件 splashscreen 启动白屏的问题"></a>cordova插件 splashscreen 启动白屏的问题</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">preference</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;SplashScreen&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;screen&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">preference</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;AutoHideSplashScreen&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">preference</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;auto-hide-splash-screen&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">preference</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ShowSplashScreenSpinner&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">preference</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;SplashMaintainAspectRatio&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">preference</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;SplashShowOnlyFirstTime&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;false&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">preference</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;SplashScreenDelay&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;10000&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>取消自动隐藏（改为代码控制隐藏），把持续时间改为较大的值（10秒），设置每次打开应用都显示splash screen</p>
+<p>P.S.默认只有SplashScreen和SplashScreenDelay，需要把其它的（SplashMaintainAspectRatio可选）都添上。</p>
+<p>手动隐藏splash screen，在run里面添上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript">.<span class="hljs-title function_">run</span>([<span class="hljs-string">&#x27;$rootScope&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">$rootScope</span>) &#123;<br>        <span class="hljs-comment">// init</span><br>        <span class="hljs-comment">// $rootScope.isLoading = false;</span><br><br>        <span class="hljs-comment">// hide splash immediately</span><br>        <span class="hljs-keyword">if</span>(navigator &amp;&amp; navigator.<span class="hljs-property">splashscreen</span>) &#123;<br>            navigator.<span class="hljs-property">splashscreen</span>.<span class="hljs-title function_">hide</span>();<br>        &#125;<br>    &#125;);<br>&#125;])<br></code></pre></td></tr></table></figure>
+
+<h1 id="What-went-wrong-Execution-failed-for-task-‘-packageRelease’-gt-Failed-to-read-key-from-keystore"><a href="#What-went-wrong-Execution-failed-for-task-‘-packageRelease’-gt-Failed-to-read-key-from-keystore" class="headerlink" title="What went wrong:Execution failed for task ‘:packageRelease’ &gt; Failed to read key from keystore"></a>What went wrong:Execution failed for task ‘:packageRelease’ &gt; Failed to read key from keystore</h1><p>解决方案：重新打包签名 android.keystore</p>
+<h1 id="What-went-wrong-A-problem-occurred-configuring-root-project-‘android’"><a href="#What-went-wrong-A-problem-occurred-configuring-root-project-‘android’" class="headerlink" title="What went wrong:A problem occurred configuring root project ‘android’."></a>What went wrong:A problem occurred configuring root project ‘android’.</h1><blockquote>
+<p>Could not resolve all dependencies for configuration ‘:_armv7DebugCompile’.<br>Could not find any version that matches com.android.support:support-v4:[13.0.0,).<br>Searched in the following locations:<br><a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/android/support/support-v4/maven-metadata.xml">https://repo1.maven.org/maven2/com/android/support/support-v4/maven-metadata.xml</a><br><a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/android/support/support-v4/">https://repo1.maven.org/maven2/com/android/support/support-v4/</a></p>
+</blockquote>
+<p>解决方案：<br>打开Android SDK Manager<br>确保Android Suppoer Repository 和 Google Repository 已经安装</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Ionic/">#Ionic</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Ionic 笔记</div>
+      <div>https://www.zwjay.cn/2016/11/30/2016-11-30-Ionic-notes/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mr.Jaxson</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2016年11月30日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/11/30/2016-11-30-ionic-application-of-long-words-can&#39;t-copy-and-paste-problem-solving/" title="ionic应用中的文字不能长按复制、粘贴问题解决">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ionic应用中的文字不能长按复制、粘贴问题解决</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/29/2016-11-29-ionic-utility-class-API-setting/" title="ionic工具类API和配置">
+                        <span class="hidden-mobile">ionic工具类API和配置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'http-zwjay-cn',
+              apikey: ''
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?0c5ab9917e153a67360172154ba0dc64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

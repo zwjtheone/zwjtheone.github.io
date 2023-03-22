@@ -1,0 +1,862 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mr.Jaxson">
+  <meta name="keywords" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
+  
+    <meta name="description" content="git常用操作-回滚代码git常用命令 git init 初始化一个git仓库 git add readme.txt 把文件添加到仓库(可以后面添加多个文件) git add . 提交当前目录到缓存区 git commit -m “wrote a readme file” 把文件提交到仓库： git status命令可以让我们时刻掌握仓库当前的状态 git diff 查看修改记录(按q退出) gi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用操作-回滚代码">
+<meta property="og:url" content="https://www.zwjay.cn/2016/12/01/2016-12-20-git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="Jaxson&#39;Blog">
+<meta property="og:description" content="git常用操作-回滚代码git常用命令 git init 初始化一个git仓库 git add readme.txt 把文件添加到仓库(可以后面添加多个文件) git add . 提交当前目录到缓存区 git commit -m “wrote a readme file” 把文件提交到仓库： git status命令可以让我们时刻掌握仓库当前的状态 git diff 查看修改记录(按q退出) gi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/69a9ed59gw1faxekavuo1j20cq06iaa8.jpg">
+<meta property="article:published_time" content="2016-12-01T04:57:13.000Z">
+<meta property="article:modified_time" content="2023-03-22T17:56:16.327Z">
+<meta property="article:author" content="Mr.Jaxson">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/69a9ed59gw1faxekavuo1j20cq06iaa8.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>git常用操作-回滚代码 - Jaxson&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.zwjay.cn","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"0c5ab9917e153a67360172154ba0dc64","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 30vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Jaxson&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="git常用操作-回滚代码"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Mr.Jaxson
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2016-12-01 12:57" pubdate>
+          2016年12月1日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">git常用操作-回滚代码</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年3月23日 凌晨
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <h1 id="git常用操作-回滚代码"><a href="#git常用操作-回滚代码" class="headerlink" title="git常用操作-回滚代码"></a>git常用操作-回滚代码</h1><h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><ul>
+<li>git init 初始化一个git仓库</li>
+<li>git add readme.txt 把文件添加到仓库(可以后面添加多个文件)</li>
+<li>git add . 提交当前目录到缓存区</li>
+<li>git commit -m “wrote a readme file” 把文件提交到仓库：</li>
+<li>git status命令可以让我们时刻掌握仓库当前的状态</li>
+<li>git diff 查看修改记录(按q退出)</li>
+<li>git diff test.js 查看test.js修改记录(按q退出)</li>
+<li>git checkout – file 在add之前修改过的记录撤销到与仓库一致</li>
+<li>git reset HEAD – file 把你add到缓存区的文件撤销到add之前</li>
+<li>git diff HEAD – file 查看当前文件与仓库文件的区别</li>
+</ul>
+<h2 id="回退版本"><a href="#回退版本" class="headerlink" title="回退版本"></a>回退版本</h2><p>你不断对文件进行修改，然后不断提交修改到版本库里，就好比玩RPG游戏时，每通过一关就会自动把游戏状态存盘，如果某一关没过去，你还可以选择读取前一关的状态。有些时候，在打Boss之前，你会手动存盘，以便万一打Boss失败了，可以从最近的地方重新开始。Git也是一样，每当你觉得文件修改到一定程度的时候，就可以“保存一个快照”，这个快照在Git中被称为commit。一旦你把文件改乱了，或者误删了文件，还可以从最近的一个commit恢复，然后继续工作，而不是把几个月的工作成果全部丢失。</p>
+<p>在实际工作中，我们脑子里怎么可能记得一个几千行的文件每次都改了什么内容，不然要版本控制系统干什么。版本控制系统肯定有某个命令可以告诉我们历史记录，在Git中，我们用git log命令查看：</p>
+<p>打印日志：</p>
+<p>git log 显示从最近到最远的提交日志</p>
+<p>git log –pretty&#x3D;oneline 显示简要版本</p>
+<p>git reflog 显示所有分支的<strong>全部提交记录</strong> </p>
+<p>开始穿梭到之前存盘（commit）的版本</p>
+<p>git reset –hard HEAD^ </p>
+<p>Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交3628164…882e1e0（注意我的提交ID和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个^比较容易数不过来，所以写成<code>HEAD~100</code>。</p>
+<p>git reset –hard d50672e 回滚到特定版本</p>
+<p>总结：</p>
+<ul>
+<li><p>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset –hard commit_id。</p>
+</li>
+<li><p>穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。</p>
+</li>
+<li><p>要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。</p>
+</li>
+</ul>
+<h2 id="工作区与缓存区"><a href="#工作区与缓存区" class="headerlink" title="工作区与缓存区"></a>工作区与缓存区</h2><p>工作区：就是你电脑里看到的目录,也就是你的项目目录</p>
+<p>版本库（Repository）:工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。</p>
+<p>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</p>
+<p><img src="http://ww2.sinaimg.cn/large/69a9ed59gw1faxekavuo1j20cq06iaa8.jpg" srcset="/img/loading.gif" lazyload alt="缓存区"></p>
+<p>前面我们把文件往Git版本库里添加的时候，是分两步执行的：</p>
+<p>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
+<p>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+<p>因为我们创建Git版本库时，Git自动为我们创建了唯一一个master分支，所以，现在，git commit就是往master分支上提交更改。</p>
+<p>你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。</p>
+<h2 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h2><p>为什么Git比其他版本控制系统设计得优秀，因为Git跟踪并管理的是修改，而非文件。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata">touch <span class="hljs-keyword">man</span>.js<br><br><span class="hljs-keyword">cat</span> &gt; <span class="hljs-keyword">man</span>.js<br>输入管理<br><br><span class="hljs-keyword">cat</span> <span class="hljs-keyword">man</span>.js<br></code></pre></td></tr></table></figure>
+
+<p>然后，</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vim">git <span class="hljs-built_in">add</span> man.js<br>git status<br>Changes <span class="hljs-keyword">to</span> <span class="hljs-keyword">be</span> committed:<br>  (use <span class="hljs-string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> <span class="hljs-keyword">to</span> unstage)<br><br>        <span class="hljs-keyword">new</span> <span class="hljs-keyword">file</span>:   man.js<br><br></code></pre></td></tr></table></figure>
+
+<p>然后再次修改man.js，</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">cat</span> <span class="hljs-keyword">man</span>.js<br>测试一个内容<br>测试<br>新增修改<br><br></code></pre></td></tr></table></figure>
+
+<p>提交：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">git commit -m <span class="hljs-string">&quot;新增修改&quot;</span><br>[feature/git学习 4f8114c] 新增修改<br> 1 file changed, 2 insertions(+)<br> create mode 100644 git/man.js<br></code></pre></td></tr></table></figure>
+
+<p>提交后，再看看状态：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs vim">Changes not staged <span class="hljs-keyword">for</span> commit:<br>  (use <span class="hljs-string">&quot;git add &lt;file&gt;...&quot;</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">update</span> what will <span class="hljs-keyword">be</span> committed)<br>  (use <span class="hljs-string">&quot;git checkout -- &lt;file&gt;...&quot;</span> <span class="hljs-keyword">to</span> discard <span class="hljs-keyword">changes</span> in working directory)<br><br>        modified:   man.js<br><br><span class="hljs-keyword">no</span> <span class="hljs-keyword">changes</span> added <span class="hljs-keyword">to</span> commit (use <span class="hljs-string">&quot;git add&quot;</span> <span class="hljs-built_in">and</span>/<span class="hljs-built_in">or</span> <span class="hljs-string">&quot;git commit -a&quot;</span>)<br><br></code></pre></td></tr></table></figure>
+
+<p>咦，怎么第二次的修改没有被提交？</p>
+<p>我们回顾一下操作过程：</p>
+<p>第一次修改 -&gt; git add -&gt; 第二次修改 -&gt; git commit</p>
+<blockquote>
+<p>Git管理的是修改，当你用git add命令后，在工作区的第一次修改被放入暂存区，准备提交，但是，在工作区的第二次修改并没有放入暂存区，所以，git commit只负责把暂存区的修改提交了，也就是第一次的修改被提交了，第二次的修改不会被提交。</p>
+</blockquote>
+<p>提交后，用git diff HEAD – readme.txt命令可以查看工作区和版本库里面最新版本的区别：</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs diff">git diff HEAD --man.js<br><br><span class="hljs-comment">diff --git a/git/man.js b/git/man.js</span><br><span class="hljs-comment">index 5884356..f434b08 100644</span><br><span class="hljs-comment">--- a/git/man.js</span><br><span class="hljs-comment">+++ b/git/man.js</span><br><span class="hljs-meta">@@ -1,2 +1,3 @@</span><br> 测试一个内容<br> 测试<br><span class="hljs-addition">+新增修改</span><br></code></pre></td></tr></table></figure>
+
+<p>可见，第二次修改确实没有被提交。<br>如果提交完毕了则显示的是：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">nothing</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">commit</span>, working directory clean<br></code></pre></td></tr></table></figure>
+
+<p>总结：<br>Git是如何跟踪修改的？每次修改，如果不add到暂存区，那就不会加入到commit中</p>
+<h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><p>举例说明：</p>
+<p>目前的最新文件：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">cat</span> <span class="hljs-keyword">man</span>.js<br>测试一个内容<br>测试<br>新增修改<br></code></pre></td></tr></table></figure>
+<p>这时候你新增了一行</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">cat</span> <span class="hljs-keyword">man</span>.js<br>测试一个内容<br>测试<br>新增修改<br>新增一行代码<br></code></pre></td></tr></table></figure>
+
+<p>突然，你发现新增的代码有点问题你想回退到之前版本</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs vim">git status<br>Changes not staged <span class="hljs-keyword">for</span> commit:<br>  (use <span class="hljs-string">&quot;git add &lt;file&gt;...&quot;</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">update</span> what will <span class="hljs-keyword">be</span> committed)<br>  (use <span class="hljs-string">&quot;git checkout -- &lt;file&gt;...&quot;</span> <span class="hljs-keyword">to</span> discard <span class="hljs-keyword">changes</span> in working directory)<br><br>        modified:   man.js<br><br><span class="hljs-keyword">no</span> <span class="hljs-keyword">changes</span> added <span class="hljs-keyword">to</span> commit (use <span class="hljs-string">&quot;git add&quot;</span> <span class="hljs-built_in">and</span>/<span class="hljs-built_in">or</span> <span class="hljs-string">&quot;git commit -a&quot;</span>)<br><br></code></pre></td></tr></table></figure>
+
+<p>你可以发现，Git会告诉你，git checkout – file可以丢弃工作区的修改：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">git checkout <span class="hljs-comment">-- man.js </span><br><br></code></pre></td></tr></table></figure>
+
+<p>命令git checkout – man.js意思就是，把man.js文件在工作区的修改全部撤销，这里有两种情况：</p>
+<p>一种是man.js自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+<p>一种是man.js已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
+<blockquote>
+<p>git checkout – file命令中的–很重要，没有–，就变成了“切换到另一个分支”的命令</p>
+</blockquote>
+<p>下面一种情况是当你已经add到缓存区了，你想撤销</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">git <span class="hljs-keyword">add </span>man.<span class="hljs-keyword">js</span><br><span class="hljs-keyword"></span>git status<br>Changes to <span class="hljs-keyword">be </span>committed:<br>  (use <span class="hljs-string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage)<br><span class="hljs-symbol"></span><br><span class="hljs-symbol">        modified:</span>   man.<span class="hljs-keyword">js</span><br><span class="hljs-keyword"></span><br></code></pre></td></tr></table></figure>
+<p>Git同样告诉我们，用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs inform7">git reset HEAD <span class="hljs-keyword">man</span>.js<br></code></pre></td></tr></table></figure>
+
+<p>git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。</p>
+<p>再用git status查看一下，现在暂存区是干净的，工作区有修改：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vim">Changes not staged <span class="hljs-keyword">for</span> commit:<br>  (use <span class="hljs-string">&quot;git add &lt;file&gt;...&quot;</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">update</span> what will <span class="hljs-keyword">be</span> committed)<br>  (use <span class="hljs-string">&quot;git checkout -- &lt;file&gt;...&quot;</span> <span class="hljs-keyword">to</span> discard <span class="hljs-keyword">changes</span> in working directory)<br><br>        modified:   man.js<br><br><span class="hljs-keyword">no</span> <span class="hljs-keyword">changes</span> added <span class="hljs-keyword">to</span> commit (use <span class="hljs-string">&quot;git add&quot;</span> <span class="hljs-built_in">and</span>/<span class="hljs-built_in">or</span> <span class="hljs-string">&quot;git commit -a&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>如果想丢弃工作区的修改,则继续</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">git checkout <span class="hljs-comment">-- man.js</span><br></code></pre></td></tr></table></figure>
+
+<p>小结：</p>
+<p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file。</p>
+<p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。</p>
+<p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>场景说明：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss">git add man<span class="hljs-selector-class">.js</span><br>git commit -m &quot;测试删除&quot;<br><span class="hljs-selector-attr">[feature/git学习 fe3e350]</span> 测试删除<br> <span class="hljs-number">1</span> file changed, <span class="hljs-number">1</span> <span class="hljs-built_in">insertion</span>(+), <span class="hljs-number">3</span> <span class="hljs-built_in">deletions</span>(-)<br></code></pre></td></tr></table></figure>
+
+<p>一般情况下如果你删除文件的时候，就直接把文件给删了，或者rm 命令删除了</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">rm</span> <span class="hljs-keyword">man</span>.js<br></code></pre></td></tr></table></figure>
+<p>这个时候，Git知道你删除了文件，因此，工作区和版本库就不一致了，git status命令会立刻告诉你哪些文件被删除了：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs stata">git status<br><span class="hljs-keyword">On</span> branch feature/git学习<br>Changes not staged <span class="hljs-keyword">for</span> commit:<br>  (<span class="hljs-keyword">use</span> <span class="hljs-string">&quot;git add/rm &lt;file&gt;...&quot;</span> to <span class="hljs-keyword">update</span> what will be committed)<br>  (<span class="hljs-keyword">use</span> <span class="hljs-string">&quot;git checkout -- &lt;file&gt;...&quot;</span> to <span class="hljs-keyword">discard</span> changes <span class="hljs-keyword">in</span> working directory)<br><br>        deleted:    <span class="hljs-keyword">man</span>.js<br><br><span class="hljs-keyword">no</span> changes added to commit (<span class="hljs-keyword">use</span> <span class="hljs-string">&quot;git add&quot;</span> and/or <span class="hljs-string">&quot;git commit -a&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata">git <span class="hljs-keyword">rm</span> <span class="hljs-keyword">man</span>.js<br><span class="hljs-keyword">rm</span> &#x27;git/<span class="hljs-keyword">man</span>.js&#x27;<br>git commit -<span class="hljs-keyword">m</span> <span class="hljs-string">&quot;remove man.js&quot;</span><br>feature/git学习 8a1abac] remove <span class="hljs-keyword">man</span>.js<br> 1 <span class="hljs-keyword">file</span> changed, 1 deletion(-)<br> delete mode 100644 git/<span class="hljs-keyword">man</span>.js<br></code></pre></td></tr></table></figure>
+<p>文件就从版本库中被删除了。</p>
+<p>另一种情况，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">git checkout <span class="hljs-comment">-- man.js</span><br></code></pre></td></tr></table></figure>
+<p>git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/git/">#git</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>git常用操作-回滚代码</div>
+      <div>https://www.zwjay.cn/2016/12/01/2016-12-20-git常用操作/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mr.Jaxson</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2016年12月1日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/12/21/2016-12-21-git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E8%BF%9C%E7%A8%8B%E7%AE%A1%E7%90%86/" title="git常用操作-远程管理与分支管理">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">git常用操作-远程管理与分支管理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2016/11/30/2016-11-30-HTML5-API-all/" title="HTML5-API汇总学习">
+                        <span class="hidden-mobile">HTML5-API汇总学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script>
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'http-zwjay-cn',
+              apikey: ''
+            });
+          });
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?0c5ab9917e153a67360172154ba0dc64";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
