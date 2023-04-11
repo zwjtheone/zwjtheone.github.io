@@ -4,6 +4,120 @@
   
   
   <entry>
+    <title>Typescript中工具类型实现</title>
+    <link href="/2023/04/11/Typescript%E4%B8%AD%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%9E%8B%E5%AE%9E%E7%8E%B0/"/>
+    <url>/2023/04/11/Typescript%E4%B8%AD%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%9E%8B%E5%AE%9E%E7%8E%B0/</url>
+    
+    <content type="html"><![CDATA[<p>这一部分有可能需要你进行手写，但对于完成了整本小册阅读的你来说，肯定不是难事，这一部分就不做过多叙述了。</p><h3 id="及格线"><a href="#及格线" class="headerlink" title="及格线"></a>及格线</h3><p>比较简单的工具类型手写可能包括 Partial（Require）、Pick（Omit）、ReturnType（ParameterType），小册中均已介绍了相关实现与原理，这里就不再赘述。</p><h3 id="优秀回答"><a href="#优秀回答" class="headerlink" title="优秀回答"></a>优秀回答</h3><p>在完成手写的基础上，其实你也可以主动进行扩展。</p><ul><li>我不仅能写出这些基础实现，还能写出其在实际应用场景中的增强版，比如 DeepPartial 与 MarkAsPartial，PickByType 与 PickByStrictType 等等。</li><li>我不仅了解这些工具类型的实现，还了解它们可以被归纳为访问性修饰工具类型、结构处理工具类型、集合工具类型与模式匹配工具类型等等，同时对它们实现过程中使用到的类型工具也有较为深入的了解。</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>TypeScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Typescript中any、unknown 与 never</title>
+    <link href="/2023/04/11/Typescript%E4%B8%ADany%E3%80%81unknown-%E4%B8%8E-never/"/>
+    <url>/2023/04/11/Typescript%E4%B8%ADany%E3%80%81unknown-%E4%B8%8E-never/</url>
+    
+    <content type="html"><![CDATA[<p>这一部分主要考察你对内置 Top Type、Bottom Type 的理解，属于相对少见的考察，因此通常也不会要求过高。</p><h3 id="及格线"><a href="#及格线" class="headerlink" title="及格线"></a>及格线</h3><p>具体内容已经在小册中详细描述，这里只做简单叙述。any 与 unknown 在 TypeScript 类型层级中属于最顶层的 Top Type，也就意味所有类型都是它俩的子类型。而 never 则相反，作为 Bottom Type 的它是所有类型的子类型。</p><h3 id="优秀回答"><a href="#优秀回答" class="headerlink" title="优秀回答"></a><strong>优秀回答</strong></h3><p>面试的重要原则之一就是 WHY，在回答一个知识点的同时，如果能把这个知识点背后的存在原因也讲述清楚，很难不让面试官暗暗点头为你折服，因此你可以考虑从以下这么几个角度出发来进行扩展。</p><ul><li><strong>为什么需要 Top Type 与 Bottom Type ？</strong> 在实际开发中，我们不可能确保对所有地方的类型都进行精确的描述，因此就需要 Top Type 来表示一个包含任意类型的类型。而在类型编程中，如果对两个不存在交集的类型强行进行交集运算，也需要一个类型表示这个不存在的类型。这就是 Top Type 与 Bottom Type 的存在意义。</li><li><strong>类型层级</strong>，Top 与 Bottom 本身就是在描述它们在类型层级中的位置，因此，如果你能给面试官讲一遍从 Bottom 向上到 Top 的类型链，我觉得起码在 TypeScript 这个技能点上你已经基本得到肯定了。</li><li><strong>条件类型</strong>，Top Type 与 Bottom Type 带来的底层规则还不止表现在类型兼容性方面，在条件类型中同样存在对它们的特殊逻辑，请回想 any 与 never 在条件类型中的表现。</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>TypeScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Typescript中类型兼容性比较</title>
+    <link href="/2023/04/11/Typescript%E4%B8%AD%E7%B1%BB%E5%9E%8B%E5%85%BC%E5%AE%B9%E6%80%A7%E6%AF%94%E8%BE%83/"/>
+    <url>/2023/04/11/Typescript%E4%B8%AD%E7%B1%BB%E5%9E%8B%E5%85%BC%E5%AE%B9%E6%80%A7%E6%AF%94%E8%BE%83/</url>
+    
+    <content type="html"><![CDATA[<p>这一问题主要考察你是否了解 TypeScript 类型系统的基本工作原理，以及使用的深入程度。因为通常来说，只有具有一定经验的使用者才会开始了解类型兼容性的相关规则，而了解这部分规则也就意味着你至少能够独立解决相当一部分类型报错。</p><h3 id="及格线"><a href="#及格线" class="headerlink" title="及格线"></a>及格线</h3><p>TypeScript 使用鸭子类型，也即结构化类型系统进行类型兼容性的比较，即对于两个属性完全一致的类型，就认为它们属于同一种类型。而对于 A 类型、A + B 类型，认为后者属于前者的子类型。另外 TypeScript 类型中还存在着一部分特殊的规则，如 object、{} 以及 Top Type 等。</p><h3 id="优秀回答"><a href="#优秀回答" class="headerlink" title="优秀回答"></a>优秀回答</h3><p>能回答出上面这些内容已经不错了，但你可是阅读完了这本小册的同学，怎么能轻易止步。如果想进一步升华回答，还可以从以下方面进行扩展。</p><ul><li><strong>结构化类型系统到标称类型系统</strong>，你可以表达你不仅了解结构化类型系统，还了解与其可以作为对比的标称类型系统，包括存在意义与比较方式，以及如何在 TS 中实现标称类型系统。</li><li><strong>类型层级</strong>，类型兼容性的比较本质上其实也就是在类型层级中进行比较，一个类型能够兼容其子类型，就这么回事，因此，不妨扩展地讲一讲 TS 的类型层级是怎么样的。<ul><li><p>类型层级初探</p><p>这一节的知识点其实都和 TypeScript 的类型层级有所关联，我们会在后面的类型系统部分有专门一节进行详细地讲述，这里只做简单地描述来供有兴趣的同学提前了解。</p><p>前面我们已经说到，any 与 unknown 属于 <strong>Top Type</strong>，表现在它们包含了所有可能的类型，而 never 属于 <strong>Bottom Type</strong>，表现在它是一个虚无的、不存在的类型。那么加上此前学习的原始类型与字面量类型等，按照类型的包含来进行划分，我们大概能梳理出这么个类型层级关系。</p><ul><li>最顶级的类型，any 与 unknown</li><li>特殊的 Object ，它也包含了所有的类型，但和 Top Type 比还是差了一层</li><li>String、Boolean、Number 这些装箱类型</li><li>原始类型与对象类型</li><li>字面量类型，即更精确的原始类型与对象类型嘛，需要注意的是 null 和 undefined 并不是字面量类型的子类型</li><li>最底层的 never</li></ul></li></ul></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>TypeScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Typescript中Interface与Type的异同点</title>
+    <link href="/2023/04/11/Typescript%E4%B8%ADInterface%E4%B8%8EType%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/"/>
+    <url>/2023/04/11/Typescript%E4%B8%ADInterface%E4%B8%8EType%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9/</url>
+    
+    <content type="html"><![CDATA[<h2 id="interface-与-type-异同点"><a href="#interface-与-type-异同点" class="headerlink" title="interface 与 type 异同点"></a>interface 与 type 异同点</h2><p>这可能是最经典的一道 TS 面试题了，因此这里我们放在第一个知识点来讲解。</p><h3 id="及格线"><a href="#及格线" class="headerlink" title="及格线"></a>及格线</h3><p>不论如何，以下这些概念是你需要基本了解的，否则很容易被怀疑是否真的深入使用过 TypeScript 。</p><ul><li>在对象扩展情况下，interface 使用 extends 关键字，而 type 使用交叉类型（<code>&amp;</code>）。</li><li>同名的 interface 会自动合并，并且在合并时会要求兼容原接口的结构。</li><li>interface 与 type 都可以描述对象类型、函数类型、Class 类型，但 interface 无法像 type 那样表达元组、一组联合类型等等。</li><li>interface 无法使用映射类型等类型工具，也就意味着在类型编程场景中我们还是应该使用 type 。</li></ul><h3 id="优秀回答"><a href="#优秀回答" class="headerlink" title="优秀回答"></a>优秀回答</h3><p>只是回答这些概念定义显得过于枯燥，而且很容易被认为像是在背书，因此你可以穿插自己在工程中的实践， 比如小册中提过的，使用 interface 来定义对象类型，使用类型别名来处理函数签名、联合类型、工具类型等等。这同样也代表了你对这两个工具的理解：<strong>interface 就是描述对象对外暴露的接口，其不应该具有过于复杂的类型逻辑，最多局限于泛型约束与索引类型这个层面。而 type alias 就是用于将一组类型的重命名，或是对类型进行复杂编程。</strong></p><p>另外，你也可以提到在官方的 Wiki 中，特别说明了在对象扩展的情况下，使用接口继承要比交叉类型的性能更好。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>TypeScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Typescript中泛型的理解</title>
+    <link href="/2023/04/11/Typescript%E4%B8%AD%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <url>/2023/04/11/Typescript%E4%B8%AD%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p>泛型得作用就是在类型不明确得时候，定义一个变量，用这个变量来表示这个泛型</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>TypeScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Typescript中infer的理解</title>
+    <link href="/2023/04/11/Typescript%E4%B8%ADinfer%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <url>/2023/04/11/Typescript%E4%B8%ADinfer%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p>条件类型在泛型的基础上支持了基于类型信息的动态条件判断，但无法直接消费填充类型信息，而 infer 关键字则为它补上了这一部分的能力，让我们可以进行更多奇妙的类型操作。</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs TypeScript"><span class="hljs-keyword">type</span> <span class="hljs-title class_">PromiseValue</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Promise</span>&lt;infer V&gt; ? <span class="hljs-title class_">PromiseValue</span>&lt;V&gt; : T;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>TypeScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>This project is configured to use pkgName</title>
     <link href="/2023/04/11/This-project-is-configured-to-use-pkgName/"/>
     <url>/2023/04/11/This-project-is-configured-to-use-pkgName/</url>
@@ -11,6 +125,14 @@
     <content type="html"><![CDATA[<p>在用pnpm install时报错<code>This project is configured to use pkgName</code><br>删除用户根目录package.json，因为里面包含</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br> <span class="hljs-attr">&quot;packageManager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;yarn@...&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>yarn</tag>
+      
+      <tag>pnpm</tag>
+      
+    </tags>
     
   </entry>
   
@@ -25,6 +147,14 @@
     
     
     
+    <tags>
+      
+      <tag>zsh</tag>
+      
+      <tag>nvm</tag>
+      
+    </tags>
+    
   </entry>
   
   
@@ -37,6 +167,14 @@
     <content type="html"><![CDATA[<p>只需运行命令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs zsh">nvm alias default 16.20.0<br></code></pre></td></tr></table></figure>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>nvm</tag>
+      
+      <tag>node</tag>
+      
+    </tags>
     
   </entry>
   
