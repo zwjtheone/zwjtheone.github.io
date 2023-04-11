@@ -18,24 +18,24 @@
   <meta name="author" content="Mr.Jaxson">
   <meta name="keywords" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
   
-    <meta name="description" content="React 在redux中，全局state必须是immutable的，这点毋庸置疑是我们使用immutable来优化redux的核心  组件props是通过redux的connect从state中获得的，并且引入immutableJS的另一个目的是减少组件shouldComponentUpdate中不必要渲染，shouldComponentUpdate中比对的是props，如果props是原生JS">
+    <meta name="description" content="在用pnpm install时报错This project is configured to use pkgName删除用户根目录package.json，因为里面包含 123&amp;#123; &quot;packageManager&quot;: &quot;yarn@...&quot;&amp;#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React实践">
-<meta property="og:url" content="https://www.zwjay.cn/2023/03/23/2023-03-23-React%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:title" content="This project is configured to use pkgName">
+<meta property="og:url" content="https://www.zwjay.cn/2023/04/11/This-project-is-configured-to-use-pkgName/index.html">
 <meta property="og:site_name" content="Jaxson&#39;Blog">
-<meta property="og:description" content="React 在redux中，全局state必须是immutable的，这点毋庸置疑是我们使用immutable来优化redux的核心  组件props是通过redux的connect从state中获得的，并且引入immutableJS的另一个目的是减少组件shouldComponentUpdate中不必要渲染，shouldComponentUpdate中比对的是props，如果props是原生JS">
+<meta property="og:description" content="在用pnpm install时报错This project is configured to use pkgName删除用户根目录package.json，因为里面包含 123&amp;#123; &quot;packageManager&quot;: &quot;yarn@...&quot;&amp;#125;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-22T18:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-22T17:59:44.079Z">
+<meta property="article:published_time" content="2023-04-11T14:17:18.000Z">
+<meta property="article:modified_time" content="2023-04-11T14:18:49.567Z">
 <meta property="article:author" content="Mr.Jaxson">
-<meta property="article:tag" content="React">
+<meta property="article:tag" content="Jaxson, Jaxson Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, zwjtheone, zwjay, zwj47, 黄思棋的男朋友">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>React实践 - Jaxson&#39;Blog</title>
+  <title>This project is configured to use pkgName - Jaxson&#39;Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -186,7 +186,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="React实践"></span>
+            <span id="subtitle" data-typed-text="This project is configured to use pkgName"></span>
           
         </div>
 
@@ -202,8 +202,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-23 02:00" pubdate>
-          2023年3月23日 凌晨
+        <time datetime="2023-04-11 22:17" pubdate>
+          2023年4月11日 晚上
         </time>
       </span>
     
@@ -214,7 +214,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          587 字
+          139 字
         
       </span>
     
@@ -225,7 +225,7 @@
         
         
         
-          5 分钟
+          2 分钟
         
       </span>
     
@@ -271,40 +271,20 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">React实践</h1>
+            <h1 style="display: none">This project is configured to use pkgName</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年3月23日 凌晨
+                    本文最后更新于：2023年4月11日 晚上
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><ul>
-<li><p>在redux中，全局state必须是immutable的，这点毋庸置疑是我们使用immutable来优化redux的核心</p>
-</li>
-<li><p>组件props是通过redux的connect从state中获得的，并且引入immutableJS的另一个目的是减少组件shouldComponentUpdate中不必要渲染，shouldComponentUpdate中比对的是props，如果props是原生JS就失去了优化的意义</p>
-</li>
-<li><p>组件内部state如果需要提交到store的，必须是immutable，否则不强制</p>
-</li>
-<li><p>view提交到action中的数据必须是immutable</p>
-</li>
-<li><p>Action提交到reducer中的数据必须是immutable</p>
-</li>
-<li><p>reducer中最终处理state必须是以immutable的形式处理并返回</p>
-</li>
-<li><p>与服务端ajax交互中返回的callback统一封装，第一时间转换成immutable数据</p>
-</li>
-<li><p>当使用 Immutable.JS 的 update，merge 或 set 方法将一个 JavaScript 对象添加到一个 Immutable.JS 的 Map 或者 List 中时，要确保被添加的对象事先使用了 fromJS() 转为一个 Immutable 的对象。</p>
-</li>
-<li><p>toJS() 是一个昂贵(性能)的函数，并且与使用 Immutable.JS 的目的相违背。避免使用它。</p>
-</li>
-<li><p>绝对不要在 mapStateToProps 中使用 toJS()</p>
-</li>
-</ul>
+              <p>在用pnpm install时报错<code>This project is configured to use pkgName</code><br>删除用户根目录package.json，因为里面包含</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br> <span class="hljs-attr">&quot;packageManager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;yarn@...&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 
               
             </div>
@@ -312,13 +292,6 @@
             <div>
               <div class="post-metas my-3">
   
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/React/">#React</a>
-      
-    </div>
   
 </div>
 
@@ -328,8 +301,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>React实践</div>
-      <div>https://www.zwjay.cn/2023/03/23/2023-03-23-React实践/</div>
+      <div>This project is configured to use pkgName</div>
+      <div>https://www.zwjay.cn/2023/04/11/This-project-is-configured-to-use-pkgName/</div>
     </div>
     <div class="license-meta">
       
@@ -341,7 +314,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月23日</div>
+          <div>2023年4月11日</div>
         </div>
       
       
@@ -371,18 +344,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/11/%E8%A7%A3%E5%86%B3nvm%E5%88%87%E6%8D%A2node%E7%89%88%E6%9C%AC%E5%90%8E%EF%BC%8C%E9%87%8D%E6%96%B0%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E5%A4%B1%E6%95%88/" title="解决nvm切换node版本后，重新打开终端失效">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">解决nvm切换node版本后，重新打开终端失效</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/12/2022-08-12-Puppeteer%E5%AE%9E%E8%B7%B5/" title="Puppeteer实践">
-                        <span class="hidden-mobile">Puppeteer实践</span>
+                      <a href="/2023/04/11/zsh%E9%85%8D%E7%BD%AEnvm/" title="zsh安装&amp;配置nvm">
+                        <span class="hidden-mobile">zsh安装&amp;配置nvm</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
